@@ -1,0 +1,48 @@
+{
+  "protocol": "PFV t+4; issue-year filter; causal v2; SCS-train-only norm; OCEAN-MASKED record set (aligned with label_mask)",
+  "record_set": "finite y(t+4) & ~land_mask (ocean cells only)",
+  "domains": {
+    "SCS": {
+      "n": 49322,
+      "n_severe": 419,
+      "prevalence": 0.008495194842058311,
+      "finite_y_on_land_excluded": 19110,
+      "grid": [
+        21,
+        23
+      ],
+      "test_years": [
+        2016,
+        2019
+      ]
+    },
+    "GBR": {
+      "n": 19065,
+      "n_severe": 676,
+      "prevalence": 0.03545764489902964,
+      "finite_y_on_land_excluded": 1230,
+      "grid": [
+        15,
+        12
+      ],
+      "test_years": [
+        2017,
+        2020
+      ]
+    },
+    "CARIB": {
+      "n": 83025,
+      "n_severe": 1356,
+      "prevalence": 0.016332429990966575,
+      "finite_y_on_land_excluded": 0,
+      "grid": [
+        22,
+        32
+      ],
+      "test_years": [
+        2017,
+        2020
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+source,target,group,wasserstein1_z
+SCS_train,CARIB_test,context_calendar,0.27286728214103606
+SCS_train,CARIB_test,cumulative_thermal,0.4661636583378113
+SCS_train,CARIB_test,instantaneous_thermal,0.2979787068852947
+SCS_train,GBR_test,context_calendar,0.431596518530584
+SCS_train,GBR_test,cumulative_thermal,0.6660607130193845
+SCS_train,GBR_test,instantaneous_thermal,0.4291150523420809
+SCS_train,SCS_test,context_calendar,0.12422425627531784
+SCS_train,SCS_test,cumulative_thermal,0.3972724880007489
+SCS_train,SCS_test,instantaneous_thermal,0.4487445111884381

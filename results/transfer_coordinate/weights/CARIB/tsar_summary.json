@@ -1,0 +1,32 @@
+{
+  "experiment": "reverse_tsar",
+  "source": "CARIB",
+  "seed": 42,
+  "epochs": 30,
+  "best_val": 1.1322888497056232,
+  "md5": "c4b99b2acfb62d4ab586502947a74d94",
+  "cfg": {
+    "gamma": 0.5,
+    "scale": 0.4,
+    "tau": 0.5,
+    "temp": 0.1,
+    "lambda_sev": 20
+  },
+  "protocol": "focal gamma0.5 + lambda_sev20 MSE; Adam1e-3 cosine60 batch32 pat10; scale0.4",
+  "dataset": "caribbean_causal_v2.nc",
+  "split": {
+    "test_years": [
+      2017,
+      2020
+    ],
+    "train_years": [
+      2003,
+      2010
+    ],
+    "val_years": [
+      2011,
+      2015
+    ]
+  },
+  "timestamp": "2026-09-29T11:05:46.620092"
+}

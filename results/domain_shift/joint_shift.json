@@ -1,0 +1,276 @@
+{
+  "reference": "SCS train 2003-2010 ocean cells",
+  "no_training": true,
+  "channels": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "chlorophyll",
+    "par",
+    "seasonal_sin",
+    "wind_speed",
+    "ssr",
+    "sst_anomaly",
+    "d_hotspot_dt",
+    "hotspot_cumsum_4w",
+    "hotspot_cumsum_12w",
+    "seasonal_cos"
+  ],
+  "populations": {
+    "SCS_train": {
+      "n_px": 113007,
+      "corr_frobenius_vs_ref": 0.0,
+      "mean_abs_dcorr_offdiag": 0.0,
+      "top_pair_departures": [
+        {
+          "a": "wind_speed",
+          "b": "sst_anomaly",
+          "ref": -0.11046527203707218,
+          "dom": -0.11046527203707218,
+          "abs_d": 0.0
+        },
+        {
+          "a": "wind_speed",
+          "b": "ssr",
+          "ref": -0.0528881511252325,
+          "dom": -0.0528881511252325,
+          "abs_d": 0.0
+        },
+        {
+          "a": "wind_speed",
+          "b": "seasonal_cos",
+          "ref": 0.38428281953356846,
+          "dom": 0.38428281953356846,
+          "abs_d": 0.0
+        },
+        {
+          "a": "wind_speed",
+          "b": "hotspot_cumsum_4w",
+          "ref": -0.24222804392383818,
+          "dom": -0.24222804392383818,
+          "abs_d": 0.0
+        },
+        {
+          "a": "wind_speed",
+          "b": "hotspot_cumsum_12w",
+          "ref": -0.27506489762904107,
+          "dom": -0.27506489762904107,
+          "abs_d": 0.0
+        },
+        {
+          "a": "wind_speed",
+          "b": "d_hotspot_dt",
+          "ref": 0.014570124099073333,
+          "dom": 0.014570124099073333,
+          "abs_d": 0.0
+        },
+        {
+          "a": "ssta",
+          "b": "wind_speed",
+          "ref": -0.0758165736122362,
+          "dom": -0.0758165736122362,
+          "abs_d": 0.0
+        },
+        {
+          "a": "ssta",
+          "b": "sst_anomaly",
+          "ref": 0.23348381966016485,
+          "dom": 0.23348381966016485,
+          "abs_d": 0.0
+        }
+      ]
+    },
+    "SCS_test": {
+      "n_px": 50406,
+      "corr_frobenius_vs_ref": 0.8674518104747164,
+      "mean_abs_dcorr_offdiag": 0.050088429130450376,
+      "top_pair_departures": [
+        {
+          "a": "hotspot_cumsum_12w",
+          "b": "seasonal_cos",
+          "ref": -0.35056482531821864,
+          "dom": -0.5813884109066312,
+          "abs_d": 0.23082358558841254
+        },
+        {
+          "a": "hotspot_cumsum_4w",
+          "b": "seasonal_cos",
+          "ref": -0.40202430151012897,
+          "dom": -0.5963195400409163,
+          "abs_d": 0.19429523853078728
+        },
+        {
+          "a": "hotspot",
+          "b": "seasonal_cos",
+          "ref": -0.36238751694709487,
+          "dom": -0.5366867285020996,
+          "abs_d": 0.17429921155500477
+        },
+        {
+          "a": "hotspot",
+          "b": "ssr",
+          "ref": 0.23397044907829012,
+          "dom": 0.36032964407245965,
+          "abs_d": 0.12635919499416953
+        },
+        {
+          "a": "par",
+          "b": "hotspot_cumsum_12w",
+          "ref": 0.24709569038447057,
+          "dom": 0.3727503177258131,
+          "abs_d": 0.1256546273413425
+        },
+        {
+          "a": "hotspot",
+          "b": "par",
+          "ref": 0.2998347519586094,
+          "dom": 0.41886048215927274,
+          "abs_d": 0.11902573020066332
+        },
+        {
+          "a": "ssr",
+          "b": "hotspot_cumsum_4w",
+          "ref": 0.26731059729136936,
+          "dom": 0.3848990245419898,
+          "abs_d": 0.11758842725062046
+        },
+        {
+          "a": "sst",
+          "b": "hotspot",
+          "ref": 0.36994036981649403,
+          "dom": 0.4859321775524232,
+          "abs_d": 0.11599180773592915
+        }
+      ],
+      "spearman_TSCFpred_vs_PersA": 0.7069197577486948
+    },
+    "GBR_test": {
+      "n_px": 19437,
+      "corr_frobenius_vs_ref": 4.722192419819804,
+      "mean_abs_dcorr_offdiag": 0.2471569257771972,
+      "top_pair_departures": [
+        {
+          "a": "ssr",
+          "b": "seasonal_cos",
+          "ref": -0.5117591530517456,
+          "dom": 0.8405487674943349,
+          "abs_d": 1.3523079205460804
+        },
+        {
+          "a": "sst",
+          "b": "seasonal_cos",
+          "ref": -0.5864517204694191,
+          "dom": 0.5733557942756204,
+          "abs_d": 1.1598075147450395
+        },
+        {
+          "a": "seasonal_sin",
+          "b": "hotspot_cumsum_12w",
+          "ref": -0.3516864813781928,
+          "dom": 0.6858907045852622,
+          "abs_d": 1.037577185963455
+        },
+        {
+          "a": "par",
+          "b": "seasonal_sin",
+          "ref": -0.005366816770159479,
+          "dom": 0.9984815249326375,
+          "abs_d": 1.003848341702797
+        },
+        {
+          "a": "sst",
+          "b": "seasonal_sin",
+          "ref": -0.2641094699928211,
+          "dom": 0.560443632049527,
+          "abs_d": 0.824553102042348
+        },
+        {
+          "a": "wind_speed",
+          "b": "seasonal_cos",
+          "ref": 0.38428281953356846,
+          "dom": -0.3797678204935828,
+          "abs_d": 0.7640506400271513
+        },
+        {
+          "a": "hotspot",
+          "b": "seasonal_cos",
+          "ref": -0.36238751694709487,
+          "dom": 0.38136685334859555,
+          "abs_d": 0.7437543702956904
+        },
+        {
+          "a": "hotspot_cumsum_4w",
+          "b": "seasonal_cos",
+          "ref": -0.40202430151012897,
+          "dom": 0.31832193982100554,
+          "abs_d": 0.7203462413311346
+        }
+      ],
+      "spearman_TSCFpred_vs_PersA": 0.5180376465301603
+    },
+    "CARIB_test": {
+      "n_px": 84645,
+      "corr_frobenius_vs_ref": 2.2996584584788997,
+      "mean_abs_dcorr_offdiag": 0.13491883292658008,
+      "top_pair_departures": [
+        {
+          "a": "par",
+          "b": "wind_speed",
+          "ref": -0.2542318052486711,
+          "dom": 0.2509910883389523,
+          "abs_d": 0.5052228935876234
+        },
+        {
+          "a": "hotspot_cumsum_12w",
+          "b": "seasonal_cos",
+          "ref": -0.35056482531821864,
+          "dom": 0.1450656400225276,
+          "abs_d": 0.49563046534074623
+        },
+        {
+          "a": "wind_speed",
+          "b": "seasonal_cos",
+          "ref": 0.38428281953356846,
+          "dom": -0.038158369011168876,
+          "abs_d": 0.42244118854473733
+        },
+        {
+          "a": "wind_speed",
+          "b": "ssr",
+          "ref": -0.0528881511252325,
+          "dom": 0.35834315640079284,
+          "abs_d": 0.4112313075260253
+        },
+        {
+          "a": "hotspot",
+          "b": "seasonal_sin",
+          "ref": -0.046497481076693416,
+          "dom": -0.4473907241495709,
+          "abs_d": 0.40089324307287744
+        },
+        {
+          "a": "seasonal_sin",
+          "b": "hotspot_cumsum_4w",
+          "ref": -0.12808631904419404,
+          "dom": -0.49877419173614873,
+          "abs_d": 0.3706878726919547
+        },
+        {
+          "a": "sst",
+          "b": "ssr",
+          "ref": 0.7114605786889834,
+          "dom": 0.346773909743303,
+          "abs_d": 0.36468666894568036
+        },
+        {
+          "a": "par",
+          "b": "sst_anomaly",
+          "ref": 0.058653013657542614,
+          "dom": -0.29264193311954145,
+          "abs_d": 0.35129494677708406
+        }
+      ],
+      "spearman_TSCFpred_vs_PersA": 0.219271589370109
+    }
+  }
+}

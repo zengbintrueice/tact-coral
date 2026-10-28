@@ -1,0 +1,65 @@
+{
+  "experiment": "response_surface_susceptibility_mechanism",
+  "generated": "2026-10-04T16:15:11.268145",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "gates": {
+    "gate1_response_surface_heterogeneity": {
+      "GBR": true,
+      "CARIB": true,
+      "description": "R-tertile severe-rate contrast direction-consistent across majority of matched DHW bins"
+    },
+    "gate2_susceptibility_established": {
+      "GBR": true,
+      "CARIB": true,
+      "SCS": false
+    },
+    "gate3_mechanism_decomposition_run": true,
+    "mechanism_results": {
+      "SCS": {
+        "trajectory_established": true,
+        "thermal_state_adds": true,
+        "nonthermal_adds": true
+      },
+      "GBR": {
+        "trajectory_established": true,
+        "thermal_state_adds": false,
+        "nonthermal_adds": true
+      },
+      "CARIB": {
+        "trajectory_established": true,
+        "thermal_state_adds": true,
+        "nonthermal_adds": true
+      }
+    }
+  },
+  "common_bins": 20,
+  "basin_n": {
+    "SCS": 49235,
+    "GBR": 19065,
+    "CARIB": 83025
+  },
+  "verdict_summary": {
+    "Q1_cross_basin_heterogeneity": true,
+    "Q2_R_identifies_susceptibility": true,
+    "Q3_mechanism": {
+      "SCS": {
+        "trajectory_established": true,
+        "thermal_state_adds": true,
+        "nonthermal_adds": true
+      },
+      "GBR": {
+        "trajectory_established": true,
+        "thermal_state_adds": false,
+        "nonthermal_adds": true
+      },
+      "CARIB": {
+        "trajectory_established": true,
+        "thermal_state_adds": true,
+        "nonthermal_adds": true
+      }
+    },
+    "Q4_GBR_CARIB_shared": true,
+    "Q5_mechanism_not_established_flag": false
+  },
+  "interpretation": "associative / representation-level only"
+}

@@ -1,0 +1,48 @@
+==================================================================
+Prevalence-matched directional comparison — 2026-10-02 17:08:11
+==================================================================
+Device: cuda
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+[SCS] GBR-source reverse predictions done
+[SCS] CARIB-source reverse predictions done
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=209
+  Window indices: 209 windows for test
+  Loaded 209 samples: X_dynamic=(209, 24, 15, 12, 13), X_static=(209, 15, 12, 5)
+  Label coverage: 19065/37620 (50.68%)
+[GBR] GBR-source reverse predictions done
+[GBR] CARIB-source reverse predictions done
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=205
+  Window indices: 205 windows for test
+  Loaded 205 samples: X_dynamic=(205, 24, 22, 32, 13), X_static=(205, 22, 32, 5)
+  Label coverage: 83025/144320 (57.53%)
+[CARIB] GBR-source reverse predictions done
+[CARIB] CARIB-source reverse predictions done
+[SCS->GBR] matched regimes done (obs prevalence 0.0355)
+[SCS->CARIB] matched regimes done (obs prevalence 0.0163)
+[GBR->SCS] matched regimes done (obs prevalence 0.0085)
+[GBR->CARIB] matched regimes done (obs prevalence 0.0163)
+[CARIB->SCS] matched regimes done (obs prevalence 0.0085)
+[CARIB->GBR] matched regimes done (obs prevalence 0.0355)
+[R_low] TSCF ROC GBR 0.9625[0.9566,0.9678] vs CARIB 0.6101[0.6101,0.6101] -> persists_roc=True; PR persists=True
+[R_high] TSCF ROC GBR 0.9624[0.9624,0.9624] vs CARIB 0.6103[0.5963,0.6236] -> persists_roc=True; PR persists=False
+
+Outputs -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\prevalence_matched_transfer
+Done.

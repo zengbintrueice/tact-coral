@@ -1,0 +1,22 @@
+{
+  "sources": {
+    "sqlite_sha256": "d7b3e8f184ce67eb159a8f648829316410cc4ee972075522c221c3d9498d1979",
+    "used": "GitHub rvanwoesik/Global-Coral-Bleaching-Database (SQLite, cached)",
+    "bcodmo_csv_url": "https://datadocs.bco-dmo.org/dataset/773466/file/B11vA82u7y2Owp/global_bleaching_environmental.csv",
+    "github_zip_url": "https://codeload.github.com/rvanwoesik/Global-Coral-Bleaching-Database/zip/refs/heads/main"
+  },
+  "definition": {
+    "usable_geo_year": "valid lat/lon AND 1980<=Date_Year<=2020",
+    "usable_severity": "usable_geo_year AND (Severity_Code in {1,2,3} or Percent_Bleached present)",
+    "severe": "usable_severity AND Severity_Code==3 (>50% bleached)"
+  },
+  "outputs": {
+    "flat_csv_sha256": "40a12ce5c46e9af7496e5127d701fb5b728f19d85f1ae9a505a1c3545190d216"
+  },
+  "totals": {
+    "rows_total": 27025,
+    "usable_geo_year": 27025,
+    "usable_severity": 11570,
+    "severe_severity_code3": 1863
+  }
+}

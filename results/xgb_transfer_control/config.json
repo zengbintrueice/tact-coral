@@ -1,0 +1,46 @@
+{
+  "experiment": "xgb_transfer_control",
+  "pipeline_reuse": "build_features/forecast_targets/scaler/XGB_PARAMS + thermal-index def (experiment7_5) — verbatim",
+  "xgb_params": {
+    "n_estimators": 300,
+    "max_depth": 7,
+    "learning_rate": 0.08,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": 0
+  },
+  "max_train_pixels": 30000,
+  "lead_weeks": 4,
+  "history_weeks": 24,
+  "severe": 0.8,
+  "tau_pinned": 0.9,
+  "seed": 42,
+  "thermal_indices": [
+    1,
+    2,
+    9,
+    10,
+    11
+  ],
+  "thermal_names": [
+    "ssta",
+    "hotspot",
+    "d_hotspot_dt",
+    "hotspot_cumsum_4w",
+    "hotspot_cumsum_12w"
+  ],
+  "data_files": {
+    "SCS": "scs_coral_bleaching_dataset_v9_1deg_raw.nc",
+    "GBR": "gbr_coral_bleaching_dataset_v9_1deg_raw.nc",
+    "CARIB": "caribbean_coral_bleaching_dataset_v9_1deg_raw.nc"
+  },
+  "code_md5": "d2d67c501b1ae7cf30f03ed71848c378",
+  "data_sha256": {
+    "SCS": "4aadf3c9b6ca2aa56185ce0f31b00fb4f71f5992fcd94d43c09fea550efbf576",
+    "GBR": "49bbd3b38ad24452e08199e3eeecdc290eb6a4c130bf447aa9f995372f92e28e",
+    "CARIB": "58487eab1311978da4f7cbaac045a8f199ebdb29efd83473163223f3071a071a"
+  },
+  "created_utc": "2026-09-24T12:36:23.778671"
+}

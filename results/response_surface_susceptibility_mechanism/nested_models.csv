@@ -1,0 +1,22 @@
+basin,model,predictors,r2_oos
+SCS,M0,current_DHW,0.34665858964935803
+SCS,M1,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w,0.6203461308971473
+SCS,M2,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w+hotspot+ssta,0.6389386322803797
+SCS,M3,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w+hotspot+ssta+chl+par+wind,0.719303280153936
+SCS,deltaR2_M1_minus_M0,M1 − M0,0.27368754124778927
+SCS,deltaR2_M2_minus_M1,M2 − M1,0.01859250138323243
+SCS,deltaR2_M3_minus_M2,M3 − M2,0.08036464787355624
+GBR,M0,current_DHW,0.11646122256903813
+GBR,M1,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w,0.2530034810331163
+GBR,M2,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w+hotspot+ssta,0.2518299174686187
+GBR,M3,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w+hotspot+ssta+chl+par+wind,0.3005957489942982
+GBR,deltaR2_M1_minus_M0,M1 − M0,0.1365422584640782
+GBR,deltaR2_M2_minus_M1,M2 − M1,-0.001173563564497604
+GBR,deltaR2_M3_minus_M2,M3 − M2,0.04876583152567948
+CARIB,M0,current_DHW,0.06921291445961275
+CARIB,M1,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w,0.3661631438208641
+CARIB,M2,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w+hotspot+ssta,0.3752010524227156
+CARIB,M3,current_DHW+dDHW_4w+cumsum_4w+cumsum_12w+hotspot+ssta+chl+par+wind,0.4474706903311604
+CARIB,deltaR2_M1_minus_M0,M1 − M0,0.29695022936125137
+CARIB,deltaR2_M2_minus_M1,M2 − M1,0.009037908601851496
+CARIB,deltaR2_M3_minus_M2,M3 − M2,0.07226963790844476

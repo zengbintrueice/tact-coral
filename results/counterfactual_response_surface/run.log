@@ -1,0 +1,60 @@
+==================================================================
+Counterfactual thermal-response surface — 2026-09-30 17:59:08
+==================================================================
+Device: cuda
+frozen records OK; frozen TSAR OK (ae86e017bc5ba634b0c68e5d13b4f9f0)
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2016, 2019), windows=182
+  Window indices: 182 windows for test
+  Loaded 182 samples: X_dynamic=(182, 24, 21, 23, 13), X_static=(182, 21, 23, 5)
+  Label coverage: 49322/87906 (56.11%)
+[SCS] records 49299/49322 in δ range [−6, +6] °C-wk; DHW p99.5 = 8.64
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=209
+  Window indices: 209 windows for test
+  Loaded 209 samples: X_dynamic=(209, 24, 15, 12, 13), X_static=(209, 15, 12, 5)
+  Label coverage: 19065/37620 (50.68%)
+[GBR] records 18852/19065 in δ range [−6, +6] °C-wk; DHW p99.5 = 10.00
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=205
+  Window indices: 205 windows for test
+  Loaded 205 samples: X_dynamic=(205, 24, 22, 32, 13), X_static=(205, 22, 32, 5)
+  Label coverage: 83025/144320 (57.53%)
+[CARIB] records 82938/83025 in δ range [−6, +6] °C-wk; DHW p99.5 = 10.00
+common counterfactual grid: d ∈ [0, 8.64] °C-wk (25 levels) × δ ∈ [np.float64(-4.0), np.float64(-3.0), np.float64(-2.0), np.float64(-1.0), np.float64(0.0), np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0)] °C-wk
+
+=== SCS ===
+  evaluated cells: 128
+
+=== GBR ===
+  evaluated cells: 81
+
+=== CARIB ===
+  evaluated cells: 175
+
+bootstrap per-cell CIs ...
+
+Trajectory contrast (R at δ=+4 minus δ=−4, median over d):
+basin
+CARIB    0.0202
+
+Outputs -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\counterfactual_response_surface
+Done.

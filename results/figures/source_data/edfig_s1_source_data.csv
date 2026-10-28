@@ -1,0 +1,13 @@
+id,requirement,verdict,evidence
+A1,No future target enters X (target y(t+4) used only as label),PASS,build_causal_dataset_v2.py 30/30 checks; target at t+4 never an input; PFV verification at t+4
+A2,All dynamic derived features are trailing,PASS,d_hotspot_dt / cumsum_4w / cumsum_12w recomputed trailing in aligned_dataset._compute_derived_channels; GBR D-checks max_err <= 6.7e-05
+A3,4wk/12wk cumulative HotSpot contain no future observations,PASS,trailing (t-3..t] / (t-11..t] windows verified bit-exact on causal v2 (causal_availability_audit.md)
+A4,Monthly variables use only causally available values,PASS,month-end hold + past-only ffill (M_wind_speed/M_ssr/M_sst_anomaly/M_hold_avail checks PASS)
+A5,No linear interpolation introduces future monthly information,PASS,legacy 'linear' path removed from v2 builder; causal hold verified vs raw OC-CCI recompute (max diff 1.9e-8)
+A6,Climatology uses only data available by end of SCS training,PASS,"ERA5 climatology year<=2010 both domains (A_clim_cutoff/A2_not_fullrecord PASS; SCS basis 96 months, GBR 312 months)"
+A7,Normalization uses SCS training period only,PASS,"ChannelNormalizer stats baked in checkpoint, computed from SCS train years 2003-2010 only (frozen 2026-07-31). Note: stats predate the causal v2 rebuild; sst_anomaly mean/std differ from normalization_v2.json by the causal-shift only; model NOT refit, so baked stats ARE the frozen source-domain state"
+A8,GBR data do not alter model weights,PASS,"checkpoint loaded once, eval mode, no optimizer/gradient step on GBR; sliding-window inference only"
+A9,GBR data do not alter normalization,PASS,SCS statistics fixed for the entire GBR zero-shot protocol (paths.py / gbr_zeroshot_evaluation.py:179-181)
+A10,GBR data do not determine tau,PASS,"tau=0.90 pinned a priori from source-domain (SCS) optimization; GBR val (2014-2016) used only for labelled diagnostic/adaptation analyses, excluded from this evaluation"
+A11,GCBD observations are not used,PASS,evaluation targets are CRW 5km Jensen-aware DHW only; no GCBD file read in the evaluation chain
+A12,Static features are not falsely claimed to be used,PASS,FinalSingleHeadModel forward does not consume x_static (forward_features ignores static channels); paper must not claim static-feature usage

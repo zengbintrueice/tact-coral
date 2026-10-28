@@ -1,0 +1,108 @@
+{
+  "experiment": "step10_gcbd_matching_audit",
+  "timestamp": "2026-09-17T19:55:24.630324",
+  "model": {
+    "checkpoint": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\model_final_Btail3\\model.pt",
+    "md5": "7cdbca26cae03fa53be53210940e8ce1",
+    "frozen": true
+  },
+  "cohort_primary": {
+    "expected": {
+      "n": 1898,
+      "any": 530,
+      "severe": 78,
+      "background": 1368
+    },
+    "delta0_ok": true
+  },
+  "temporal_sensitivity": {
+    "offsets_weeks": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "lead_weeks": 4,
+    "window_weeks": 4,
+    "rule": "issue = obs - 4wk + Delta; all reported, no post-hoc selection"
+  },
+  "site_level": {
+    "auc_mean_risk": 0.8623335150712672,
+    "auc_max_risk": 0.8532206558143158,
+    "delta_mean_risk": 0.7246670301425344,
+    "mw_p": 2.1110279224077893e-13,
+    "rr_site_mean_q5q1": NaN,
+    "fisher_p_site": 1.441838334183941e-11
+  },
+  "permutation": {
+    "n": 2000,
+    "seed_A": 42,
+    "seed_B": 43,
+    "scheme_B": "site label-blocks permuted among same-size sites (cluster sizes + within-site structure preserved)",
+    "scheme_A": "plain label permutation (comparison)",
+    "statistic": "D = P(sev|Q5)-P(sev|Q1); RR null also collected",
+    "D_obs": 0.17992202729044834,
+    "p_A": 0.0004997501249375312,
+    "p_B": 0.0004997501249375312,
+    "RR_obs": 35.18518518518518,
+    "RR_exceedance_p_B": 0.0004997501249375312,
+    "RR_null_finite_median": 4.523809523809524
+  },
+  "bootstrap": {
+    "n": 1000,
+    "seed": 42
+  },
+  "verdict": "ROBUST",
+  "verdict_logic": "ROBUST: all windows AUROC>0.5 & MW p<0.05 AND site direction preserved AND p_B<0.01; PARTIALLY ROBUST: majority of windows positive AND site direction AND p_B<0.01; else NOT ROBUST",
+  "audit": [
+    {
+      "id": "Cprimary",
+      "desc": "Delta=0 cohort equals pinned Step-9 counts 1898/530/78/1368",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "Cguard",
+      "desc": "Step-4..9 files not overwritten (hashes identical)",
+      "status": "PASS",
+      "detail": "(93 files)"
+    },
+    {
+      "id": "S1",
+      "desc": "Frozen Step-4 checkpoint used, never retrained (MD5 verified)",
+      "status": "PASS",
+      "detail": "MD5 7cdbca26cae03fa53be53210940e8ce1"
+    },
+    {
+      "id": "S2",
+      "desc": "No threshold/normalization/feature/architecture change (same causal v2 protocol and matching pipeline as Step 9)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "S3",
+      "desc": "All temporal windows predefined and fully reported (no post-hoc selection): offsets [-2, -1, 0, 1, 2]",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "S4",
+      "desc": "Quantile bin boundaries outcome-free (predicted-score quantiles only)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "id": "S5",
+      "desc": "Site-preserving permutation run with N>=2000 and seeds recorded",
+      "status": "PASS",
+      "detail": "N=2000, seeds 42/43"
+    },
+    {
+      "id": "S6",
+      "desc": "Steps 4-9 outputs remain unchanged",
+      "status": "PASS",
+      "detail": "93 files hash-verified"
+    }
+  ]
+}

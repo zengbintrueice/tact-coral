@@ -1,0 +1,121 @@
+{
+  "experiment": "residual_mechanism_decomposition",
+  "generated": "2026-09-29T16:59:22.607070",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "protocol": {
+    "R": "TSAR(C_anchored, scale 0.4) − PersA_DHW",
+    "bootstrap": {
+      "type": "paired week-block",
+      "n": 1000,
+      "seed": 42
+    },
+    "cv": {
+      "folds": 5,
+      "grouped_by": "issue week",
+      "model_form": "fixed OLS + pre-fixed rank-OLS; no tuning"
+    },
+    "fdr": "Benjamini-Hochberg within family per basin",
+    "interpretation": "associative / representation-level only"
+  },
+  "basins": {
+    "SCS": {
+      "n_total": 49322,
+      "n_complete_case": 49235,
+      "n_dropped": 87,
+      "n_severe": 419,
+      "nan_counts": {
+        "current_DHW": 0,
+        "dDHW_4w": 0,
+        "d_hotspot_dt": 0,
+        "cumsum_4w": 0,
+        "cumsum_12w": 0,
+        "ssta": 0,
+        "hotspot": 0,
+        "chl": 0,
+        "par": 87,
+        "wind": 0
+      },
+      "n_weeks": 182,
+      "coefs_M2": {
+        "current_DHW": 0.009249,
+        "dDHW_4w": 0.003104,
+        "cumsum_4w": 0.011708,
+        "cumsum_12w": -0.004232,
+        "chl": 0.000275,
+        "par": -5e-05,
+        "wind": 0.000308
+      },
+      "r2_insample": {
+        "M0": 0.31150236695841527,
+        "M1": 0.4657193794721557,
+        "M2": 0.4659067835213224
+      }
+    },
+    "GBR": {
+      "n_total": 19065,
+      "n_complete_case": 19065,
+      "n_dropped": 0,
+      "n_severe": 676,
+      "nan_counts": {
+        "current_DHW": 0,
+        "dDHW_4w": 0,
+        "d_hotspot_dt": 0,
+        "cumsum_4w": 0,
+        "cumsum_12w": 0,
+        "ssta": 0,
+        "hotspot": 0,
+        "chl": 0,
+        "par": 0,
+        "wind": 0
+      },
+      "n_weeks": 205,
+      "coefs_M2": {
+        "current_DHW": -0.000491,
+        "dDHW_4w": 0.000387,
+        "cumsum_4w": 0.000103,
+        "cumsum_12w": 0.000697,
+        "chl": 0.000617,
+        "par": -2.3e-05,
+        "wind": 0.000507
+      },
+      "r2_insample": {
+        "M0": 0.00036799824078037613,
+        "M1": 0.006921358008272205,
+        "M2": 0.019949995394154874
+      }
+    },
+    "CARIB": {
+      "n_total": 83025,
+      "n_complete_case": 83025,
+      "n_dropped": 0,
+      "n_severe": 1356,
+      "nan_counts": {
+        "current_DHW": 0,
+        "dDHW_4w": 0,
+        "d_hotspot_dt": 0,
+        "cumsum_4w": 0,
+        "cumsum_12w": 0,
+        "ssta": 0,
+        "hotspot": 0,
+        "chl": 0,
+        "par": 0,
+        "wind": 0
+      },
+      "n_weeks": 205,
+      "coefs_M2": {
+        "current_DHW": -0.001892,
+        "dDHW_4w": -0.003344,
+        "cumsum_4w": 0.014748,
+        "cumsum_12w": -0.002226,
+        "chl": 0.00136,
+        "par": 0.003743,
+        "wind": -0.000729
+      },
+      "r2_insample": {
+        "M0": 0.001614317677117394,
+        "M1": 0.21117723726561122,
+        "M2": 0.22765652332637176
+      }
+    }
+  }
+}

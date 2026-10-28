@@ -1,0 +1,41 @@
+figure,panel,source_file,source_columns,statistical_method,n,unit,output_file
+edfig_s1,a,results/step4_causal_zero_shot/causal_zero_shot_results.json,audit[*].id/description/passed,frozen-protocol audit table,A1-A12,checks,edfig_s1_leakage_audit.pdf
+edfig_s2,a/b,results/step5_temporal_purge/step5_standard_vs_purged.csv,"domain,method,protocol,roc_auc,pr_auc",standard vs temporally-purged PFV,SCS/GBR,score,edfig_s2_temporal_purge.pdf
+edfig_s3,a,results/step6_feature_ablation/step6_ablation_results.csv,"domain,method,pr_auc",feature ablation (retrained models),SCS/GBR,PR-AUC,edfig_s3_feature_ablation.pdf
+edfig_s4,a,results/step7_temporal_scale/step7_temporal_scale_results.csv,"domain,method,role,pr_auc",C1/C2/C4/C8/C12 single-scale models,SCS/GBR/CARIB,PR-AUC,edfig_s4_temporal_scale.pdf
+edfig_s5,a,results/step8_contextual_gain/step8_context_permutation.csv,"domain,d_pr_mean,d_pr_lo,d_pr_hi",env-channel permutation (K=100),SCS/GBR,DPR-AUC,edfig_s5_context_attribution.pdf
+edfig_s6,a,results/step4_causal_zero_shot/causal_zero_shot_threshold_sweep_diagnostic.csv,"domain,method,tau,csi",threshold sweep (diagnostic; tau pinned),SCS/GBR/CARIB,CSI,edfig_s6_threshold_sensitivity.pdf
+edfig_s7,a,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.*.diffs[*].roc_auc{{point,ci}}",paired week-block bootstrap 1000 seed 42,SCS/GBR/CARIB,DROC,edfig_s7_bootstrap_effects.pdf
+edfig_s8,a/b/c,"results/seed_sensitivity/{seed_transfer_boundary.csv,seed_metrics.csv}","seed,PR_GBR,PR_CARIB,dPR,PR_SCS",5-seed D1 retrains (individual points + paired lines),5 seeds,PR-AUC,edfig_s8_seed_sensitivity.pdf
+edfig_s10,a/b,results/caribbean_zero_shot/phys_diagnostics/phys_diagnostics.json,"expA,expB",test-time renorm (EXP A) + physics-anchored fusion (EXP B),CARIB,ROC-AUC,edfig_s10_carib_diagnostics.pdf
+edfig_s9,a/b/c,"results/{scs,gbr,caribbean}_causal_v2.nc + results/model_final_Btail3/model.pt","forecast map arrays (full-grid, ocean-masked); lat/lon coords",reconstructed from frozen TSCF PFV inference (report week = max severe pixels in test window),SCS/GBR/CARIB,risk (0-1)/deg,edfig_s9_spatial_maps.pdf
+edfig_s11,a,"results/physics_anchored/{summary.json,structural_ablation/summary_B.json}+step4 protocol.json","cfg,params,best_val,md5",hyperparameter/protocol table,A/C/B/D,,edfig_s11_hyperparameters.pdf
+fig5,b,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.*.models[A_PersA,D_TSCF]{roc_auc,pr_auc}",paired week-block bootstrap 1000 seed 42,49322/19065/83025,score,fig5_persa_anchor.pdf
+fig5,c,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.CARIB.models[A_PersA,B_ungated,C_anchored,D_TSCF]{roc_auc,csi_tau09}+bootstrap",paired week-block bootstrap 1000 seed 42,83025,score,fig5_persa_anchor.pdf
+fig5,d,results/physics_anchored/structural_ablation/rec_structural_ablation.npz,"CARIB_{A_PersA,C_anchored,D_TSCF}_pred + CARIB_target",10-bin reliability; Brier; ECE,83025,frequency,fig5_persa_anchor.pdf
+fig4,a,results/domain_shift/wasserstein.csv,"source,target,feature,group,wasserstein1_z",W1 distance on z-scored features; group medians,48,z units,fig4_crw_diagnostics.pdf
+fig4,b,results/domain_shift/joint_shift.json,populations.*.corr_frobenius_vs_ref / mean_abs_dcorr_offdiag,Pearson-correlation-matrix distances vs SCS-train reference,19437,distance,fig4_crw_diagnostics.pdf
+fig4,c,results/domain_shift/joint_temporal_dynamics.csv,"population,channel,lag1_autocorr,lag4_autocorr",weekly lag autocorrelation,52,corr,fig4_crw_diagnostics.pdf
+fig4,d,results/domain_shift/joint_assoc_shift.csv (FORMAL J2; verified vs recomputation — fig4_qc_report.md),"population,channel,spearman_channel_vs_y(t+4) on the shared PFV record set","Spearman(channel at issue t, y(t+4)); post-hoc, non-causal",13,rho,fig4_crw_diagnostics.pdf
+fig4,e,results/domain_shift/joint_pred_corr.csv (FORMAL J4; verified vs recomputation — fig4_qc_report.md),"population,channel,spearman_TSCFpred_vs_channel on the shared PFV record set",Spearman prediction alignment,14,rho,fig4_crw_diagnostics.pdf
+SX,a/b,results/xgb_transfer_control/metrics.json,"{model}.{SCS,GBR,CARIB}_{roc_auc,pr_auc}",point estimates (ocean-masked common record set; ROC/PR from sklearn),83025,AUC,SX_xgb_transfer_control.pdf
+SX,c,results/xgb_transfer_control/metrics.json,"CARIB_{roc_auc,pr_auc,brier,ece} per model",point estimates (ocean-masked common record set),83025,score,SX_xgb_transfer_control.pdf
+SX,e,results/xgb_transfer_control/bootstrap_cis.csv,"domain x variant: {roc_auc,pr_auc}{,_lo,_hi}","marginal week-block bootstrap 95% CI (1,000 resamples, seed 42)",83025,AUC,SX_xgb_transfer_control.pdf
+fig2,b,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.GBR.models[A_PersA,D_TSCF]{roc_auc,pr_auc,csi_tau09}+bootstrap",paired week-block bootstrap 1000 seed 42,19065,score,fig2_transfer_gbr.pdf
+fig2,c,results/physics_anchored/structural_ablation/rec_structural_ablation.npz,"GBR_{A_PersA,D_TSCF}_pred, GBR_target",10-bin reliability; Brier; ECE,19065,frequency,fig2_transfer_gbr.pdf
+fig2,d,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.GBR.models{pod_tau09,far_tau09,f1_tau09,csi_tau09}",paired week-block bootstrap 1000 seed 42,19065,rate,fig2_transfer_gbr.pdf
+fig3,a,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.*.models.D_TSCF{roc_auc,pr_auc,csi_tau09,ece}",point estimates on ocean-masked PFV record set,49322/19065/83025,score,fig3_transfer_boundary.pdf
+fig3,b,results/physics_anchored/structural_ablation/rec_structural_ablation.npz,"{SCS,GBR,CARIB}_D_TSCF_pred + _target",ROC curve (sklearn),as panel a,rate,fig3_transfer_boundary.pdf
+fig3,c,results/physics_anchored/structural_ablation/rec_structural_ablation.npz,"{SCS,GBR,CARIB}_D_TSCF_pred + _target",precision-recall curve (sklearn),as panel a,rate,fig3_transfer_boundary.pdf
+fig3,d,results/physics_anchored/structural_ablation/rec_structural_ablation.npz,"{SCS,GBR,CARIB}_D_TSCF_pred + _target",predicted-risk deciles vs observed severe frequency (log scale),as panel a,frequency,fig3_transfer_boundary.pdf
+fig6,b,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.*.models[A_PersA,B_ungated,C_anchored,D_TSCF]{csi_tau09,brier}",point estimates; paired week-block bootstrap in JSON,49322/19065/83025,score,fig6_gated_residual.pdf
+fig6,c,results/physics_anchored/audit/residual_diagnostics.csv,"split,scale,gate_p50,gate_p97_5,delta_mean",residual-magnitude diagnostics at frozen scale 0.4,70731,gate / deviation,fig6_gated_residual.pdf
+fig6,d,results/physics_anchored/structural_ablation/structural_ablation.json,"domains.*.diffs[C_anchored−A_PersA,C_anchored−B_ungated].csi_tau09",paired week-block bootstrap 1000 seed 42,49322/19065/83025,Δscore,fig6_gated_residual.pdf
+fig7,b,results/step9_gcbd_validation/step9_bootstrap.csv,"key,scheme,mean,lo,hi (cluster_site)",site-cluster bootstrap 1000,1898,AUROC,fig7_gcbd_validation.pdf
+fig7,c,results/step9_gcbd_validation/step9_quintile_enrichment.csv,"bins,event,bin,n,n_event,rate",quintile enrichment; RR with site-cluster CI,1898,rate (%),fig7_gcbd_validation.pdf
+fig7,d,results/step10_gcbd_matching_audit/step10_matching_results.csv,"offset_weeks,roc_sev_vs_bg","predefined offsets [-2..+2], none selected post hoc",1910,AUROC,fig7_gcbd_validation.pdf
+fig7,e,results/step10_gcbd_matching_audit/step10_site_level_results.csv,"auc_mean_risk,delta_mean_risk,mw_p,quintile severe-site rates",site-level AUROC; Cliff's delta; site-preserving permutation,384,rate/AUROC,fig7_gcbd_validation.pdf
+fig1,a,domain boxes (study framing) + ETOPO1 coastline (PIECF_DNS_DIR/bathymetry/ETOPO1 grid),lon/lat bounds; z>0 land,schematic,3,degrees,fig1_framework.pdf
+fig1,b,results/step4_causal_zero_shot/causal_zero_shot_protocol.json,splits,protocol constant,3,years,fig1_framework.pdf
+fig1,c,results/step4_causal_zero_shot/causal_zero_shot_protocol.json,"checkpoint.md5, normalization",schematic,n/a,n/a,fig1_framework.pdf
+fig1,d,conceptual (equations per TSAR definition),n/a,schematic,n/a,n/a,fig1_framework.pdf

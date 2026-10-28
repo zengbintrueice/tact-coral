@@ -1,0 +1,59 @@
+==================================================================
+Within-SCS spatial holdout (south train / north held-out) - 2026-09-29 06:44:37
+Device: cuda  Hold-out: rows 11..20 (NORTH band)
+==================================================================
+Loading SCS dataset (train)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] train: years=(2003, 2010), windows=394
+  Window indices: 394 windows for train
+  Loaded 394 samples: X_dynamic=(394, 24, 21, 23, 13), X_static=(394, 21, 23, 5)
+  Label coverage: 106774/190302 (56.11%)
+Loading SCS dataset (val)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] val: years=(2011, 2015), windows=261
+  Window indices: 261 windows for val
+  Loaded 261 samples: X_dynamic=(261, 24, 21, 23, 13), X_static=(261, 21, 23, 5)
+  Label coverage: 70731/126063 (56.11%)
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2016, 2019), windows=182
+  Window indices: 182 windows for test
+  Loaded 182 samples: X_dynamic=(182, 24, 21, 23, 13), X_static=(182, 21, 23, 5)
+  Label coverage: 49322/87906 (56.11%)
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2016, 2019), windows=182
+  Window indices: 182 windows for test
+  Loaded 182 samples: X_dynamic=(182, 24, 21, 23, 13), X_static=(182, 21, 23, 5)
+  Label coverage: 49322/87906 (56.11%)
+Train mask: rows 0..10 visible (south), rows 11..20 held out (north). Grid 21x23
+Trained spatial-holdout TSCF (1760791690 min) -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\review2_revision\spatial_holdout\tscf_spatial_holdout.pt
+Inference (PersA / spatial-TSCF / frozen-TSCF / TSAR)...
+  [south (train-visible)] PersA        ROC=0.9719 PR=0.2991 n=26754 n_sev=350
+  [south (train-visible)] spatial_TSCF ROC=0.9832 PR=0.5748 n=26754 n_sev=350
+  [south (train-visible)] frozen_TSCF  ROC=0.9846 PR=0.6117 n=26754 n_sev=350
+  [south (train-visible)] TSAR         ROC=0.9702 PR=0.2956 n=26754 n_sev=350
+  [north (held-out)] PersA        ROC=0.9926 PR=0.4203 n=22568 n_sev=69
+  [north (held-out)] spatial_TSCF ROC=0.9932 PR=0.5190 n=22568 n_sev=69
+  [north (held-out)] frozen_TSCF  ROC=0.9895 PR=0.2338 n=22568 n_sev=69
+  [north (held-out)] TSAR         ROC=0.9922 PR=0.4078 n=22568 n_sev=69

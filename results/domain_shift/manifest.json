@@ -1,0 +1,202 @@
+{
+  "title": "Domain shift analysis — frozen TSCF input space",
+  "generated_utc": "2026-09-18T00:36:39+00:00",
+  "script": "experiments/08_infrastructure/compute_domain_shift_analysis.py",
+  "deterministic": true,
+  "randomness": "none (no subsampling below MAX_N=200000; deterministic stride thinning above cap)",
+  "populations": {
+    "SCS_train": {
+      "file": "scs_causal_v2.nc",
+      "years": [
+        2003,
+        2010
+      ],
+      "n_weeks": 417,
+      "n_ocean_cells": 271,
+      "n_per_feature": {
+        "sst": 113007,
+        "ssta": 113007,
+        "hotspot": 113007,
+        "sst_anomaly": 111923,
+        "d_hotspot_dt": 113007,
+        "C1": 113007,
+        "C2": 113007,
+        "C4": 113007,
+        "C8": 113007,
+        "C12": 113007,
+        "chlorophyll": 113007,
+        "par": 111097,
+        "wind_speed": 111923,
+        "ssr": 111923,
+        "seasonal_sin": 113007,
+        "seasonal_cos": 113007
+      }
+    },
+    "SCS_test": {
+      "file": "scs_causal_v2.nc",
+      "years": [
+        2016,
+        2019
+      ],
+      "n_weeks": 186,
+      "n_ocean_cells": 271,
+      "n_per_feature": {
+        "sst": 50406,
+        "ssta": 50406,
+        "hotspot": 50406,
+        "sst_anomaly": 50406,
+        "d_hotspot_dt": 50406,
+        "C1": 50406,
+        "C2": 50406,
+        "C4": 50406,
+        "C8": 50406,
+        "C12": 50406,
+        "chlorophyll": 50406,
+        "par": 50319,
+        "wind_speed": 50406,
+        "ssr": 50406,
+        "seasonal_sin": 50406,
+        "seasonal_cos": 50406
+      }
+    },
+    "GBR_test": {
+      "file": "gbr_causal_v2.nc",
+      "years": [
+        2017,
+        2020
+      ],
+      "n_weeks": 209,
+      "n_ocean_cells": 93,
+      "n_per_feature": {
+        "sst": 19437,
+        "ssta": 19437,
+        "hotspot": 19437,
+        "sst_anomaly": 19437,
+        "d_hotspot_dt": 19437,
+        "C1": 19437,
+        "C2": 19437,
+        "C4": 19437,
+        "C8": 19437,
+        "C12": 19437,
+        "chlorophyll": 19437,
+        "par": 19437,
+        "wind_speed": 19437,
+        "ssr": 19437,
+        "seasonal_sin": 19437,
+        "seasonal_cos": 19437
+      }
+    },
+    "CARIB_test": {
+      "file": "caribbean_causal_v2.nc",
+      "years": [
+        2017,
+        2020
+      ],
+      "n_weeks": 209,
+      "n_ocean_cells": 405,
+      "n_per_feature": {
+        "sst": 84645,
+        "ssta": 84645,
+        "hotspot": 84645,
+        "sst_anomaly": 84645,
+        "d_hotspot_dt": 84645,
+        "C1": 84645,
+        "C2": 84645,
+        "C4": 84645,
+        "C8": 84645,
+        "C12": 84645,
+        "chlorophyll": 84645,
+        "par": 84645,
+        "wind_speed": 84645,
+        "ssr": 84645,
+        "seasonal_sin": 84645,
+        "seasonal_cos": 84645
+      }
+    }
+  },
+  "features": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "sst_anomaly",
+    "d_hotspot_dt",
+    "C1",
+    "C2",
+    "C4",
+    "C8",
+    "C12",
+    "chlorophyll",
+    "par",
+    "wind_speed",
+    "ssr",
+    "seasonal_sin",
+    "seasonal_cos"
+  ],
+  "groups": {
+    "sst": "instantaneous_thermal",
+    "ssta": "instantaneous_thermal",
+    "hotspot": "instantaneous_thermal",
+    "sst_anomaly": "instantaneous_thermal",
+    "d_hotspot_dt": "instantaneous_thermal",
+    "C1": "cumulative_thermal",
+    "C2": "cumulative_thermal",
+    "C4": "cumulative_thermal",
+    "C8": "cumulative_thermal",
+    "C12": "cumulative_thermal",
+    "chlorophyll": "context_calendar",
+    "par": "context_calendar",
+    "wind_speed": "context_calendar",
+    "ssr": "context_calendar",
+    "seasonal_sin": "context_calendar",
+    "seasonal_cos": "context_calendar"
+  },
+  "standardization": "SCS-train mean/std only",
+  "metrics": [
+    "smd",
+    "wasserstein1_z",
+    "energy_z"
+  ],
+  "pairs": [
+    [
+      "SCS_train",
+      "SCS_test"
+    ],
+    [
+      "SCS_train",
+      "GBR_test"
+    ],
+    [
+      "SCS_train",
+      "CARIB_test"
+    ]
+  ],
+  "performance_anchor": {
+    "SCS_test": {
+      "roc": 0.9865,
+      "pr": 0.5463,
+      "csi": 0.3374,
+      "n": 49322,
+      "sev": 419
+    },
+    "GBR_test": {
+      "roc": 0.9624,
+      "pr": 0.5543,
+      "csi": 0.3648,
+      "n": 19065,
+      "sev": 676
+    },
+    "CARIB_test": {
+      "roc": 0.6101,
+      "pr": 0.0321,
+      "csi": 0.0262,
+      "n": 83025,
+      "sev": 1356
+    }
+  },
+  "inputs": {
+    "scs_causal_v2.nc": "7f57523620f356b82b7e9623ec6ad888a261dbb95432eb49d9ee097cb33194ff",
+    "gbr_causal_v2.nc": "468e8706e769d596f044043536e50d60233909f76938bfc2af3316a22ab54d11",
+    "caribbean_causal_v2.nc": "84138009bff596ad3fdd478ecd9e2cfa672f912b8e52458515fbafb853b9a1c9"
+  },
+  "constraints": "no model training; no hyperparameter search; no target adaptation; no CARIB-test tuning; Step 2-10 untouched"
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Caribbean zero-shot protocol (frozen TSCF)",
+  "model": "results/model_final_Btail3/model.pt (SCS-trained, frozen)",
+  "checkpoint_md5": "7cdbca26cae03fa53be53210940e8ce1",
+  "normalization": "SCS-train only, baked in checkpoint (FROZEN)",
+  "dataset": "caribbean_causal_v2.nc",
+  "pfv": "sliding window X_full[t-T+1..t], verify y_hat(t+4) vs y(t+4)",
+  "test_years": [
+    2017,
+    2020
+  ],
+  "tau_primary": 0.9,
+  "severe": "y>= 0.8",
+  "baselines": {
+    "PersistenceA_DHW": "y_regression at issue time",
+    "PersistenceB_cumsum12": "trailing 12-wk HotSpot sum /10"
+  },
+  "bootstrap": {
+    "type": "paired week-block",
+    "n": 1000,
+    "seed": 42
+  },
+  "generated_utc": "2026-09-17T10:05:44.796897"
+}

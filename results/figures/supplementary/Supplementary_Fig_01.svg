@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="421.31592pt" height="336.688219pt" viewBox="0 0 421.31592 336.688219" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-07T08:11:50.598617</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 336.688219 
+L 421.31592 336.688219 
+L 421.31592 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="28.049343" transform="rotate(-0 21.02724 28.049343)">A1</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="28.049343" transform="rotate(-0 36.8298 28.049343)">PASS</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="27.612526" transform="rotate(-0 64.48428 27.612526)">No future target enters X (target y(t+4) used only as label)</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="31.774911" transform="rotate(-0 21.02724 31.774911)">A10</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="31.774911" transform="rotate(-0 36.8298 31.774911)">PASS</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="31.338094" transform="rotate(-0 64.48428 31.338094)">GBR data do not determine tau</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="35.500479" transform="rotate(-0 21.02724 35.500479)">A11</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="35.500479" transform="rotate(-0 36.8298 35.500479)">PASS</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="35.063662" transform="rotate(-0 64.48428 35.063662)">GCBD observations are not used</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="39.226047" transform="rotate(-0 21.02724 39.226047)">A12</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="39.226047" transform="rotate(-0 36.8298 39.226047)">PASS</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="38.78923" transform="rotate(-0 64.48428 38.78923)">Static features are not falsely claimed to be used</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="42.951615" transform="rotate(-0 21.02724 42.951615)">A2</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="42.951615" transform="rotate(-0 36.8298 42.951615)">PASS</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="42.514798" transform="rotate(-0 64.48428 42.514798)">All dynamic derived features are trailing</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="46.677183" transform="rotate(-0 21.02724 46.677183)">A3</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="46.677183" transform="rotate(-0 36.8298 46.677183)">PASS</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="46.240366" transform="rotate(-0 64.48428 46.240366)">4wk/12wk cumulative HotSpot contain no future observations</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="50.402751" transform="rotate(-0 21.02724 50.402751)">A4</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="50.402751" transform="rotate(-0 36.8298 50.402751)">PASS</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="49.965934" transform="rotate(-0 64.48428 49.965934)">Monthly variables use only causally available values</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="54.128319" transform="rotate(-0 21.02724 54.128319)">A5</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="54.128319" transform="rotate(-0 36.8298 54.128319)">PASS</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="53.691502" transform="rotate(-0 64.48428 53.691502)">No linear interpolation introduces future monthly information</text>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="57.853887" transform="rotate(-0 21.02724 57.853887)">A6</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="57.853887" transform="rotate(-0 36.8298 57.853887)">PASS</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="57.41707" transform="rotate(-0 64.48428 57.41707)">Climatology uses only data available by end of SCS training</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="61.579455" transform="rotate(-0 21.02724 61.579455)">A7</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="61.579455" transform="rotate(-0 36.8298 61.579455)">PASS</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="61.142638" transform="rotate(-0 64.48428 61.142638)">Normalization uses SCS training period only</text>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="65.305023" transform="rotate(-0 21.02724 65.305023)">A8</text>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="65.305023" transform="rotate(-0 36.8298 65.305023)">PASS</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="64.868206" transform="rotate(-0 64.48428 64.868206)">GBR data do not alter model weights</text>
+   </g>
+   <g id="text_34">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="21.02724" y="69.030591" transform="rotate(-0 21.02724 69.030591)">A9</text>
+   </g>
+   <g id="text_35">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.8298" y="69.030591" transform="rotate(-0 36.8298 69.030591)">PASS</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 5.4px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="64.48428" y="68.593774" transform="rotate(-0 64.48428 68.593774)">GBR data do not alter normalization</text>
+   </g>
+   <g id="text_37">
+    <text style="font-style: italic; font-size: 6px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="21.02724" y="75.860799" transform="rotate(-0 21.02724 75.860799)">All 12 audit checks PASS: no future-target leakage, no target-domain fitting, thresholds and normalization frozen a priori.</text>
+   </g>
+   <g id="text_38">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="7.2" y="17.130176" transform="rotate(-0 7.2 17.130176)">a</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="19.05192" y="13.024219" transform="rotate(-0 19.05192 13.024219)">Causality and leakage audit of the frozen evaluation protocol</text>
+   </g>
+  </g>
+ </g>
+</svg>

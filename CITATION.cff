@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the accompanying manuscript."
+title: "Thermal-stress anchoring reveals transferable and basin-specific coral thermal risk"
+abstract: >-
+  Reproduction package for a study of cross-basin transfer of coral
+  thermal-stress risk across the South China Sea, Great Barrier Reef and
+  Caribbean. Includes the frozen TSCF classifier, the TSAR anchored-residual
+  model, the PersA physical anchor, the six-direction zero-shot transfer
+  matrix, seed and prevalence-matched controls, matched-DHW conditional
+  analyses, an XGBoost architectural control, and independent GCBD
+  ecological validation.
+type: software
+authors:
+  - family-names: "Zeng"
+    given-names: "Bin"
+    orcid: "https://orcid.org/0009-0006-1165-2217"
+  - family-names: "Wang"
+    given-names: "Rui"
+    orcid: "https://orcid.org/0009-0009-5910-8415"
+  - family-names: "Li"
+    given-names: "Houpu"
+    orcid: "https://orcid.org/0009-0007-9500-7254"
+keywords:
+  - coral bleaching
+  - thermal stress
+  - degree heating weeks
+  - domain transfer
+  - ConvLSTM
+  - XGBoost
+  - calibration
+license: MIT

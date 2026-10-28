@@ -1,0 +1,129 @@
+{
+  "experiment": "step6_feature_ablation",
+  "dataset": {
+    "files": [
+      "scs_causal_v2.nc",
+      "gbr_causal_v2.nc"
+    ],
+    "dir": "D:\\piecf_crw_data"
+  },
+  "channel_order": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "chlorophyll",
+    "par",
+    "seasonal_sin",
+    "wind_speed",
+    "ssr",
+    "sst_anomaly",
+    "d_hotspot_dt",
+    "hotspot_cumsum_4w",
+    "hotspot_cumsum_12w",
+    "seasonal_cos"
+  ],
+  "groups": {
+    "A_instantaneous_thermal": [
+      "sst",
+      "ssta",
+      "hotspot",
+      "sst_anomaly",
+      "d_hotspot_dt"
+    ],
+    "B_short_cumulative": [
+      "hotspot_cumsum_4w"
+    ],
+    "C_long_cumulative": [
+      "hotspot_cumsum_12w"
+    ],
+    "D_other_environmental_calendar": [
+      "wind_speed",
+      "ssr",
+      "chlorophyll",
+      "par",
+      "seasonal_sin",
+      "seasonal_cos"
+    ],
+    "E_static_not_consumed": [
+      "bathymetry",
+      "dist_to_shore",
+      "cyclone_frequency",
+      "salinity",
+      "ocean_mask"
+    ]
+  },
+  "group_rationale": {
+    "A": "instantaneous thermal state/tendency (d_hotspot_dt = 1-week trailing HotSpot difference)",
+    "B": "short trailing cumulative HotSpot (4 weeks)",
+    "C": "long trailing cumulative HotSpot (12 weeks; CRW DHW is a 12-week accumulation of HotSpot>=1C)",
+    "D": "nonthermal environmental (wind_speed, ssr, chlorophyll, par) and calendar-phase (seasonal_sin/cos) channels",
+    "E": "static channels; FinalSingleHeadModel.forward_features consumes x_dynamic only (piecf_model.py:302-357) — zero contribution, not claimed"
+  },
+  "models": {
+    "FULL": {
+      "channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "hotspot_cumsum_4w",
+        "hotspot_cumsum_12w",
+        "seasonal_cos"
+      ],
+      "n_channels": 13
+    },
+    "NO_CUMSUM12": {
+      "channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "hotspot_cumsum_4w",
+        "seasonal_cos"
+      ],
+      "n_channels": 12
+    },
+    "NO_CUMULATIVE": {
+      "channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "seasonal_cos"
+      ],
+      "n_channels": 11
+    },
+    "THERMAL_ONLY": {
+      "channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "hotspot_cumsum_4w",
+        "hotspot_cumsum_12w"
+      ],
+      "n_channels": 7
+    }
+  },
+  "note": "cumulative HotSpot channels are scientifically legitimate thermal-stress predictors (NOAA CRW DHW definition); this experiment is attribution, NOT a leakage claim",
+  "timestamp": "2026-09-13T22:16:54.415915"
+}

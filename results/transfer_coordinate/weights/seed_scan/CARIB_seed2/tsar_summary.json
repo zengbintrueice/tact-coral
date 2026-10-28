@@ -1,0 +1,15 @@
+{
+  "source": "CARIB",
+  "seed": 2,
+  "epochs": 24,
+  "best_val": 1.0948819906140368,
+  "md5": "6c3affc09e1a4a1231a9014b6c0e1233",
+  "cfg": {
+    "gamma": 0.5,
+    "scale": 0.4,
+    "tau": 0.5,
+    "temp": 0.1,
+    "lambda_sev": 20
+  },
+  "timestamp": "2026-10-02T09:35:41.486848"
+}

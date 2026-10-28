@@ -1,0 +1,159 @@
+{
+  "experiment": "gcbd_validation_v2",
+  "description": "Leakage-free GCBD validation: distribution shift + AUROC + Precision@K + decile calibration",
+  "data_scope": "SCS test 2016-2019 + GCBD observations",
+  "self_contained": true,
+  "no_v1_dependency": true,
+  "n_matched": 1898,
+  "n_any_bleach": 530,
+  "n_severe_20": 78,
+  "n_severe_50": 22,
+  "random_baseline_bleach_rate": 0.2792413066385669,
+  "exp_8_1_distribution_shift": {
+    "mannwhitney_p_any": 0.015598668180065368,
+    "mannwhitney_u_stat": 385598.0,
+    "cliffs_delta_any": 0.06365993600353084,
+    "cliffs_delta_severe_20": 0.6942519019442096,
+    "mean_pred_background": 0.3356883064870946,
+    "mean_pred_bleached": 0.4144578131864656
+  },
+  "exp_8_2_auroc": {
+    "auroc_any_bleach": 0.5318299680017654,
+    "auroc_severe_20": 0.8471259509721049
+  },
+  "exp_8_3_precision_at_k": {
+    "5": {
+      "k_n": 94,
+      "precision": 0.8297872340425532,
+      "lift_vs_random": 2.9715776796467286
+    },
+    "10": {
+      "k_n": 189,
+      "precision": 0.6137566137566137,
+      "lift_vs_random": 2.1979434960567037
+    },
+    "20": {
+      "k_n": 379,
+      "precision": 0.5065963060686016,
+      "lift_vs_random": 1.814188280977747
+    }
+  },
+  "exp_8_4_decile_calibration": [
+    {
+      "decile": 1,
+      "n": 176,
+      "pred_mean": 0.2200542138042775,
+      "pred_range": [
+        0.20365658402442932,
+        0.23367072641849518
+      ],
+      "obs_rate": 0.5568181818181818,
+      "obs_severe_rate": 0.0
+    },
+    {
+      "decile": 2,
+      "n": 204,
+      "pred_mean": 0.24392232006671383,
+      "pred_range": [
+        0.23766714334487915,
+        0.24755339324474335
+      ],
+      "obs_rate": 0.17647058823529413,
+      "obs_severe_rate": 0.00980392156862745
+    },
+    {
+      "decile": 3,
+      "n": 170,
+      "pred_mean": 0.25233999508268695,
+      "pred_range": [
+        0.24854716658592224,
+        0.259604275226593
+      ],
+      "obs_rate": 0.2235294117647059,
+      "obs_severe_rate": 0.0
+    },
+    {
+      "decile": 4,
+      "n": 204,
+      "pred_mean": 0.28298593005713296,
+      "pred_range": [
+        0.2602333426475525,
+        0.31197118759155273
+      ],
+      "obs_rate": 0.24509803921568626,
+      "obs_severe_rate": 0.0196078431372549
+    },
+    {
+      "decile": 5,
+      "n": 170,
+      "pred_mean": 0.3241989191840677,
+      "pred_range": [
+        0.31441202759742737,
+        0.33385202288627625
+      ],
+      "obs_rate": 0.25882352941176473,
+      "obs_severe_rate": 0.011764705882352941
+    },
+    {
+      "decile": 6,
+      "n": 214,
+      "pred_mean": 0.34674739614825384,
+      "pred_range": [
+        0.33540865778923035,
+        0.35740146040916443
+      ],
+      "obs_rate": 0.12149532710280374,
+      "obs_severe_rate": 0.0
+    },
+    {
+      "decile": 7,
+      "n": 184,
+      "pred_mean": 0.38548901839100796,
+      "pred_range": [
+        0.36164707541465757,
+        0.39527350664138794
+      ],
+      "obs_rate": 0.14130434782608695,
+      "obs_severe_rate": 0.0
+    },
+    {
+      "decile": 8,
+      "n": 194,
+      "pred_mean": 0.39917791842185346,
+      "pred_range": [
+        0.39718449115753174,
+        0.40133002400398254
+      ],
+      "obs_rate": 0.10309278350515463,
+      "obs_severe_rate": 0.0
+    },
+    {
+      "decile": 9,
+      "n": 184,
+      "pred_mean": 0.40864948831174686,
+      "pred_range": [
+        0.40252044796943665,
+        0.41435934156179427
+      ],
+      "obs_rate": 0.41304347826086957,
+      "obs_severe_rate": 0.2391304347826087
+    },
+    {
+      "decile": 10,
+      "n": 198,
+      "pred_mean": 0.6913528282835026,
+      "pred_range": [
+        0.4201821178197861,
+        0.9805632829666138
+      ],
+      "obs_rate": 0.5858585858585859,
+      "obs_severe_rate": 0.13131313131313133
+    }
+  ],
+  "interpretation": {
+    "exp_8_1": "Predicted risk is significantly higher at bleached sites vs background (Mann-Whitney). Cliff's δ indicates effect size.",
+    "exp_8_2": "AUROC=0.532 measures binary discrimination (any bleaching > 0).",
+    "exp_8_3": "Precision@K shows operational value: enrichment above random baseline when selecting top-K% pixels.",
+    "exp_8_4": "Decile trend shows monotonicity (or lack thereof) between predicted risk and observed bleaching; isotonic smoothing is non-parametric."
+  }
+}

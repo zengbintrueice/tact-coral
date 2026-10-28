@@ -1,0 +1,22 @@
+{
+  "experiment": "physics_anchored_residual_head",
+  "device": "cuda",
+  "cfg": {
+    "gamma": 0.5,
+    "scale": 0.4,
+    "tau": 0.5,
+    "temp": 0.1,
+    "lambda_sev": 20
+  },
+  "model_file": "model_seed_42.pt",
+  "model_md5": "ae86e017bc5ba634b0c68e5d13b4f9f0",
+  "residual_head_params": 145,
+  "total_params": 41607,
+  "best_val": 0.4979989411981983,
+  "epochs_run": 43,
+  "seed": 42,
+  "protocol": "D1/a6: Adam 1e-3/wd1e-5, cosine 60ep, batch 32, patience 10, SCS train 2003-2010/val 2011-2015/test 2016-2019, lead 4wk, history 24wk",
+  "scale_selection": "SCS-val argmax CSI@0.9 (audit D-group; scale 0.4 selected)",
+  "leakage": "causal v2 inputs<=t; anchor=y(t); target y(t+4) loss-only; SCS-train normalization frozen",
+  "timestamp": "2026-09-28T06:41:05.404522"
+}

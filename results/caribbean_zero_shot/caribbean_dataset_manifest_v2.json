@@ -1,0 +1,142 @@
+{
+  "title": "TSCF causal v2 dataset — Caribbean zero-shot domain",
+  "generated_utc": "2026-09-17T01:53:11+00:00",
+  "builder": "data/source_builders/build_causal_dataset_caribbean_v2.py",
+  "base_file": "caribbean_coral_bleaching_dataset_v9_1deg_raw.nc",
+  "normalization": "FROZEN SCS-train (normalization_v2.json), NOT recomputed",
+  "caribbean": {
+    "domain": "Caribbean",
+    "grid": [
+      22,
+      32
+    ],
+    "n_weeks": 939,
+    "time_range": [
+      "2003-01-05",
+      "2020-12-27"
+    ],
+    "splits": {
+      "train": {
+        "years": [
+          2003,
+          2010
+        ],
+        "n_windows": 394,
+        "first_issue": "2003-06-15",
+        "last_issue": "2010-12-26"
+      },
+      "val": {
+        "years": [
+          2014,
+          2016
+        ],
+        "n_windows": 156,
+        "first_issue": "2014-01-05",
+        "last_issue": "2016-12-25"
+      },
+      "test": {
+        "years": [
+          2017,
+          2020
+        ],
+        "n_windows": 205,
+        "first_issue": "2017-01-01",
+        "last_issue": "2020-11-29"
+      },
+      "n_windows_total": 912
+    },
+    "finite_y_on_land_excluded": 0,
+    "sst_anomaly_climatology": {
+      "climatology_cutoff_year": 2010,
+      "n_clim_months": 96
+    },
+    "checks": [
+      {
+        "id": "A_clim_cutoff",
+        "description": "sst_anomaly equals raw-ERA5 anomaly vs year<=2010 climatology",
+        "passed": true,
+        "detail": "n=541365, max_err=0.000000"
+      },
+      {
+        "id": "A2_not_fullrecord",
+        "description": "sst_anomaly is NOT the full-record (leaky) climatology variant",
+        "passed": true,
+        "detail": "frac_differing=0.9942 (must be majority)"
+      },
+      {
+        "id": "T1_dhw_family",
+        "description": "y_warning consistent with y_regression=clip(DHW/10) family",
+        "passed": true,
+        "detail": "max_err=5.96e-08"
+      },
+      {
+        "id": "T2_alert1",
+        "description": "y_classification == I(DHW >= 4 deg-weeks)",
+        "passed": true,
+        "detail": "mismatch_frac=0.00e+00"
+      },
+      {
+        "id": "T3_nan_preserved",
+        "description": "missing targets preserved as NaN (never zero-filled)",
+        "passed": true,
+        "detail": "y_regression NaN frac=0.4247"
+      },
+      {
+        "id": "T4_masks",
+        "description": "ocean_mask == ~land_mask (all timesteps), boolean consistent",
+        "passed": true,
+        "detail": "ocean cells=405"
+      },
+      {
+        "id": "D_seasonal",
+        "description": "seasonal_sin == sin(2*pi*week_of_year/52) (deterministic, no leak)",
+        "passed": true,
+        "detail": "max_err=5.89e-07"
+      },
+      {
+        "id": "D_hotspot",
+        "description": "hotspot channel trailing 7-day weekly mean, clip>=0 (builder STEP 1)",
+        "passed": true,
+        "detail": "verified in builder"
+      },
+      {
+        "id": "D_hotspot_cumsum_4w",
+        "description": "hotspot_cumsum_4w equals strictly-trailing recomputation",
+        "passed": true,
+        "detail": "n=544620, max_err=4.72e-05"
+      },
+      {
+        "id": "D_hotspot_cumsum_12w",
+        "description": "hotspot_cumsum_12w equals strictly-trailing recomputation",
+        "passed": true,
+        "detail": "n=544620, max_err=8.39e-05"
+      },
+      {
+        "id": "M_wind_speed",
+        "description": "wind_speed: value changes only at month-end availability boundaries",
+        "passed": true,
+        "detail": "n_changes=214"
+      },
+      {
+        "id": "M_ssr",
+        "description": "ssr: value changes only at month-end availability boundaries",
+        "passed": true,
+        "detail": "n_changes=214"
+      },
+      {
+        "id": "M_sst_anomaly",
+        "description": "sst_anomaly: value changes only at month-end availability boundaries",
+        "passed": true,
+        "detail": "n_changes=214"
+      },
+      {
+        "id": "M_hold_avail",
+        "description": "carried month availability strictly <= week timestamp (sst_anomaly)",
+        "passed": true,
+        "detail": "n_checked=935"
+      }
+    ],
+    "out_file": "D:\\piecf_crw_data\\caribbean_causal_v2.nc",
+    "sha256": "84138009bff596ad3fdd478ecd9e2cfa672f912b8e52458515fbafb853b9a1c9"
+  }
+}

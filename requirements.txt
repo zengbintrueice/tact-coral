@@ -1,0 +1,13 @@
+torch==2.6.0
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.9.0
+xgboost==3.2.0
+scipy==1.17.1
+matplotlib==3.11.0
+xarray==2026.4.0
+netCDF4==1.7.4
+joblib==1.5.3
+Pillow==12.2.0
+cdsapi==0.7.7
+openpyxl==3.1.5

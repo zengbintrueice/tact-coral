@@ -1,0 +1,58 @@
+{
+  "frozen_config": {
+    "scale": 0.4,
+    "tau": 0.5,
+    "temp": 0.1,
+    "threshold": 0.9,
+    "seed": 42,
+    "n_boot": 1000
+  },
+  "record_set": "ocean-masked shared: finite y(t+4) & ~land_mask & all 4 models finite",
+  "models": {
+    "A_PersA": "PersA(t)=y_regression(t)",
+    "B_ungated": "PersA + tanh(R(attn))*0.4",
+    "C_anchored": "PersA + sigmoid((y_main-0.5)/0.1)*tanh(R(attn))*0.4",
+    "D_TSCF": "frozen single-head TSCF"
+  },
+  "domains": {
+    "SCS": {
+      "n": 49322,
+      "n_severe": 419,
+      "prevalence": 0.008495194842058311,
+      "grid": [
+        21,
+        23
+      ],
+      "test_years": [
+        2016,
+        2019
+      ]
+    },
+    "GBR": {
+      "n": 19065,
+      "n_severe": 676,
+      "prevalence": 0.03545764489902964,
+      "grid": [
+        15,
+        12
+      ],
+      "test_years": [
+        2017,
+        2020
+      ]
+    },
+    "CARIB": {
+      "n": 83025,
+      "n_severe": 1356,
+      "prevalence": 0.016332429990966575,
+      "grid": [
+        22,
+        32
+      ],
+      "test_years": [
+        2017,
+        2020
+      ]
+    }
+  }
+}

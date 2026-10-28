@@ -1,0 +1,103 @@
+{
+  "experiment": "target_domain_score_recalibration",
+  "description": "Compare baseline vs threshold adaptation vs isotonic calibration on GBR",
+  "configuration": {
+    "model": "a7 (SCS-trained, frozen)",
+    "lead_weeks": 4,
+    "severe_threshold": 0.8,
+    "tau_scs": 0.9,
+    "tau_gbr": 0.68,
+    "tau_cal": 0.14
+  },
+  "data_stats": {
+    "gbr_val": {
+      "n_pixels": 15444,
+      "severe_count": 209,
+      "severe_rate": 0.013533,
+      "isotonic_reliable": true
+    },
+    "gbr_test": {
+      "n_pixels": 20295
+    }
+  },
+  "data_quality_note": {
+    "gbr_val_severe_events": 209,
+    "min_required_for_isotonic": 50,
+    "method_b_included": true,
+    "warning": null
+  },
+  "results": {
+    "Baseline (raw, τ=0.9)": {
+      "threshold_used": 0.9,
+      "description": "Raw zero-shot with SCS optimal threshold",
+      "csi": 0.34785714285714286,
+      "pod": 0.6680384087791496,
+      "far": 0.5794473229706391,
+      "f1": 0.516163222045575,
+      "hits": 487,
+      "misses": 242,
+      "false_alarms": 671,
+      "correct_negatives": 18895,
+      "n_total": 20295
+    },
+    "Method A (threshold adapted)": {
+      "threshold_used": 0.68,
+      "description": "GBR threshold calibration (τ_GBR=0.680)",
+      "csi": 0.3267429760665973,
+      "pod": 0.8614540466392319,
+      "far": 0.6551345414607359,
+      "f1": 0.49254901960784314,
+      "hits": 628,
+      "misses": 101,
+      "false_alarms": 1193,
+      "correct_negatives": 18373,
+      "n_total": 20295
+    },
+    "Method B (isotonic calibrated)": {
+      "threshold_used": 0.14,
+      "description": "GBR isotonic calibration (τ_cal=0.140)",
+      "csi": 0.33098591549295775,
+      "pod": 0.8381344307270233,
+      "far": 0.6464120370370371,
+      "f1": 0.4973544973544973,
+      "hits": 611,
+      "misses": 118,
+      "false_alarms": 1117,
+      "correct_negatives": 18449,
+      "n_total": 20295
+    }
+  },
+  "comparison_table": {
+    "columns": [
+      "Method",
+      "Threshold",
+      "CSI",
+      "POD",
+      "FAR"
+    ],
+    "rows": [
+      [
+        "Baseline (raw, τ=0.9)",
+        "0.900",
+        "0.3479",
+        "0.6680",
+        "0.5794"
+      ],
+      [
+        "Method A (threshold adapted)",
+        "0.680",
+        "0.3267",
+        "0.8615",
+        "0.6551"
+      ],
+      [
+        "Method B (isotonic calibrated)",
+        "0.140",
+        "0.3310",
+        "0.8381",
+        "0.6464"
+      ]
+    ]
+  },
+  "timestamp": "2026-09-12T05:24:48.684731"
+}

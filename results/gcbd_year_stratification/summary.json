@@ -1,0 +1,119 @@
+{
+  "experiment": "gcbd_year_stratification",
+  "generated": "2026-10-18T19:08:55.751320",
+  "cohort": {
+    "n": 1898,
+    "any": 530,
+    "severe": 78
+  },
+  "protocol": {
+    "bootstrap": "site-cluster 1000 seed 42",
+    "strata": "per target year + leave-one-year-out"
+  },
+  "strata": [
+    {
+      "stratum": "all_2016_2019",
+      "n": 1898,
+      "n_severe": 78,
+      "n_background": 1368,
+      "auroc_sev_vs_bg": 0.876330784225521,
+      "ci_lo": 0.8084532722731798,
+      "ci_hi": 0.9336351726956879,
+      "n_boot_valid": 1000
+    },
+    {
+      "stratum": "year_2016",
+      "n": 528,
+      "n_severe": 36,
+      "n_background": 392,
+      "auroc_sev_vs_bg": 0.9409013605442177,
+      "ci_lo": 0.8225526098858797,
+      "ci_hi": 0.9962731386260798,
+      "n_boot_valid": 1000
+    },
+    {
+      "stratum": "year_2017",
+      "n": 594,
+      "n_severe": 2,
+      "n_background": 408,
+      "auroc_sev_vs_bg": 0.9509803921568628,
+      "ci_lo": 0.918055280364573,
+      "ci_hi": 0.9766022491538379,
+      "n_boot_valid": 627
+    },
+    {
+      "stratum": "year_2018",
+      "n": 432,
+      "n_severe": 2,
+      "n_background": 372,
+      "auroc_sev_vs_bg": 0.1908602150537635,
+      "ci_lo": 0.11811058545239501,
+      "ci_hi": 0.2642896627971254,
+      "n_boot_valid": 613
+    },
+    {
+      "stratum": "year_2019",
+      "n": 344,
+      "n_severe": 38,
+      "n_background": 196,
+      "auroc_sev_vs_bg": 0.8748657357679914,
+      "ci_lo": 0.7753235534287207,
+      "ci_hi": 0.948138977733437,
+      "n_boot_valid": 1000
+    },
+    {
+      "stratum": "leave_out_2016",
+      "n": 1370,
+      "n_severe": 42,
+      "n_background": 976,
+      "auroc_sev_vs_bg": 0.8142564402810304,
+      "ci_lo": 0.7070655742853658,
+      "ci_hi": 0.8973264337082796,
+      "n_boot_valid": 1000
+    },
+    {
+      "stratum": "leave_out_2017",
+      "n": 1304,
+      "n_severe": 76,
+      "n_background": 960,
+      "auroc_sev_vs_bg": 0.8850877192982456,
+      "ci_lo": 0.8070219665754381,
+      "ci_hi": 0.9429748779043955,
+      "n_boot_valid": 1000
+    },
+    {
+      "stratum": "leave_out_2018",
+      "n": 1466,
+      "n_severe": 76,
+      "n_background": 996,
+      "auroc_sev_vs_bg": 0.8979338406256606,
+      "ci_lo": 0.8346712048881817,
+      "ci_hi": 0.946778128448108,
+      "n_boot_valid": 1000
+    },
+    {
+      "stratum": "leave_out_2019",
+      "n": 1554,
+      "n_severe": 40,
+      "n_background": 1172,
+      "auroc_sev_vs_bg": 0.8917235494880545,
+      "ci_lo": 0.7842178508188393,
+      "ci_hi": 0.9757641444902833,
+      "n_boot_valid": 1000
+    }
+  ],
+  "quintile_rr": [
+    {
+      "stratum": "year_2016",
+      "p_top": 0.4146341463414634,
+      "p_bot": 0.01818181818181818,
+      "rr": 22.804878048780488
+    },
+    {
+      "stratum": "year_2019",
+      "p_top": 0.03225806451612903,
+      "p_bot": 0.0,
+      "rr": NaN
+    }
+  ]
+}

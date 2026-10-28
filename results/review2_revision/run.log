@@ -1,0 +1,61 @@
+==================================================================
+Reviewer Round-2 revision evidence — 2026-09-28 20:09:44
+==================================================================
+Device: cuda
+TSCF ckpt md5 7cdbca26cae03fa53be53210940e8ce1 (expected 7cdbca26cae03fa53be53210940e8ce1)
+TSAR ckpt md5 ae86e017bc5ba634b0c68e5d13b4f9f0 (expected ae86e017bc5ba634b0c68e5d13b4f9f0)
+
+[P0-1] GCBD model-wise enrichment (record set = step9) ...
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  [TSCF] n=1898 any=530 sev=78 bg=1368 AUROC(sb)=0.8763 RR=35.19 δ=0.753
+  [PersA] n=1444 any=432 sev=28 bg=1012 AUROC(sb)=0.8281 RR=8.25 δ=0.656
+  [TSAR] n=1444 any=432 sev=28 bg=1012 AUROC(sb)=0.8139 RR=nan δ=0.628
+
+[P0-4 / P1-7] structural-ablation CIs (rec_structural_ablation.npz) ...
+
+  [SCS] n=49322
+    A_PersA    ROC 0.9817 [0.9752,0.9879]  PR 0.3177 [0.2166,0.4403]  CSI 0.1571 [0.0817,0.2410]
+    B_ungated  ROC 0.9798 [0.9715,0.9866]  PR 0.3437 [0.2382,0.4812]  CSI 0.2385 [0.1590,0.3234]
+    C_anchored ROC 0.9808 [0.9738,0.9881]  PR 0.3036 [0.2135,0.4132]  CSI 0.1977 [0.1231,0.2830]
+    D_TSCF     ROC 0.9865 [0.9784,0.9921]  PR 0.5463 [0.4080,0.6378]  CSI 0.3374 [0.2585,0.3994]
+
+  [GBR] n=19065
+    A_PersA    ROC 0.9593 [0.9350,0.9805]  PR 0.4164 [0.2204,0.6235]  CSI 0.2494 [0.0968,0.3970]
+    B_ungated  ROC 0.9564 [0.9314,0.9787]  PR 0.3657 [0.1980,0.5896]  CSI 0.2835 [0.1630,0.4124]
+    C_anchored ROC 0.9599 [0.9359,0.9811]  PR 0.4877 [0.2569,0.6733]  CSI 0.2541 [0.0988,0.4012]
+    D_TSCF     ROC 0.9624 [0.9490,0.9749]  PR 0.5543 [0.4159,0.6423]  CSI 0.3648 [0.2753,0.4347]
+
+  [CARIB] n=83025
+    A_PersA    ROC 0.9792 [0.9712,0.9867]  PR 0.4602 [0.3165,0.5982]  CSI 0.2807 [0.1935,0.3827]
+    B_ungated  ROC 0.9714 [0.9605,0.9823]  PR 0.3885 [0.2742,0.5171]  CSI 0.2407 [0.1715,0.3193]
+    C_anchored ROC 0.9822 [0.9756,0.9885]  PR 0.5479 [0.3958,0.6758]  CSI 0.3041 [0.2138,0.4044]
+    D_TSCF     ROC 0.6101 [0.5772,0.6430]  PR 0.0321 [0.0218,0.0448]  CSI 0.0262 [0.0164,0.0357]
+    C_anchored_-_A_PersA: ΔROC +0.0030 [+0.0013,+0.0046]  ΔPR [+0.0569,+0.1135]  ΔCSI [+0.0092,+0.0377]
+    B_ungated_-_A_PersA: ΔROC +0.0108 [-0.0117,-0.0041]  ΔPR [-0.0988,-0.0356]  ΔCSI [-0.1291,+0.0438]
+  [P1-7] CARIB C-A spatial-cluster (grid-cell, 405 cells) ΔROC +0.0030 [+0.0023,+0.0037]  ΔPR [+0.0734,+0.1015]  ΔCSI [+0.0172,+0.0292]
+
+[P1-6] CARIB environment-channel spatial permutation (Step-8/S5 protocol) ...
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=205
+  Window indices: 205 windows for test
+  Loaded 205 samples: X_dynamic=(205, 24, 22, 32, 13), X_static=(205, 22, 32, 5)
+  Label coverage: 83025/144320 (57.53%)
+  CARIB baseline (FULL_FROZEN): n=83025 ROC 0.6101 PR 0.0321 CSI 0.0262
+  perm 20/100
+  perm 40/100
+  perm 60/100
+  perm 80/100
+  perm 100/100
+  CARIB env-perm ΔROC -0.0530 [-0.0870,-0.0168]; ΔPR -0.0031 [-0.0084,+0.0010]; ΔCSI@0.9 +0.0101 [+0.0024,+0.0164]
+
+Done. Outputs -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\review2_revision

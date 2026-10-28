@@ -1,0 +1,9 @@
+region,method,roc_auc,pr_auc,n,n_severe
+south (train-visible),PersA,0.9719,0.2991,26754,350
+south (train-visible),spatial_TSCF,0.9832,0.5748,26754,350
+south (train-visible),frozen_TSCF,0.9846,0.6117,26754,350
+south (train-visible),TSAR,0.9702,0.2956,26754,350
+north (held-out),PersA,0.9926,0.4203,22568,69
+north (held-out),spatial_TSCF,0.9932,0.519,22568,69
+north (held-out),frozen_TSCF,0.9895,0.2338,22568,69
+north (held-out),TSAR,0.9922,0.4078,22568,69

@@ -1,0 +1,37 @@
+{
+  "experiment": "counterfactual_thermal_response_surface",
+  "generated": "2026-09-30T18:03:17.505898",
+  "device": "cuda",
+  "frozen": {
+    "records_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+    "tsar_md5": "ae86e017bc5ba634b0c68e5d13b4f9f0"
+  },
+  "grid": {
+    "d_max_common": 8.640168064832691,
+    "n_d": 25,
+    "delta_levels": [
+      -4.0,
+      -3.0,
+      -2.0,
+      -1.0,
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0
+    ]
+  },
+  "support": {
+    "dhw_tol": 0.5,
+    "delta_tol": 1.0,
+    "min_support": 100,
+    "max_per_cell": 256
+  },
+  "intervention": "anchor'=clip(d/10); HotSpot window scaled by anchor'/max(a,0.02); +δ/28 per week on last 4 weeks; cumsum_4/12 shifted by +4Δh; d_hotspot_dt recomputed; sst/ssta/nonthermal unchanged",
+  "cells_evaluated": {
+    "SCS": 128,
+    "GBR": 81,
+    "CARIB": 175
+  },
+  "interpretation": "counterfactual MODEL RESPONSE / associative evidence; NOT a causal effect"
+}

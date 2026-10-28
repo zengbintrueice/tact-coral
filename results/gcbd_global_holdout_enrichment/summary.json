@@ -1,0 +1,206 @@
+{
+ "experiment": "gcbd_global_holdout_enrichment",
+ "generated": "2026-10-18T19:22:32.555191",
+ "tscf_md5": "7cdbca26cae03fa53be53210940e8ce1",
+ "tsar_md5": "ae86e017bc5ba634b0c68e5d13b4f9f0",
+ "gcbd_sources": {
+  "SCS_val2011_2015": "china_bco_dmo_bleaching.csv",
+  "CARIB_2015_2016": "gcbd_global_bleaching_environmental.csv"
+ },
+ "gbr_coverage_gap": "global GCBD has no GBR observations after 2014 (box-verified); GBR zero-shot enrichment window not feasible",
+ "n_boot": 1000,
+ "seed": 42,
+ "min_severe": 10,
+ "matching": "verbatim obs-4wk +/-4wk 0.5deg, issue-year filter per window",
+ "interpretation": "ranking enrichment of a thermal-risk coordinate; NOT biological prediction",
+ "windows": {
+  "SCS_val2011_2015": {
+   "_union_cohort": {
+    "definition": "matched observations with >=1 of TSCF/PersA/TSAR finite",
+    "n": 1993,
+    "n_any": 582,
+    "n_severe": 38,
+    "n_background": 1411
+   },
+   "_matched_all": {
+    "definition": "all window-matched observations with a valid Percent_Bleaching (score coverage NOT required)",
+    "n": 1993,
+    "n_any": 582,
+    "n_severe": 38,
+    "n_background": 1411
+   },
+   "TSCF": {
+    "n": 1993,
+    "n_severe": 38,
+    "n_background": 1411,
+    "auroc_sev_vs_bg": 0.3166100936252751,
+    "cliffs_delta": -0.3667798127494498,
+    "mw_p": 0.9999440966570959,
+    "rr_q5q1": 0.507537688442211,
+    "auroc_ci": [
+     0.17173631072909085,
+     0.49536946728749276
+    ],
+    "auroc_ci_naive": [
+     0.2091687966413349,
+     0.43176209063590043
+    ],
+    "cd_ci": [
+     -0.6565273785418183,
+     -0.009261065425014385
+    ],
+    "rr_ci": [
+     0.09440870098039215,
+     2.382063466494844
+    ],
+    "interpretation": "interpretable"
+   },
+   "PersA": {
+    "n": 1429,
+    "n_severe": 38,
+    "n_background": 955,
+    "auroc_sev_vs_bg": 0.6195095067511711,
+    "cliffs_delta": 0.23901901350234223,
+    "mw_p": 0.005170285605872893,
+    "rr_q5q1": 2.115621156211562,
+    "auroc_ci": [
+     0.476377610306097,
+     0.7541576917488376
+    ],
+    "auroc_ci_naive": [
+     0.522037102649708,
+     0.710140082372841
+    ],
+    "cd_ci": [
+     -0.047244779387805996,
+     0.5083153834976752
+    ],
+    "rr_ci": [
+     0.5175117370892018,
+     13.454580414441779
+    ],
+    "interpretation": "interpretable"
+   },
+   "TSAR": {
+    "n": 1429,
+    "n_severe": 38,
+    "n_background": 955,
+    "auroc_sev_vs_bg": 0.6140534582529622,
+    "cliffs_delta": 0.2281069165059244,
+    "mw_p": 0.00849032952103009,
+    "rr_q5q1": 3.4163701067615664,
+    "auroc_ci": [
+     0.46013451701750935,
+     0.7588392871938325
+    ],
+    "auroc_ci_naive": [
+     0.5146858160174588,
+     0.7130834527580832
+    ],
+    "cd_ci": [
+     -0.07973096596498133,
+     0.5176785743876648
+    ],
+    "rr_ci": [
+     0.4216755793226382,
+     10.810714285714276
+    ],
+    "interpretation": "interpretable"
+   }
+  },
+  "CARIB_2015_2016": {
+   "_union_cohort": {
+    "definition": "matched observations with >=1 of TSCF/PersA/TSAR finite",
+    "n": 388,
+    "n_any": 358,
+    "n_severe": 188,
+    "n_background": 30
+   },
+   "_matched_all": {
+    "definition": "all window-matched observations with a valid Percent_Bleaching (score coverage NOT required)",
+    "n": 388,
+    "n_any": 358,
+    "n_severe": 188,
+    "n_background": 30
+   },
+   "TSCF": {
+    "n": 388,
+    "n_severe": 188,
+    "n_background": 30,
+    "auroc_sev_vs_bg": 0.7727836879432624,
+    "cliffs_delta": 0.5455673758865249,
+    "mw_p": 7.940822346431797e-07,
+    "rr_q5q1": 1.2301038062283736,
+    "auroc_ci": [
+     0.6109663673020528,
+     0.8889166841840497
+    ],
+    "auroc_ci_naive": [
+     0.6412484176167861,
+     0.8922392869045787
+    ],
+    "cd_ci": [
+     0.22193273460410554,
+     0.7778333683680995
+    ],
+    "rr_ci": [
+     0.9221929824561405,
+     1.937037819069069
+    ],
+    "interpretation": "interpretable"
+   },
+   "PersA": {
+    "n": 264,
+    "n_severe": 119,
+    "n_background": 26,
+    "auroc_sev_vs_bg": 0.9153199741435036,
+    "cliffs_delta": 0.830639948287007,
+    "mw_p": 1.4766075954301707e-11,
+    "rr_q5q1": 5.428571428571429,
+    "auroc_ci": [
+     0.8055399576822916,
+     0.9774499999999999
+    ],
+    "auroc_ci_naive": [
+     0.8236485043971675,
+     0.9784662575736925
+    ],
+    "cd_ci": [
+     0.6110799153645834,
+     0.9549
+    ],
+    "rr_ci": [
+     2.8327964959568734,
+     13.949564586357049
+    ],
+    "interpretation": "interpretable"
+   },
+   "TSAR": {
+    "n": 264,
+    "n_severe": 119,
+    "n_background": 26,
+    "auroc_sev_vs_bg": 0.9138655462184874,
+    "cliffs_delta": 0.8277310924369747,
+    "mw_p": 1.8299646351399837e-11,
+    "rr_q5q1": 5.137755102040816,
+    "auroc_ci": [
+     0.8075010885799632,
+     0.9756493309002434
+    ],
+    "auroc_ci_naive": [
+     0.8219668881612738,
+     0.9770996404310915
+    ],
+    "cd_ci": [
+     0.6150021771599263,
+     0.9512986618004866
+    ],
+    "rr_ci": [
+     2.6938858695652175,
+     42.89657142857139
+    ],
+    "interpretation": "interpretable"
+   }
+  }
+ }
+}

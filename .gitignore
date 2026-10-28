@@ -1,0 +1,51 @@
+# ---- Python -------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- OS / editors -------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ---- Office lock files --------------------------------------------------
+~$*
+
+# ---- Transient files ----------------------------------------------------
+# NOTE: run logs under results/ and experiments/ ARE shipped evidence and are
+# listed in MANIFEST.sha256, so only package-root transient logs are ignored.
+/*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# ---- Built archive at the package root (rebuild, never commit) ----------
+/zenodo_release.zip
+/*.zip
+
+# ---- Local virtual environments ----------------------------------------
+.venv/
+venv/
+piecf_env/
+
+# ---- Claude Code / assistant artefacts ---------------------------------
+.claude/
+CLAUDE.md
+
+# ---- Stale supplementary artefacts (superseded by results/figures/ and doc/) --
+results/figures/supplementary/SX_*
+results/figures/supplementary/Supplementary_Information.pdf
+results/figures/supplementary/Supplementary_Table_*.xlsx
+
+# ---- Compiled manuscript artefacts --------------------------------------
+# Markdown is the source of truth. The DOCX/PDF are rebuilt with pandoc and
+# ship in the archived release (zenodo_release.zip); the git tree carries
+# only the markdown sources plus the pandoc reference template.
+doc/*.docx
+doc/*.pdf
+!doc/nc_reference.docx

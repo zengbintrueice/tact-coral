@@ -1,0 +1,76 @@
+{
+  "experiment": "dhw_conditioned_susceptibility",
+  "generated": "2026-09-30T19:58:25.210346",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "protocol": {
+    "bin_width": 0.5,
+    "min_bin_n": 40,
+    "common_bins": [
+      0.25,
+      0.75,
+      1.25,
+      1.75,
+      2.25,
+      2.75,
+      3.25,
+      3.75,
+      4.25,
+      4.75,
+      5.25,
+      5.75,
+      6.25,
+      6.75,
+      7.25,
+      7.75,
+      8.25,
+      8.75,
+      9.25,
+      9.75
+    ],
+    "bootstrap": {
+      "type": "week-block per basin",
+      "n": 1000,
+      "seed": 42
+    },
+    "aggregation": "training-free mean percentile rank (DHW, R)",
+    "interpretation": "associative / conditional-risk only"
+  },
+  "verdicts": {
+    "basin_specific_susceptibility_matcheddhw": {
+      "n_common_bins": 20,
+      "n_bins_CARIB_GBR_RD_CI_excl0": 0,
+      "established": false
+    },
+    "R_separates_susceptibility_within_dhw": {
+      "SCS": {
+        "point": 0.0019233610471581558,
+        "ci": [
+          -0.002009223972296416,
+          0.004974288291212504
+        ],
+        "established": false
+      },
+      "GBR": {
+        "point": 0.04658778794623967,
+        "ci": [
+          0.02661864936600847,
+          0.06417630669161907
+        ],
+        "established": true
+      },
+      "CARIB": {
+        "point": 0.02315148798312451,
+        "ci": [
+          0.01508854244115602,
+          0.030437219597681163
+        ],
+        "established": true
+      }
+    },
+    "GBR_CARIB_consistent_residual_pattern": {
+      "GBR_point": 0.04658778794623967,
+      "CARIB_point": 0.02315148798312451,
+      "sign_consistent": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+==================================================================
+DHW-conditioned basin susceptibility — 2026-09-30 19:49:34
+==================================================================
+frozen records OK (4035a19fd30fa4d14151f4c8055dfe59)
+[SCS] n=49322 DHW range [0.00, 10.00]
+[GBR] n=19065 DHW range [0.00, 10.00]
+[CARIB] n=83025 DHW range [0.00, 10.00]
+common supported bins (≥40 each): ['0.25', '0.75', '1.25', '1.75', '2.25', '2.75', '3.25', '3.75', '4.25', '4.75', '5.25', '5.75', '6.25', '6.75', '7.25', '7.75', '8.25', '8.75', '9.25', '9.75']
+[SCS] pooled conditional effect (Q3−Q1 | DHW bin) = +0.0019 [-0.0020, +0.0050] over 20 bins
+[GBR] pooled conditional effect (Q3−Q1 | DHW bin) = +0.0466 [+0.0266, +0.0642] over 20 bins
+[CARIB] pooled conditional effect (Q3−Q1 | DHW bin) = +0.0232 [+0.0151, +0.0304] over 20 bins
+[SCS] A(DHW) ROC 0.9800 PR 0.2351 | B(DHW+R) ROC 0.9690 PR 0.1546 | ΔROC -0.0110 [-0.0174,-0.0039]
+[GBR] A(DHW) ROC 0.9533 PR 0.2822 | B(DHW+R) ROC 0.9596 PR 0.3928 | ΔROC +0.0063 [-0.0032,+0.0155]
+[CARIB] A(DHW) ROC 0.9749 PR 0.3111 | B(DHW+R) ROC 0.9690 PR 0.5065 | ΔROC -0.0059 [-0.0173,+0.0032]
+
+Outputs -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\dhw_conditioned_susceptibility
+Done.

@@ -1,0 +1,53 @@
+{
+  "protocol": "step6_feature_ablation (mechanistic contribution experiment; Step 4 remains the formal frozen zero-shot result, Step 5 the temporal-purge robustness result)",
+  "data": {
+    "files": [
+      "scs_causal_v2.nc",
+      "gbr_causal_v2.nc"
+    ],
+    "dir": "D:\\piecf_crw_data"
+  },
+  "training": {
+    "entry_point_recipe": "experiments/01_training/train_severe_classifier.py (D1)",
+    "models_trained": [
+      "FULL",
+      "NO_CUMSUM12",
+      "NO_CUMULATIVE",
+      "THERMAL_ONLY"
+    ],
+    "dataset_file": "scs_causal_v2.nc",
+    "splits": {
+      "train": "2003-2010",
+      "val": "2011-2015 (early-stop/selection)",
+      "test": "2016-2019"
+    },
+    "architecture": "FinalSingleHeadModel (dynamic_channels per model)",
+    "loss": "weighted BCE pos_weight=1000 (fixed) on y_sev=(y_lead>=0.8)",
+    "optimizer": "Adam lr=1e-3, weight_decay=1e-5, cosine T_max=60 -> 1e-5",
+    "epochs": 60,
+    "batch": 32,
+    "early_stop_patience": 10,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "normalization": "SCS_CHANNEL_MEAN/STD (SCS train 2003-2010 only, frozen in src/configs/config.py), subset per model to retained channels in dataset order",
+    "note": "the deployed FULL_FROZEN checkpoint was trained on the pre-causal v9 file; all four Step-6 models (incl. FULL) are trained on causal v2 for strict comparability; FULL_FROZEN is an external anchor only"
+  },
+  "evaluation": {
+    "population": "Step-4 common (t,i,j) indices from step2_persistence_v2/persistence_raw_predictions.npz — identical samples/masks for all models and baselines",
+    "periods": {
+      "SCS": "2016-2019",
+      "GBR": "2017-2020 formal zero-shot"
+    },
+    "tau": "0.8 / 0.9 pinned a priori; sweep diagnostic only",
+    "severe": "y >= 0.8",
+    "lead_weeks": 4,
+    "history_weeks": 24,
+    "bootstrap": {
+      "type": "week-level temporal block (paired across models)",
+      "n_boot": 1000,
+      "seed": 42
+    }
+  },
+  "terminology": "cumulative HotSpot channels are legitimate thermal-stress predictors (NOAA CRW DHW = 12-week accumulation of HotSpot>=1C); attribution experiment, NOT a leakage/shortcut claim",
+  "generated": "2026-09-17T18:42:57.557913"
+}

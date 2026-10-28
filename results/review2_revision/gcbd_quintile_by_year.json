@@ -1,0 +1,85 @@
+{
+  "cohort": {
+    "n": 1898,
+    "severe": 78
+  },
+  "by_year": [
+    {
+      "group": "year 2016",
+      "n": 536,
+      "n_severe": 36,
+      "n_severe_Q5": 34,
+      "n_severe_Q1": 2,
+      "q1_severe_rate": 0.01818181818181818,
+      "q5_severe_rate": 0.4146341463414634,
+      "rr": 22.804878048780488,
+      "rr_status": "ok"
+    },
+    {
+      "group": "year 2017",
+      "n": 586,
+      "n_severe": 2,
+      "n_severe_Q5": 2,
+      "n_severe_Q1": 0,
+      "q1_severe_rate": 0.0,
+      "q5_severe_rate": 0.01818181818181818,
+      "rr": null,
+      "rr_status": "undefined (zero severe in a boundary quintile)"
+    },
+    {
+      "group": "year 2018",
+      "n": 436,
+      "n_severe": 2,
+      "n_severe_Q5": 0,
+      "n_severe_Q1": 2,
+      "q1_severe_rate": 0.022727272727272728,
+      "q5_severe_rate": 0.0,
+      "rr": 0.0,
+      "rr_status": "ok"
+    },
+    {
+      "group": "year 2019",
+      "n": 340,
+      "n_severe": 38,
+      "n_severe_Q5": 2,
+      "n_severe_Q1": 2,
+      "q1_severe_rate": 0.025,
+      "q5_severe_rate": 0.03225806451612903,
+      "rr": 1.2903225806451613,
+      "rr_status": "ok"
+    },
+    {
+      "group": "2016+2019 (high-stress years)",
+      "n": 876,
+      "n_severe": 74,
+      "n_severe_Q5": 64,
+      "n_severe_Q1": 2,
+      "q1_severe_rate": 0.011111111111111112,
+      "q5_severe_rate": 0.367816091954023,
+      "rr": 33.103448275862064,
+      "rr_status": "ok"
+    },
+    {
+      "group": "2017+2018 (low-stress years)",
+      "n": 1022,
+      "n_severe": 4,
+      "n_severe_Q5": 2,
+      "n_severe_Q1": 0,
+      "q1_severe_rate": 0.0,
+      "q5_severe_rate": 0.010101010101010102,
+      "rr": null,
+      "rr_status": "undefined (zero severe in a boundary quintile)"
+    },
+    {
+      "group": "all years (R5 cohort)",
+      "n": 1898,
+      "n_severe": 78,
+      "n_severe_Q5": 70,
+      "n_severe_Q1": 2,
+      "q1_severe_rate": 0.005263157894736842,
+      "q5_severe_rate": 0.18518518518518517,
+      "rr": 35.18518518518518,
+      "rr_status": "ok"
+    }
+  ]
+}

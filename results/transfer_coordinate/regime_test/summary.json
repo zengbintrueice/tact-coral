@@ -1,0 +1,167 @@
+{
+  "experiment": "regime_confound_test",
+  "generated": "2026-10-02T18:17:29.191707",
+  "device": "cuda",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "protocol": {
+    "stratification": "per target year",
+    "prevalence_matching": "background downsampling to p*, 100 reps, seed 42",
+    "no_retraining": true
+  },
+  "verdicts": {
+    "V1_mass_bleaching_years": {
+      "SCS_TSCF": {
+        "roc_2016": 0.985555414117005,
+        "roc_2019": 0.9530634472710813,
+        "holds_ge_090": true
+      },
+      "SCS_TSAR": {
+        "roc_2016": 0.9616685297138049,
+        "roc_2019": 0.9861131739195009,
+        "holds_ge_090": true
+      },
+      "GBR_TSCF": {
+        "roc_2016": 0.7245480748474261,
+        "roc_2019": 0.4851088809205547,
+        "holds_ge_090": false
+      },
+      "GBR_TSAR": {
+        "roc_2016": 0.9627972557211314,
+        "roc_2019": 0.983846442185964,
+        "holds_ge_090": true
+      },
+      "CARIB_TSCF": {
+        "roc_2016": 0.9713832713438307,
+        "roc_2019": 0.9745602681886657,
+        "holds_ge_090": true
+      },
+      "CARIB_TSAR": {
+        "roc_2016": 0.9641803392531164,
+        "roc_2019": 0.9839772831752633,
+        "holds_ge_090": true
+      }
+    },
+    "V2_prevalence_matched_ordering": {
+      "SCS": {
+        "carib_best_at_every_p_star": false
+      },
+      "GBR": {
+        "carib_best_at_every_p_star": false
+      },
+      "CARIB": {
+        "carib_best_at_every_p_star": true
+      }
+    },
+    "V3_gradient": [
+      {
+        "source": "SCS",
+        "model": "TSCF",
+        "target": "SCS",
+        "spearman_roc_vs_prev": -0.6000000000000001
+      },
+      {
+        "source": "SCS",
+        "model": "TSAR",
+        "target": "SCS",
+        "spearman_roc_vs_prev": -1.0
+      },
+      {
+        "source": "SCS",
+        "model": "TSCF",
+        "target": "GBR",
+        "spearman_roc_vs_prev": NaN
+      },
+      {
+        "source": "SCS",
+        "model": "TSAR",
+        "target": "GBR",
+        "spearman_roc_vs_prev": NaN
+      },
+      {
+        "source": "SCS",
+        "model": "TSCF",
+        "target": "CARIB",
+        "spearman_roc_vs_prev": 0.39999999999999997
+      },
+      {
+        "source": "SCS",
+        "model": "TSAR",
+        "target": "CARIB",
+        "spearman_roc_vs_prev": -0.7999999999999999
+      },
+      {
+        "source": "GBR",
+        "model": "TSCF",
+        "target": "SCS",
+        "spearman_roc_vs_prev": -0.19999999999999998
+      },
+      {
+        "source": "GBR",
+        "model": "TSCF",
+        "target": "GBR",
+        "spearman_roc_vs_prev": NaN
+      },
+      {
+        "source": "GBR",
+        "model": "TSCF",
+        "target": "CARIB",
+        "spearman_roc_vs_prev": 0.7999999999999999
+      },
+      {
+        "source": "GBR",
+        "model": "TSAR",
+        "target": "SCS",
+        "spearman_roc_vs_prev": -1.0
+      },
+      {
+        "source": "GBR",
+        "model": "TSAR",
+        "target": "GBR",
+        "spearman_roc_vs_prev": NaN
+      },
+      {
+        "source": "GBR",
+        "model": "TSAR",
+        "target": "CARIB",
+        "spearman_roc_vs_prev": -0.7999999999999999
+      },
+      {
+        "source": "CARIB",
+        "model": "TSCF",
+        "target": "SCS",
+        "spearman_roc_vs_prev": -0.7999999999999999
+      },
+      {
+        "source": "CARIB",
+        "model": "TSCF",
+        "target": "GBR",
+        "spearman_roc_vs_prev": NaN
+      },
+      {
+        "source": "CARIB",
+        "model": "TSCF",
+        "target": "CARIB",
+        "spearman_roc_vs_prev": 0.7999999999999999
+      },
+      {
+        "source": "CARIB",
+        "model": "TSAR",
+        "target": "SCS",
+        "spearman_roc_vs_prev": -1.0
+      },
+      {
+        "source": "CARIB",
+        "model": "TSAR",
+        "target": "GBR",
+        "spearman_roc_vs_prev": NaN
+      },
+      {
+        "source": "CARIB",
+        "model": "TSAR",
+        "target": "CARIB",
+        "spearman_roc_vs_prev": -0.7999999999999999
+      }
+    ]
+  },
+  "interpretation": "V1/V2 support -> the CARIB-source advantage is not a low-severity regime artifact; week-block remains the primary inference basis; associative language only"
+}

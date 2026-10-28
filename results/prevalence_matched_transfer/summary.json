@@ -1,0 +1,62 @@
+{
+  "experiment": "prevalence_matched_transfer",
+  "generated": "2026-10-02T17:19:36.416554",
+  "device": "cuda",
+  "regimes": {
+    "R_low": 0.01633,
+    "R_high": 0.03546
+  },
+  "n_rep": 500,
+  "seed": 42,
+  "note": "reverse-source predictions from frozen seed-42 checkpoints; subsampling CIs (500 replicates); no retraining",
+  "verdicts": {
+    "R_low": {
+      "TSCF_roc_GBR": [
+        0.9625047526840017,
+        0.9565711816742114,
+        0.9677652601976682
+      ],
+      "TSCF_roc_CARIB": [
+        0.6100680218961416,
+        0.6100680218961416,
+        0.6100680218961416
+      ],
+      "TSCF_pr_GBR": [
+        0.4063635932547069,
+        0.37293077369860494,
+        0.43713003621018853
+      ],
+      "TSCF_pr_CARIB": [
+        0.03208152356866502,
+        0.032081523568665025,
+        0.032081523568665025
+      ],
+      "collapse_persists_roc": true,
+      "collapse_persists_pr": true
+    },
+    "R_high": {
+      "TSCF_roc_GBR": [
+        0.9624299450951669,
+        0.9624299450951672,
+        0.9624299450951672
+      ],
+      "TSCF_roc_CARIB": [
+        0.6103162012475573,
+        0.5962691354963108,
+        0.6236467516792611
+      ],
+      "TSCF_pr_GBR": [
+        0.5543358959719483,
+        0.5543358959719483,
+        0.5543358959719483
+      ],
+      "TSCF_pr_CARIB": [
+        0.5811417017561042,
+        0.5668463327901395,
+        0.5950482275860659
+      ],
+      "collapse_persists_roc": true,
+      "collapse_persists_pr": false
+    }
+  }
+}

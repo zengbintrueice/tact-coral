@@ -1,0 +1,50 @@
+{
+ "title": "Thermal-stress anchoring reveals transferable and basin-specific coral thermal risk",
+ "creators": [
+  {
+   "name": "Zeng, Bin",
+   "affiliation": "Naval University of Engineering, Wuhan, China",
+   "orcid": "0009-0006-1165-2217"
+  },
+  {
+   "name": "Wang, Rui",
+   "affiliation": "Naval University of Engineering, Wuhan, China",
+   "orcid": "0009-0009-5910-8415"
+  },
+  {
+   "name": "Li, Houpu",
+   "affiliation": "Naval University of Engineering, Wuhan, China",
+   "orcid": "0009-0007-9500-7254"
+  }
+ ],
+ "description": "Complete self-contained reproduction package: source code, frozen evidence-locked model weights, shipped datasets, result files, figure-generation scripts and the manuscript with Supplementary Information. Includes sha256 manifest and MD5 evidence locks. Code licence MIT; data attributions in LICENSE and data/README.md.",
+ "access_right": "open",
+ "license": "mit",
+ "upload_type": "publication",
+ "publication_type": "article",
+ "related_identifiers": [
+  {
+   "relation": "isSupplementTo",
+   "identifier": "[manuscript DOI to be added on acceptance]",
+   "resource_type": "publication-article"
+  },
+  {
+   "relation": "references",
+   "identifier": "10.1038/s41597-022-01121-y",
+   "resource_type": "dataset"
+  },
+  {
+   "relation": "references",
+   "identifier": "10.3390/rs12233856",
+   "resource_type": "dataset"
+  }
+ ],
+ "keywords": [
+  "coral bleaching",
+  "degree heating weeks",
+  "domain transfer",
+  "machine learning",
+  "Coral Reef Watch",
+  "GCBD"
+ ]
+}

@@ -1,0 +1,153 @@
+{
+  "model": "B1",
+  "channels": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "sst_anomaly",
+    "d_hotspot_dt",
+    "hotspot_cumsum1c_1w"
+  ],
+  "base_channels": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "sst_anomaly",
+    "d_hotspot_dt"
+  ],
+  "c_window_weeks": 1,
+  "normalization_mean": [
+    27.97262,
+    0.26027,
+    0.077869,
+    -0.10284,
+    1.8e-05,
+    0.017325179651379585
+  ],
+  "normalization_std": [
+    2.159708,
+    0.570275,
+    0.219589,
+    0.484529,
+    0.146682,
+    0.1466628760099411
+  ],
+  "normalization_source": "dataset channels: SCS_CHANNEL_MEAN/STD (SCS train 2003-2010, frozen); C_W: step7_feature_manifest.json train-window stats (frozen)",
+  "dataset_file": "scs_causal_v2.nc",
+  "protocol": {
+    "epochs_max": 60,
+    "batch": 32,
+    "lr": 0.001,
+    "weight_decay": 1e-05,
+    "scheduler": "cosine T_max=60 -> 1e-5",
+    "early_stop_patience": 10,
+    "pos_weight": 1000.0,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "loss": "weighted BCE on y_sev=(y_lead>=0.8), valid pixels only",
+    "selection": "best val weighted-BCE epoch",
+    "init": "from scratch (no Step-4/6/7 checkpoint init)"
+  },
+  "stopped_at_epoch": 19,
+  "best_val_bce": 0.6167772922975322,
+  "n_params": 41350,
+  "train_seconds": 131.9,
+  "history": [
+    {
+      "epoch": 1,
+      "train_bce": 1.2772511060421283,
+      "val_bce": 2.5682739549212985
+    },
+    {
+      "epoch": 2,
+      "train_bce": 1.0500940542954664,
+      "val_bce": 1.7129073672824435
+    },
+    {
+      "epoch": 3,
+      "train_bce": 0.7529169917106628,
+      "val_bce": 0.9704845282766554
+    },
+    {
+      "epoch": 4,
+      "train_bce": 0.49878005568797773,
+      "val_bce": 0.6196703530020184
+    },
+    {
+      "epoch": 5,
+      "train_bce": 0.31215578546890843,
+      "val_bce": 0.9566810708492994
+    },
+    {
+      "epoch": 6,
+      "train_bce": 0.2447840763399234,
+      "val_bce": 0.7177546129872402
+    },
+    {
+      "epoch": 7,
+      "train_bce": 0.26729113708894986,
+      "val_bce": 0.6465368650129272
+    },
+    {
+      "epoch": 8,
+      "train_bce": 0.09255222918895575,
+      "val_bce": 2.989319814951159
+    },
+    {
+      "epoch": 9,
+      "train_bce": 0.0885203557375532,
+      "val_bce": 0.6167772922975322
+    },
+    {
+      "epoch": 10,
+      "train_bce": 0.08180906709570152,
+      "val_bce": 2.135886332951486
+    },
+    {
+      "epoch": 11,
+      "train_bce": 0.042270421695250734,
+      "val_bce": 4.955943129782099
+    },
+    {
+      "epoch": 12,
+      "train_bce": 0.08585228255161872,
+      "val_bce": 2.8946090201174632
+    },
+    {
+      "epoch": 13,
+      "train_bce": 0.03303130938170048,
+      "val_bce": 4.824532850742496
+    },
+    {
+      "epoch": 14,
+      "train_bce": 0.06221279043417711,
+      "val_bce": 4.534613982512383
+    },
+    {
+      "epoch": 15,
+      "train_bce": 0.04585485190797884,
+      "val_bce": 4.565056994022194
+    },
+    {
+      "epoch": 16,
+      "train_bce": 0.03753113752016081,
+      "val_bce": 5.598058710110814
+    },
+    {
+      "epoch": 17,
+      "train_bce": 0.051559150487614364,
+      "val_bce": 7.275536450366619
+    },
+    {
+      "epoch": 18,
+      "train_bce": 0.08428898590724342,
+      "val_bce": 2.9086938873814585
+    },
+    {
+      "epoch": 19,
+      "train_bce": 0.03647659379594888,
+      "val_bce": 8.064025219539568
+    }
+  ],
+  "timestamp": "2026-09-14T21:29:34.749230"
+}

@@ -1,0 +1,248 @@
+{
+  "experiment": "basin_susceptibility_heterogeneity",
+  "source": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\physics_anchored\\structural_ablation\\rec_structural_ablation.npz",
+  "source_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "common_support": {
+    "bins": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "lo": 0.0,
+    "hi": 1.0,
+    "bin_width": 0.1,
+    "min_bin_n": 100
+  },
+  "per_bin_n": {
+    "SCS": [
+      38833,
+      3501,
+      2620,
+      1664,
+      1022,
+      637,
+      401,
+      260,
+      199,
+      185
+    ],
+    "GBR": [
+      14548,
+      966,
+      836,
+      613,
+      499,
+      407,
+      273,
+      247,
+      225,
+      451
+    ],
+    "CARIB": [
+      66190,
+      4604,
+      3432,
+      2382,
+      1833,
+      1549,
+      1121,
+      623,
+      475,
+      816
+    ]
+  },
+  "protocol": {
+    "bootstrap": {
+      "type": "paired week-block (within basin)",
+      "n": 1000,
+      "seed": 42
+    },
+    "no_retraining": true,
+    "no_target_tuning": true,
+    "no_threshold_opt": true,
+    "gpu_note": "no model inference required; all quantities are closed-form statistics of frozen predictions"
+  },
+  "partA": {},
+  "partB": {
+    "logistic": {
+      "beta": {
+        "intercept": -7.222437611216873,
+        "DHW": 7.904286200880433,
+        "basin_GBR": 1.9196830412760537,
+        "basin_CARIB": 0.40384695715397256,
+        "DHWxGBR": -2.109761487634759,
+        "DHWxCARIB": -0.27436158703445024
+      },
+      "slopes": {
+        "SCS": 7.904286200880433,
+        "GBR": 5.794524713245674,
+        "CARIB": 7.629924613845983
+      },
+      "converged": true
+    },
+    "rank_logistic": {
+      "beta": {
+        "intercept": -50.25723967328628,
+        "DHW": 49.61181869061263,
+        "basin_GBR": 29.292125057874603,
+        "basin_CARIB": 8.877382253242816,
+        "DHWxGBR": -28.54064472888905,
+        "DHWxCARIB": -8.267823850842207
+      },
+      "slopes": {
+        "SCS": 49.61181869061263,
+        "GBR": 21.07117396172358,
+        "CARIB": 41.343994839770424
+      },
+      "converged": true
+    }
+  },
+  "partC": {
+    "GBR-SCS": {
+      "pooled_rate_diff": 0.026867553718429776,
+      "ci": [
+        0.009795159153293058,
+        0.04524695324939779
+      ]
+    },
+    "CARIB-SCS": {
+      "pooled_rate_diff": 0.008005263502696076,
+      "ci": [
+        0.0010330601413462228,
+        0.016042791245983276
+      ]
+    },
+    "CARIB-GBR": {
+      "pooled_rate_diff": -0.018862290215733702,
+      "ci": [
+        -0.03791590173966256,
+        -0.0009565521461666255
+      ]
+    },
+    "spearman_point": {
+      "SCS": 0.7751762229612887,
+      "GBR": 0.7826697257461152,
+      "CARIB": 0.8019449274429569
+    },
+    "spearman_ci": {
+      "SCS": [
+        0.7283717452863108,
+        0.8220285707597165
+      ],
+      "GBR": [
+        0.71283121672781,
+        0.841981912114978
+      ],
+      "CARIB": [
+        0.7691017428581619,
+        0.8330379130760052
+      ]
+    }
+  },
+  "partD": {
+    "SCS": {
+      "partial_spearman_R_future_given_DHW": 0.5333780371954359,
+      "ci": [
+        0.47890684963552016,
+        0.5849982622522948
+      ],
+      "R_tertile_severe_rate": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.02548506781825923
+      },
+      "R_tertile_ci": {
+        "1": [
+          0.0,
+          0.0
+        ],
+        "2": [
+          0.0,
+          0.0
+        ],
+        "3": [
+          0.014900249376558605,
+          0.0381988269042882
+        ]
+      }
+    },
+    "GBR": {
+      "partial_spearman_R_future_given_DHW": -0.07899822023029207,
+      "ci": [
+        -0.16291993855306658,
+        0.004812853531087832
+      ],
+      "R_tertile_severe_rate": {
+        "1": 0.00015735641227380016,
+        "2": 0.004720692368214005,
+        "3": 0.10149488591660111
+      },
+      "R_tertile_ci": {
+        "1": [
+          0.0,
+          0.00047206923682140047
+        ],
+        "2": [
+          0.0007870266531328268,
+          0.013855232100708097
+        ],
+        "3": [
+          0.05445858816219998,
+          0.15091779248248502
+        ]
+      }
+    },
+    "CARIB": {
+      "partial_spearman_R_future_given_DHW": 0.23187723257541865,
+      "ci": [
+        0.18853313117341566,
+        0.2677682676931943
+      ],
+      "R_tertile_severe_rate": {
+        "1": 0.001084010840108401,
+        "2": 0.0023486901535682025,
+        "3": 0.04556458897922312
+      },
+      "R_tertile_ci": {
+        "1": [
+          0.0007226738934056008,
+          0.0015175617119663031
+        ],
+        "2": [
+          0.0010117790961340512,
+          0.0046982836495031615
+        ],
+        "3": [
+          0.03013281845364526,
+          0.0644015458990561
+        ]
+      }
+    }
+  },
+  "conclusion": {
+    "interaction_logistic_DHWxGBR": {
+      "value": -2.109761487634759,
+      "ci": [
+        -3.660028769781895,
+        -0.26967085000654656
+      ]
+    },
+    "interaction_logistic_DHWxCARIB": {
+      "value": -0.27436158703445024,
+      "ci": [
+        -1.5767903921268898,
+        1.1275396960687791
+      ]
+    },
+    "basin_specific_susceptibility_supported": true,
+    "text": "Interaction CI excludes 0 => basin-specific susceptibility supported",
+    "caveat": "All associations are associative/predictive; no causal mechanism is claimed."
+  }
+}

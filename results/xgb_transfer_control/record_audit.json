@@ -1,0 +1,25 @@
+{
+  "n_xgb": 83025,
+  "n_tscf": 83025,
+  "n_intersection": 83025,
+  "n_xgb_only": 0,
+  "n_tscf_only": 0,
+  "n_severe_xgb": 1356,
+  "n_severe_tscf": 1356,
+  "n_severe_intersection": 1356,
+  "hash_xgb_ids": "c29b34f4aec2cef797bac9dfb9291c4221755a92650c307cd4c94990879f282a",
+  "hash_tscf_ids": "c29b34f4aec2cef797bac9dfb9291c4221755a92650c307cd4c94990879f282a",
+  "exact_match": true,
+  "required_columns": {
+    "ocean_mask": "both finite y(t+4) & ~land_mask (ocean cells only)",
+    "pfv_record_set": "XGB: loader label_mask & ~isnan(y) on raw file; TSCF: shared ocean-masked PFV records (finite y(t+4) & ocean & all-models-finite incl. PersA=y(t))",
+    "lead": 4,
+    "target": "y(t+4)",
+    "severe": "y>= 0.8",
+    "spatial_filter": "ocean cells only (both)",
+    "temporal_filter": "issue-year in 2017-2020 (both)",
+    "missing_value_filter": "XGB: finite y(t+4) only; TSCF: also requires y(t) [PersA] finite",
+    "period": "2017-2020",
+    "feature_history_cutoff": "XGB features = window [t-T+1..t] ending at issue t; target t+4 never in features (no t+1..t+4 leakage)"
+  }
+}

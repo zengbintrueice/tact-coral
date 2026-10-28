@@ -1,0 +1,26 @@
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2016, 2019), windows=182
+  Window indices: 182 windows for test
+  Loaded 182 samples: X_dynamic=(182, 24, 21, 23, 13), X_static=(182, 21, 23, 5)
+  Label coverage: 49322/87906 (56.11%)
+cohort n=1898 any=530 severe=78 bg=1368
+  all_2016_2019    n= 1898 sev= 78 bg=1368 AUROC=0.8763 CI[0.785,0.902]
+  year_2016        n=  528 sev= 36 bg= 392 AUROC=0.9409 CI[0.807,0.98]
+  year_2017        n=  594 sev=  2 bg= 408 AUROC=0.951 CI[0.88,0.954]
+  year_2018        n=  432 sev=  2 bg= 372 AUROC=0.1909 CI[0.133,0.265]
+  year_2019        n=  344 sev= 38 bg= 196 AUROC=0.8749 CI[0.631,0.819]
+  leave_out_2016   n= 1370 sev= 42 bg= 976 AUROC=0.8143 CI[0.688,0.861]
+  leave_out_2017   n= 1304 sev= 76 bg= 960 AUROC=0.8851 CI[0.779,0.905]
+  leave_out_2018   n= 1466 sev= 76 bg= 996 AUROC=0.8979 CI[0.801,0.902]
+  leave_out_2019   n= 1554 sev= 40 bg=1172 AUROC=0.8917 CI[0.78,0.962]
+  year 2016: Q5 rate 0.4146 vs Q1 0.0182
+  year 2019: Q5 rate 0.0323 vs Q1 0.0000
+
+Outputs -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\gcbd_year_stratification
+Done.

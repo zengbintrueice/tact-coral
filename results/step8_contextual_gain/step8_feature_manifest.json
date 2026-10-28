@@ -1,0 +1,265 @@
+{
+  "experiment": "step8_contextual_gain",
+  "dataset": {
+    "file": "scs_causal_v2.nc",
+    "dir": "D:\\piecf_crw_data"
+  },
+  "spec_name_mapping": {
+    "A1": "spec A1 (C1 only)",
+    "A2": "spec A2 (C4 only)",
+    "B1": "spec B1 (C1+instantaneous thermal)",
+    "B2": "spec B2 (C4+instantaneous thermal)",
+    "ENV1": "spec section-5 'C1' (C1+environmental context)",
+    "ENV2": "spec section-5 'C4' (C4+environmental context)",
+    "D1": "spec D1 FULL-C1",
+    "D2": "spec D2 FULL-C4"
+  },
+  "feature_groups_source": "Step-6 manifest (groups A/D verbatim; no new features)",
+  "features": [
+    {
+      "feature_name": "sst",
+      "channel_index_dataset": 0,
+      "feature_group": "A_instantaneous_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 27.97262,
+      "norm_std": 2.159708
+    },
+    {
+      "feature_name": "ssta",
+      "channel_index_dataset": 1,
+      "feature_group": "A_instantaneous_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 0.26027,
+      "norm_std": 0.570275
+    },
+    {
+      "feature_name": "hotspot",
+      "channel_index_dataset": 2,
+      "feature_group": "A_instantaneous_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 0.077869,
+      "norm_std": 0.219589
+    },
+    {
+      "feature_name": "chlorophyll",
+      "channel_index_dataset": 3,
+      "feature_group": "D_other_environmental_calendar",
+      "thermal": "nonthermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 0.438681,
+      "norm_std": 0.517891
+    },
+    {
+      "feature_name": "par",
+      "channel_index_dataset": 4,
+      "feature_group": "D_other_environmental_calendar",
+      "thermal": "nonthermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 0.618502,
+      "norm_std": 0.200923
+    },
+    {
+      "feature_name": "seasonal_sin",
+      "channel_index_dataset": 5,
+      "feature_group": "D_other_environmental_calendar",
+      "thermal": "nonthermal",
+      "temporal_kind": "calendar",
+      "window_weeks": "annual-cycle",
+      "norm_mean": 0.000578,
+      "norm_std": 0.706308
+    },
+    {
+      "feature_name": "wind_speed",
+      "channel_index_dataset": 6,
+      "feature_group": "D_other_environmental_calendar",
+      "thermal": "nonthermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 3.769291,
+      "norm_std": 2.583638
+    },
+    {
+      "feature_name": "ssr",
+      "channel_index_dataset": 7,
+      "feature_group": "D_other_environmental_calendar",
+      "thermal": "nonthermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 16686431.0,
+      "norm_std": 3551082.25
+    },
+    {
+      "feature_name": "sst_anomaly",
+      "channel_index_dataset": 8,
+      "feature_group": "A_instantaneous_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": -0.10284,
+      "norm_std": 0.484529
+    },
+    {
+      "feature_name": "d_hotspot_dt",
+      "channel_index_dataset": 9,
+      "feature_group": "A_instantaneous_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "instantaneous",
+      "window_weeks": "0",
+      "norm_mean": 1.8e-05,
+      "norm_std": 0.146682
+    },
+    {
+      "feature_name": "hotspot_cumsum_4w",
+      "channel_index_dataset": 10,
+      "feature_group": "replaced_by_C_W",
+      "thermal": "thermal",
+      "temporal_kind": "cumulative",
+      "window_weeks": "4",
+      "norm_mean": 0.311349,
+      "norm_std": 0.758721
+    },
+    {
+      "feature_name": "hotspot_cumsum_12w",
+      "channel_index_dataset": 11,
+      "feature_group": "replaced_by_C_W",
+      "thermal": "thermal",
+      "temporal_kind": "cumulative",
+      "window_weeks": "12",
+      "norm_mean": 0.930024,
+      "norm_std": 1.78879
+    },
+    {
+      "feature_name": "seasonal_cos",
+      "channel_index_dataset": 12,
+      "feature_group": "D_other_environmental_calendar",
+      "thermal": "nonthermal",
+      "temporal_kind": "calendar",
+      "window_weeks": "annual-cycle",
+      "norm_mean": 0.002363,
+      "norm_std": 0.707901
+    },
+    {
+      "feature_name": "hotspot_cumsum1c_1w",
+      "channel_index_dataset": null,
+      "feature_group": "C_recent_cumulative_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "cumulative",
+      "window_weeks": "1",
+      "norm_mean": 0.017325179651379585,
+      "norm_std": 0.1466628760099411
+    },
+    {
+      "feature_name": "hotspot_cumsum1c_4w",
+      "channel_index_dataset": null,
+      "feature_group": "C_recent_cumulative_thermal",
+      "thermal": "thermal",
+      "temporal_kind": "cumulative",
+      "window_weeks": "4",
+      "norm_mean": 0.06899634748697281,
+      "norm_std": 0.42663291096687317
+    }
+  ],
+  "models": {
+    "A1": {
+      "base_channels": [],
+      "c_window_weeks": 1,
+      "n_channels": 1
+    },
+    "A2": {
+      "base_channels": [],
+      "c_window_weeks": 4,
+      "n_channels": 1
+    },
+    "B1": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "sst_anomaly",
+        "d_hotspot_dt"
+      ],
+      "c_window_weeks": 1,
+      "n_channels": 6
+    },
+    "B2": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "sst_anomaly",
+        "d_hotspot_dt"
+      ],
+      "c_window_weeks": 4,
+      "n_channels": 6
+    },
+    "ENV1": {
+      "base_channels": [
+        "wind_speed",
+        "ssr",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 1,
+      "n_channels": 7
+    },
+    "ENV2": {
+      "base_channels": [
+        "wind_speed",
+        "ssr",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 4,
+      "n_channels": 7
+    },
+    "D1": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 1,
+      "n_channels": 12
+    },
+    "D2": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 4,
+      "n_channels": 12
+    }
+  },
+  "c_channels_source": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\step7_temporal_scale\\step7_feature_manifest.json",
+  "note": "cumulative HotSpot channels are physically meaningful historical thermal-stress variables (NOAA CRW DHW = 12-week accumulation of HotSpot >= 1 degC); attribution experiment, NOT a leakage claim",
+  "timestamp": "2026-09-14T21:39:02.677168"
+}

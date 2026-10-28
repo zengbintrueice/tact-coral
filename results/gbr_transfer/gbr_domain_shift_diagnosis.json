@@ -1,0 +1,138 @@
+{
+  "experiment": "domain_shift_diagnosis",
+  "description": "Diagnose why a7 risk_score is lower on GBR than SCS",
+  "configuration": {
+    "model": "a7 (SCS-trained, frozen)",
+    "test_datasets": [
+      "SCS",
+      "GBR"
+    ],
+    "lead_weeks": 4
+  },
+  "sample_sizes": {
+    "scs_pixels": 68432,
+    "gbr_pixels": 20295,
+    "scs_severe": 502,
+    "gbr_severe": 729
+  },
+  "component_distributions": {
+    "y_final": {
+      "SCS": {
+        "name": "SCS",
+        "mean": 0.335,
+        "std": 0.12,
+        "median": 0.3104,
+        "p25": 0.2727,
+        "p75": 0.346,
+        "min": 0.1924,
+        "max": 0.9989
+      },
+      "GBR": {
+        "name": "GBR",
+        "mean": 0.3726,
+        "std": 0.1822,
+        "median": 0.3099,
+        "p25": 0.274,
+        "p75": 0.3634,
+        "min": 0.2344,
+        "max": 0.9975
+      }
+    },
+    "y_main": {
+      "SCS": {
+        "name": "SCS",
+        "mean": 0.335,
+        "std": 0.12,
+        "median": 0.3104,
+        "p25": 0.2727,
+        "p75": 0.346,
+        "min": 0.1924,
+        "max": 0.9989
+      },
+      "GBR": {
+        "name": "GBR",
+        "mean": 0.3726,
+        "std": 0.1822,
+        "median": 0.3099,
+        "p25": 0.274,
+        "p75": 0.3634,
+        "min": 0.2344,
+        "max": 0.9975
+      }
+    },
+    "gate": {
+      "SCS": {
+        "name": "SCS",
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "GBR": {
+        "name": "GBR",
+        "mean": 1.0,
+        "std": 0.0,
+        "median": 1.0,
+        "p25": 1.0,
+        "p75": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    "residual": {
+      "SCS": {
+        "name": "SCS",
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "p25": 0.0,
+        "p75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "GBR": {
+        "name": "GBR",
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "p25": 0.0,
+        "p75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "severe_only_means": {
+    "y_main": {
+      "SCS": 0.8918,
+      "GBR": 0.8701
+    },
+    "gate": {
+      "SCS": 1.0,
+      "GBR": 1.0
+    },
+    "residual": {
+      "SCS": 0.0,
+      "GBR": 0.0
+    }
+  },
+  "gate_activation_rate": {
+    "SCS": 1.0,
+    "GBR": 1.0
+  },
+  "mean_shifts_gbr_minus_scs": {
+    "y_main": 0.0376,
+    "gate": 0.0,
+    "residual": 0.0,
+    "y_final": 0.0376
+  },
+  "diagnosis": {
+    "primary_cause": "backbone domain shift (y_main lower on GBR)",
+    "y_main_shift": 0.0376,
+    "gate_shift": 0.0
+  },
+  "timestamp": "2026-09-12T05:25:33.255446"
+}

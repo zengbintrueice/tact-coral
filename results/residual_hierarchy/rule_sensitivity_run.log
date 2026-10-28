@@ -1,0 +1,88 @@
+==================================================================
+Combination-rule sensitivity â€” 2026-10-02 13:26:04
+==================================================================
+frozen records OK (4035a19fd30fa4d14151f4c8055dfe59)
+
+=== SCS ===
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2016, 2019), windows=182
+  Window indices: 182 windows for test
+  Loaded 182 samples: X_dynamic=(182, 24, 21, 23, 13), X_static=(182, 21, 23, 5)
+  Label coverage: 49322/87906 (56.11%)
+  [R1_mean_rank] H3âˆ’H2 Î”ROC +0.0006 Î”PR -0.0081
+  [R2_median_rank] H3âˆ’H2 Î”ROC -0.0053 Î”PR -0.1802
+  [R3_zscore_mean] H3âˆ’H2 Î”ROC -0.0057 Î”PR -0.1728
+  [R4_borda] H3âˆ’H2 Î”ROC +0.0006 Î”PR -0.0081
+  [R5_weighted_2to1] H3âˆ’H2 Î”ROC +0.0001 Î”PR -0.0013
+
+=== GBR ===
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=209
+  Window indices: 209 windows for test
+  Loaded 209 samples: X_dynamic=(209, 24, 15, 12, 13), X_static=(209, 15, 12, 5)
+  Label coverage: 19065/37620 (50.68%)
+  [R1_mean_rank] H3âˆ’H2 Î”ROC +0.0049 Î”PR +0.0263
+  [R2_median_rank] H3âˆ’H2 Î”ROC -0.0029 Î”PR -0.0491
+  [R3_zscore_mean] H3âˆ’H2 Î”ROC -0.0026 Î”PR -0.0741
+  [R4_borda] H3âˆ’H2 Î”ROC +0.0049 Î”PR +0.0263
+  [R5_weighted_2to1] H3âˆ’H2 Î”ROC +0.0018 Î”PR +0.0287
+
+=== CARIB ===
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2017, 2020), windows=205
+  Window indices: 205 windows for test
+  Loaded 205 samples: X_dynamic=(205, 24, 22, 32, 13), X_static=(205, 22, 32, 5)
+  Label coverage: 83025/144320 (57.53%)
+  [R1_mean_rank] H3âˆ’H2 Î”ROC +0.0025 Î”PR +0.0138
+  [R2_median_rank] H3âˆ’H2 Î”ROC +0.0063 Î”PR +0.0262
+  [R3_zscore_mean] H3âˆ’H2 Î”ROC -0.0060 Î”PR -0.1193
+  [R4_borda] H3âˆ’H2 Î”ROC +0.0025 Î”PR +0.0138
+  [R5_weighted_2to1] H3âˆ’H2 Î”ROC +0.0031 Î”PR +0.1090
+Traceback (most recent call last):
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\piecf_env\Lib\site-packages\pandas\core\ops\array_ops.py", line 374, in na_logical_op
+    result = op(x, y)
+             ^^^^^^^^
+TypeError: ufunc 'bitwise_or' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\LTTS_CRW\experiments\08_infrastructure\compute_combination_rule_sensitivity.py", line 213, in <module>
+    pivot["C3_established"] = pivot.get("roc", False) | pivot.get("pr", False)
+                              ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\piecf_env\Lib\site-packages\pandas\core\ops\common.py", line 85, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\piecf_env\Lib\site-packages\pandas\core\arraylike.py", line 80, in __or__
+    return self._logical_method(other, operator.or_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\piecf_env\Lib\site-packages\pandas\core\series.py", line 6746, in _logical_method
+    res_values = ops.logical_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\piecf_env\Lib\site-packages\pandas\core\ops\array_ops.py", line 464, in logical_op
+    res_values = na_logical_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Ôø±ó\ÂÛÎÄ\º£Ñó»·¾³±£»¤\PIECF\piecf_env\Lib\site-packages\pandas\core\ops\array_ops.py", line 381, in na_logical_op
+    result = libops.vec_binop(x.ravel(), y.ravel(), op)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/ops.pyx", line 252, in pandas._libs.ops.vec_binop
+  File "pandas/_libs/ops.pyx", line 245, in pandas._libs.ops.vec_binop
+TypeError: unsupported operand type(s) for |: 'float' and 'float'

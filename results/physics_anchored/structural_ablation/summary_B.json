@@ -1,0 +1,21 @@
+{
+  "experiment": "structural_ablation_model_B",
+  "structure": "y = PersA + tanh(R(attn.detach()))*scale  (gate = 1, un-gated)",
+  "device": "cuda",
+  "cfg": {
+    "gamma": 0.5,
+    "scale": 0.4,
+    "lambda_sev": 20
+  },
+  "model_file": "model_B.pt",
+  "model_md5": "95cb8371caea3f79c82c6ab04072fcc5",
+  "residual_head_params": 145,
+  "total_params": 41607,
+  "best_val": 0.26537376795830725,
+  "epochs_run": 23,
+  "seed": 42,
+  "protocol": "D1/a6; Adam 1e-3/wd1e-5, cosine 60ep, batch 32, patience 10, SCS train 2003-2010/val 2011-2015, lead 4wk, history 24wk",
+  "scale": "frozen 0.4 (Work 1 SCS-val argmax CSI@0.9); no target-domain selection",
+  "leakage": "causal v2 inputs<=t; anchor=y(t); target y(t+4) loss-only; SCS-train normalization frozen",
+  "timestamp": "2026-09-17T20:29:19.399209"
+}

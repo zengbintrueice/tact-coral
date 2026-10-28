@@ -1,0 +1,785 @@
+{
+  "domains": {
+    "SCS": {
+      "boundary_week": "2016-01-03",
+      "boundary_index": 678,
+      "purge_width_weeks_issue_time": 23,
+      "purge_width_weeks_verification_time": 27,
+      "protocols": {
+        "standard": {
+          "n": 49322,
+          "n_severe": 419,
+          "methods": {
+            "TSCF": {
+              "n": 49322,
+              "n_severe": 419,
+              "prevalence": 0.008495194842058311,
+              "roc_auc": 0.9864535791152883,
+              "pr_auc": 0.5463083763231574,
+              "csi_08": 0.3031161473087819,
+              "pod_08": 0.766109785202864,
+              "far_08": 0.6659729448491155,
+              "f1_08": 0.4652173913043478,
+              "csi_09": 0.3374485596707819,
+              "pod_09": 0.5871121718377088,
+              "far_09": 0.5575539568345323,
+              "f1_09": 0.5046153846153846,
+              "brier": 0.07127977907657623,
+              "ece": 0.3149885901385408
+            },
+            "PersistenceA_DHW": {
+              "n": 49322,
+              "n_severe": 419,
+              "prevalence": 0.008495194842058311,
+              "roc_auc": 0.981711665638622,
+              "pr_auc": 0.3177240501709901,
+              "csi_08": 0.20209580838323354,
+              "pod_08": 0.3221957040572792,
+              "far_08": 0.6484375,
+              "f1_08": 0.33623910336239105,
+              "csi_09": 0.15708812260536398,
+              "pod_09": 0.1957040572792363,
+              "far_09": 0.5567567567567567,
+              "f1_09": 0.271523178807947,
+              "brier": 0.011719074100255966,
+              "ece": 0.0664951120147727
+            },
+            "PersistenceB_cumsum12": {
+              "n": 49322,
+              "n_severe": 419,
+              "prevalence": 0.008495194842058311,
+              "roc_auc": 0.9719680823521035,
+              "pr_auc": 0.19569234792245077,
+              "csi_08": 0.14188267394270124,
+              "pod_08": 0.7446300715990454,
+              "far_08": 0.8508604206500956,
+              "f1_08": 0.24850657108721624,
+              "csi_09": 0.1745819397993311,
+              "pod_09": 0.6229116945107399,
+              "far_09": 0.8047868362004488,
+              "f1_09": 0.2972665148063781,
+              "brier": 0.04583347961306572,
+              "ece": 0.17780021111041344
+            }
+          },
+          "prevalence": 0.008495194842058311,
+          "bootstrap": {
+            "methods": {
+              "TSCF": {
+                "roc_auc": {
+                  "lo": 0.9784189805231481,
+                  "hi": 0.9921074217193895
+                },
+                "pr_auc": {
+                  "lo": 0.40801628608579327,
+                  "hi": 0.6377776522641521
+                },
+                "csi_09": {
+                  "lo": 0.2584774672889169,
+                  "hi": 0.39944853219481913
+                }
+              },
+              "PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": 0.9751590308601388,
+                  "hi": 0.9879253623455396
+                },
+                "pr_auc": {
+                  "lo": 0.2166374302678413,
+                  "hi": 0.4402810093895403
+                },
+                "csi_09": {
+                  "lo": 0.08170788730983117,
+                  "hi": 0.24104693140794223
+                }
+              },
+              "PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.9621495534192857,
+                  "hi": 0.981138996606176
+                },
+                "pr_auc": {
+                  "lo": 0.12969219112951696,
+                  "hi": 0.2632001490123052
+                },
+                "csi_09": {
+                  "lo": 0.12387942939413528,
+                  "hi": 0.22485217727674625
+                }
+              }
+            },
+            "paired": {
+              "TSCF_minus_PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": -0.00431913050186109,
+                  "hi": 0.011944507938230188
+                },
+                "pr_auc": {
+                  "lo": 0.11419678143123917,
+                  "hi": 0.3026601104206534
+                },
+                "csi_09": {
+                  "lo": 0.08168854579071537,
+                  "hi": 0.2614902800205883
+                }
+              },
+              "TSCF_minus_PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.004317326804924834,
+                  "hi": 0.024015097254676848
+                },
+                "pr_auc": {
+                  "lo": 0.25202871410255284,
+                  "hi": 0.41493478332831907
+                },
+                "csi_09": {
+                  "lo": 0.10657260567686733,
+                  "hi": 0.20608628490671313
+                }
+              }
+            }
+          },
+          "removed_vs_standard": 0
+        },
+        "purged": {
+          "n": 43089,
+          "n_severe": 384,
+          "methods": {
+            "TSCF": {
+              "n": 43089,
+              "n_severe": 384,
+              "prevalence": 0.008911787231079858,
+              "roc_auc": 0.9862975890801234,
+              "pr_auc": 0.5577187746265307,
+              "csi_08": 0.3113897596656217,
+              "pod_08": 0.7760416666666666,
+              "far_08": 0.6578645235361653,
+              "f1_08": 0.4749003984063745,
+              "csi_09": 0.3393665158371041,
+              "pod_09": 0.5859375,
+              "far_09": 0.5535714285714286,
+              "f1_09": 0.5067567567567568,
+              "brier": 0.07272177934646606,
+              "ece": 0.318014308322278
+            },
+            "PersistenceA_DHW": {
+              "n": 43089,
+              "n_severe": 384,
+              "prevalence": 0.008911787231079858,
+              "roc_auc": 0.9797292410627171,
+              "pr_auc": 0.29362528351143924,
+              "csi_08": 0.1895734597156398,
+              "pod_08": 0.3125,
+              "far_08": 0.6747967479674797,
+              "f1_08": 0.3187250996015936,
+              "csi_09": 0.1457905544147844,
+              "pod_09": 0.18489583333333334,
+              "far_09": 0.5919540229885057,
+              "f1_09": 0.25448028673835127,
+              "brier": 0.011774406768381596,
+              "ece": 0.07256618787478838
+            },
+            "PersistenceB_cumsum12": {
+              "n": 43089,
+              "n_severe": 384,
+              "prevalence": 0.008911787231079858,
+              "roc_auc": 0.9682599312629279,
+              "pr_auc": 0.1814895506742462,
+              "csi_08": 0.13289962825278812,
+              "pod_08": 0.7447916666666666,
+              "far_08": 0.8607594936708861,
+              "f1_08": 0.2346185397867104,
+              "csi_09": 0.1633493479752917,
+              "pod_09": 0.6197916666666666,
+              "far_09": 0.8184591914569032,
+              "f1_09": 0.2808259587020649,
+              "brier": 0.0511043556034565,
+              "ece": 0.19335105664004978
+            }
+          },
+          "prevalence": 0.008911787231079858,
+          "bootstrap": {
+            "methods": {
+              "TSCF": {
+                "roc_auc": {
+                  "lo": 0.976428522916057,
+                  "hi": 0.9929403057689024
+                },
+                "pr_auc": {
+                  "lo": 0.41678861164432246,
+                  "hi": 0.6539947742631625
+                },
+                "csi_09": {
+                  "lo": 0.25320178132678134,
+                  "hi": 0.4051139055935939
+                }
+              },
+              "PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": 0.9722383864135065,
+                  "hi": 0.9871160562456255
+                },
+                "pr_auc": {
+                  "lo": 0.1861892304439537,
+                  "hi": 0.4267477267559837
+                },
+                "csi_09": {
+                  "lo": 0.0613546042003231,
+                  "hi": 0.2348718433194773
+                }
+              },
+              "PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.9569062236604952,
+                  "hi": 0.9789976835539399
+                },
+                "pr_auc": {
+                  "lo": 0.11498772019880434,
+                  "hi": 0.2523816664173992
+                },
+                "csi_09": {
+                  "lo": 0.1108407153835406,
+                  "hi": 0.21392446722328928
+                }
+              }
+            },
+            "paired": {
+              "TSCF_minus_PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": -0.004743449554981671,
+                  "hi": 0.01492668230715551
+                },
+                "pr_auc": {
+                  "lo": 0.1552961041304181,
+                  "hi": 0.33806289425410624
+                },
+                "csi_09": {
+                  "lo": 0.08910118420203594,
+                  "hi": 0.27838342879080796
+                }
+              },
+              "TSCF_minus_PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.0065856898737212816,
+                  "hi": 0.028797819993217993
+                },
+                "pr_auc": {
+                  "lo": 0.28023714355504675,
+                  "hi": 0.4397373448988711
+                },
+                "csi_09": {
+                  "lo": 0.11731695791132571,
+                  "hi": 0.22098282953338522
+                }
+              }
+            }
+          },
+          "removed_vs_standard": 6233
+        }
+      },
+      "purged_minus_standard": {
+        "TSCF": {
+          "roc_auc": -0.00015599003516486576,
+          "pr_auc": 0.011410398303373315,
+          "csi_08": 0.008273612356839821,
+          "csi_09": 0.0019179561663221767,
+          "pod_09": -0.0011746718377088072,
+          "far_09": -0.003982528263103746,
+          "f1_09": 0.002141372141372222
+        },
+        "PersistenceA_DHW": {
+          "roc_auc": -0.0019824245759049175,
+          "pr_auc": -0.024098766659550852,
+          "csi_08": -0.012522348667593747,
+          "csi_09": -0.011297568190579588,
+          "pod_09": -0.010808223945902945,
+          "far_09": 0.035197266231749014,
+          "f1_09": -0.01704289206959575
+        },
+        "PersistenceB_cumsum12": {
+          "roc_auc": -0.0037081510891756597,
+          "pr_auc": -0.014202797248204585,
+          "csi_08": -0.008983045689913122,
+          "csi_09": -0.011232591824039406,
+          "pod_09": -0.003120027844073281,
+          "far_09": 0.013672355256454383,
+          "f1_09": -0.01644055610431322
+        }
+      },
+      "deltas": {
+        "standard__TSCF_minus_PersistenceA_DHW": {
+          "roc_auc": 0.004741913476666304,
+          "pr_auc": 0.22858432615216734,
+          "csi_09": 0.18036043706541793,
+          "pod_09": 0.3914081145584725,
+          "far_09": 0.0007972000777756172,
+          "f1_09": 0.23309220580743756
+        },
+        "standard__TSCF_minus_PersistenceB_cumsum12": {
+          "roc_auc": 0.01448549676318478,
+          "pr_auc": 0.35061602840070666,
+          "csi_09": 0.16286661987145082,
+          "pod_09": -0.0357995226730311,
+          "far_09": -0.24723287936591642,
+          "f1_09": 0.20734886980900646
+        },
+        "purged__TSCF_minus_PersistenceA_DHW": {
+          "roc_auc": 0.006568348017406356,
+          "pr_auc": 0.2640934911150915,
+          "csi_09": 0.1935759614223197,
+          "pod_09": 0.40104166666666663,
+          "far_09": -0.03838259441707714,
+          "f1_09": 0.25227647001840553
+        },
+        "purged__TSCF_minus_PersistenceB_cumsum12": {
+          "roc_auc": 0.018037657817195574,
+          "pr_auc": 0.37622922395228453,
+          "csi_09": 0.1760171678618124,
+          "pod_09": -0.03385416666666663,
+          "far_09": -0.26488776288547455,
+          "f1_09": 0.2259307980546919
+        }
+      }
+    },
+    "GBR": {
+      "boundary_week": "2017-01-02",
+      "boundary_index": 1657,
+      "purge_width_weeks_issue_time": 23,
+      "purge_width_weeks_verification_time": 27,
+      "protocols": {
+        "standard": {
+          "n": 19065,
+          "n_severe": 676,
+          "methods": {
+            "TSCF": {
+              "n": 19065,
+              "n_severe": 676,
+              "prevalence": 0.03545764489902964,
+              "roc_auc": 0.9624299450951672,
+              "pr_auc": 0.5543358959719483,
+              "csi_08": 0.3521505376344086,
+              "pod_08": 0.7751479289940828,
+              "far_08": 0.6077844311377245,
+              "f1_08": 0.5208747514910537,
+              "csi_09": 0.3648103309120258,
+              "pod_09": 0.6686390532544378,
+              "far_09": 0.554679802955665,
+              "f1_09": 0.534594914251922,
+              "brier": 0.09286666661500931,
+              "ece": 0.3317071513869523
+            },
+            "PersistenceA_DHW": {
+              "n": 19065,
+              "n_severe": 676,
+              "prevalence": 0.03545764489902964,
+              "roc_auc": 0.9592867455814367,
+              "pr_auc": 0.41639756654402205,
+              "csi_08": 0.2718720602069614,
+              "pod_08": 0.4275147928994083,
+              "far_08": 0.5724852071005917,
+              "f1_08": 0.4275147928994083,
+              "csi_09": 0.24944567627494457,
+              "pod_09": 0.3328402366863905,
+              "far_09": 0.5011086474501109,
+              "f1_09": 0.3992901508429459,
+              "brier": 0.023312341421842575,
+              "ece": 0.07364782616544935
+            },
+            "PersistenceB_cumsum12": {
+              "n": 19065,
+              "n_severe": 676,
+              "prevalence": 0.03545764489902964,
+              "roc_auc": 0.9318074205669005,
+              "pr_auc": 0.24904516553644956,
+              "csi_08": 0.21413390010626993,
+              "pod_08": 0.5961538461538461,
+              "far_08": 0.7495338719701679,
+              "f1_08": 0.3527352297592998,
+              "csi_09": 0.21409749670619235,
+              "pod_09": 0.4807692307692308,
+              "far_09": 0.7215081405312768,
+              "f1_09": 0.352685838307108,
+              "brier": 0.05657140910625458,
+              "ece": 0.15504837488433662
+            }
+          },
+          "prevalence": 0.03545764489902964,
+          "bootstrap": {
+            "methods": {
+              "TSCF": {
+                "roc_auc": {
+                  "lo": 0.9490418238498934,
+                  "hi": 0.9749187156489384
+                },
+                "pr_auc": {
+                  "lo": 0.415949605236701,
+                  "hi": 0.6422704705901239
+                },
+                "csi_09": {
+                  "lo": 0.2752576936458234,
+                  "hi": 0.4347312362680585
+                }
+              },
+              "PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": 0.9349512284144574,
+                  "hi": 0.9804712547303077
+                },
+                "pr_auc": {
+                  "lo": 0.2203791329448041,
+                  "hi": 0.6234705450542246
+                },
+                "csi_09": {
+                  "lo": 0.09684016583533563,
+                  "hi": 0.39696010877434346
+                }
+              },
+              "PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.9025875486037441,
+                  "hi": 0.9599811836513866
+                },
+                "pr_auc": {
+                  "lo": 0.14528326604138786,
+                  "hi": 0.3614499718345257
+                },
+                "csi_09": {
+                  "lo": 0.12279982743744607,
+                  "hi": 0.3006023204207854
+                }
+              }
+            },
+            "paired": {
+              "TSCF_minus_PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": -0.010687512934500442,
+                  "hi": 0.018554185390628534
+                },
+                "pr_auc": {
+                  "lo": -0.013688765784596813,
+                  "hi": 0.2617943924385542
+                },
+                "csi_09": {
+                  "lo": -0.017933328902643354,
+                  "hi": 0.25145973238689134
+                }
+              },
+              "TSCF_minus_PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.011843101189864263,
+                  "hi": 0.051220161974543
+                },
+                "pr_auc": {
+                  "lo": 0.20986597680438004,
+                  "hi": 0.3871519656622269
+                },
+                "csi_09": {
+                  "lo": 0.08468746056015647,
+                  "hi": 0.23186346388016385
+                }
+              }
+            }
+          },
+          "removed_vs_standard": 0
+        },
+        "purged": {
+          "n": 16926,
+          "n_severe": 472,
+          "methods": {
+            "TSCF": {
+              "n": 16926,
+              "n_severe": 472,
+              "prevalence": 0.027886092402221434,
+              "roc_auc": 0.9746680782376342,
+              "pr_auc": 0.6613753145375378,
+              "csi_08": 0.4659949622166247,
+              "pod_08": 0.7838983050847458,
+              "far_08": 0.4653179190751445,
+              "f1_08": 0.6357388316151202,
+              "csi_09": 0.4605809128630705,
+              "pod_09": 0.7055084745762712,
+              "far_09": 0.4297945205479452,
+              "f1_09": 0.6306818181818182,
+              "brier": 0.0924060046672821,
+              "ece": 0.31396787544345084
+            },
+            "PersistenceA_DHW": {
+              "n": 16926,
+              "n_severe": 472,
+              "prevalence": 0.027886092402221434,
+              "roc_auc": 0.9756950167184115,
+              "pr_auc": 0.5000370070745916,
+              "csi_08": 0.35827338129496406,
+              "pod_08": 0.527542372881356,
+              "far_08": 0.4724576271186441,
+              "f1_08": 0.527542372881356,
+              "csi_09": 0.3284789644012945,
+              "pod_09": 0.4300847457627119,
+              "far_09": 0.4183381088825215,
+              "f1_09": 0.4945188794153471,
+              "brier": 0.01751883700489998,
+              "ece": 0.045649893989369
+            },
+            "PersistenceB_cumsum12": {
+              "n": 16926,
+              "n_severe": 472,
+              "prevalence": 0.027886092402221434,
+              "roc_auc": 0.9540623525679193,
+              "pr_auc": 0.3177274404087043,
+              "csi_08": 0.2459485224022879,
+              "pod_08": 0.5466101694915254,
+              "far_08": 0.6910179640718563,
+              "f1_08": 0.3947972456006121,
+              "csi_09": 0.26303317535545023,
+              "pod_09": 0.4703389830508475,
+              "far_09": 0.6262626262626263,
+              "f1_09": 0.4165103189493433,
+              "brier": 0.04585188999772072,
+              "ece": 0.10868873967292035
+            }
+          },
+          "prevalence": 0.027886092402221434,
+          "bootstrap": {
+            "methods": {
+              "TSCF": {
+                "roc_auc": {
+                  "lo": 0.961370906587546,
+                  "hi": 0.98588827510897
+                },
+                "pr_auc": {
+                  "lo": 0.5548936729383123,
+                  "hi": 0.7333196390882182
+                },
+                "csi_09": {
+                  "lo": 0.3625262444634481,
+                  "hi": 0.5114768896854498
+                }
+              },
+              "PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": 0.9551710933463341,
+                  "hi": 0.9918925776238312
+                },
+                "pr_auc": {
+                  "lo": 0.22146624217581531,
+                  "hi": 0.7925822184142359
+                },
+                "csi_09": {
+                  "lo": 0.10757106897491431,
+                  "hi": 0.561779669198095
+                }
+              },
+              "PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.9263946649328523,
+                  "hi": 0.9776136454863583
+                },
+                "pr_auc": {
+                  "lo": 0.14924529149957017,
+                  "hi": 0.46166397605826043
+                },
+                "csi_09": {
+                  "lo": 0.11858126898558165,
+                  "hi": 0.3774690966719493
+                }
+              }
+            },
+            "paired": {
+              "TSCF_minus_PersistenceA_DHW": {
+                "roc_auc": {
+                  "lo": -0.012766658333225605,
+                  "hi": 0.011145369131386463
+                },
+                "pr_auc": {
+                  "lo": -0.07800997912358125,
+                  "hi": 0.35512329339669096
+                },
+                "csi_09": {
+                  "lo": -0.09589051245451419,
+                  "hi": 0.31761867900145524
+                }
+              },
+              "TSCF_minus_PersistenceB_cumsum12": {
+                "roc_auc": {
+                  "lo": 0.004753157075907422,
+                  "hi": 0.039720882635311046
+                },
+                "pr_auc": {
+                  "lo": 0.24420693719327013,
+                  "hi": 0.43669734149075257
+                },
+                "csi_09": {
+                  "lo": 0.09216268451549561,
+                  "hi": 0.30243169856257723
+                }
+              }
+            }
+          },
+          "removed_vs_standard": 2139
+        }
+      },
+      "purged_minus_standard": {
+        "TSCF": {
+          "roc_auc": 0.012238133142467023,
+          "pr_auc": 0.10703941856558952,
+          "csi_08": 0.11384442458221605,
+          "csi_09": 0.09577058195104471,
+          "pod_09": 0.03686942132183335,
+          "far_09": -0.12488528240771979,
+          "f1_09": 0.09608690392989627
+        },
+        "PersistenceA_DHW": {
+          "roc_auc": 0.01640827113697485,
+          "pr_auc": 0.0836394405305696,
+          "csi_08": 0.08640132108800264,
+          "csi_09": 0.07903328812634991,
+          "pod_09": 0.09724450907632137,
+          "far_09": -0.08277053856758937,
+          "f1_09": 0.09522872857240122
+        },
+        "PersistenceB_cumsum12": {
+          "roc_auc": 0.0222549320010188,
+          "pr_auc": 0.06868227487225476,
+          "csi_08": 0.031814622296017975,
+          "csi_09": 0.04893567864925788,
+          "pod_09": -0.010430247718383301,
+          "far_09": -0.09524551426865047,
+          "f1_09": 0.06382448064223534
+        }
+      },
+      "deltas": {
+        "standard__TSCF_minus_PersistenceA_DHW": {
+          "roc_auc": 0.0031431995137305435,
+          "pr_auc": 0.13793832942792628,
+          "csi_09": 0.11536465463708123,
+          "pod_09": 0.33579881656804733,
+          "far_09": 0.053571155505554136,
+          "f1_09": 0.13530476340897607
+        },
+        "standard__TSCF_minus_PersistenceB_cumsum12": {
+          "roc_auc": 0.030622524528266748,
+          "pr_auc": 0.30529073043549876,
+          "csi_09": 0.15071283420583345,
+          "pod_09": 0.18786982248520706,
+          "far_09": -0.16682833757561177,
+          "f1_09": 0.18190907594481398
+        },
+        "purged__TSCF_minus_PersistenceA_DHW": {
+          "roc_auc": -0.0010269384807772841,
+          "pr_auc": 0.1613383074629462,
+          "csi_09": 0.13210194846177603,
+          "pod_09": 0.2754237288135593,
+          "far_09": 0.011456411665423716,
+          "f1_09": 0.13616293876647112
+        },
+        "purged__TSCF_minus_PersistenceB_cumsum12": {
+          "roc_auc": 0.02060572566971497,
+          "pr_auc": 0.3436478741288335,
+          "csi_09": 0.19754773750762028,
+          "pod_09": 0.2351694915254237,
+          "far_09": -0.1964681057146811,
+          "f1_09": 0.21417149923247492
+        }
+      }
+    }
+  },
+  "purge_rule": {
+    "sample_convention": "PFV sample identified by issue week t (0-indexed weekly record); input history = 24 weekly steps [t-23, t] (predict_sliding_temporal uses X_full[t-23:t+1]); label = target at t+4; inclusion by prediction-year filter on year(t)",
+    "protected_boundary": "b = first week index whose calendar year equals test_years[0]",
+    "rule": "KEEP iff t - (H-1) >= b; REMOVE iff t - (H-1) < b",
+    "purge_width_issue_time_weeks": 23,
+    "purge_width_verification_time_weeks": 27,
+    "equivalent_form": "in verification time v = t+4 the input history starts at v - (H-1) - lead = v - 27; keep iff v - 27 >= b",
+    "role_of_lead": "lead=4 does not extend the input history backward; it enters the rule only through the PFV inclusion convention and the equivalent verification-time formulation"
+  },
+  "consistency_checks": {
+    "1": {
+      "description": "all standard samples have issue week in nominal test years",
+      "verdict": "PASS",
+      "detail": "years 2017–2020"
+    },
+    "2": {
+      "description": "purged mask keeps iff t-(H-1) >= b (no sample history crosses b)",
+      "verdict": "PASS",
+      "detail": "removed 2139/19065 samples (11.2%)"
+    },
+    "3": {
+      "description": "target week t+4 exists for every sample (PFV verification at t+4)",
+      "verdict": "PASS",
+      "detail": "max t+4 = 1865 < n_dates=1935"
+    },
+    "4": {
+      "description": "input history ends at issue week t (X_full[t-23:t+1], predict_sliding_temporal; labels never enter X)",
+      "verdict": "PASS",
+      "detail": "structural, verified in compute_persistence_baseline.py:128-132 / collect_records:298-304"
+    },
+    "5": {
+      "description": "purging changes sample inclusion only (subset of standard set)",
+      "verdict": "PASS",
+      "detail": "purged arrays are index subsets of the standard arrays (verified in C6)"
+    },
+    "6": {
+      "description": "TSCF predictions on retained samples bitwise identical to standard",
+      "verdict": "PASS",
+      "detail": ""
+    },
+    "7": {
+      "description": "all method predictions & targets identical to Step-4 arrays",
+      "verdict": "PASS",
+      "detail": ""
+    },
+    "8": {
+      "description": "standard & purged masks identical across the three methods",
+      "verdict": "PASS",
+      "detail": "single shared mask per protocol; finite patterns identical across methods"
+    },
+    "9": {
+      "description": "recomputed standard metrics match frozen Step-4 results exactly",
+      "verdict": "PASS",
+      "detail": "all equal"
+    },
+    "109": {
+      "description": "formal Step-4 files not overwritten (hashes identical before/after)",
+      "verdict": "PASS",
+      "detail": "6 files verified"
+    }
+  },
+  "protocol": {
+    "protocol": "step5_temporal_purge_v2 (supplementary robustness — NOT a replacement for Step 4)",
+    "source_arrays": {
+      "path": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\step2_persistence_v2\\persistence_raw_predictions.npz",
+      "sha256": "93101cfb4cefd8cb7878f0edeae0188acc8565191d6885779e129f4b044c4fbc",
+      "note": "no re-inference; predictions bitwise identical to Step 2/4"
+    },
+    "checkpoint": {
+      "path": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\model_final_Btail3\\model.pt",
+      "md5": "7cdbca26cae03fa53be53210940e8ce1",
+      "frozen_reference_md5": "7cdbca26cae03fa53be53210940e8ce1",
+      "unchanged": true
+    },
+    "purge_rule": {
+      "sample_convention": "PFV sample identified by issue week t (0-indexed weekly record); input history = 24 weekly steps [t-23, t] (predict_sliding_temporal uses X_full[t-23:t+1]); label = target at t+4; inclusion by prediction-year filter on year(t)",
+      "protected_boundary": "b = first week index whose calendar year equals test_years[0]",
+      "rule": "KEEP iff t - (H-1) >= b; REMOVE iff t - (H-1) < b",
+      "purge_width_issue_time_weeks": 23,
+      "purge_width_verification_time_weeks": 27,
+      "equivalent_form": "in verification time v = t+4 the input history starts at v - (H-1) - lead = v - 27; keep iff v - 27 >= b",
+      "role_of_lead": "lead=4 does not extend the input history backward; it enters the rule only through the PFV inclusion convention and the equivalent verification-time formulation"
+    },
+    "severe_threshold": 0.8,
+    "tau_pinned": [
+      0.8,
+      0.9
+    ],
+    "tau_selection": "none — τ=0.90 pinned a priori, carried over from Step 4; never selected on the purged test set or on GBR",
+    "bootstrap": {
+      "type": "week-level temporal block (paired across methods)",
+      "n_boot": 1000,
+      "seed": 42
+    },
+    "no_training": true,
+    "no_gbr_fitting": true,
+    "no_threshold_tuning": true,
+    "generated": "2026-09-17T18:35:27.354653"
+  }
+}

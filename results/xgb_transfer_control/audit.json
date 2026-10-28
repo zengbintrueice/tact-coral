@@ -1,0 +1,49 @@
+{
+  "experiment": "xgb_transfer_control_leakage_audit",
+  "created_utc": "2026-09-24T12:36:23.782187",
+  "checks": [
+    {
+      "id": "L1_no_target_training",
+      "description": "train_on_scs body references ONLY SCS_FILE (GBR/CARIB files never used for fitting)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "L2_no_target_tuning",
+      "description": "hyperparameters are the fixed baseline XGB_PARAMS (module constant); no GBR/CARIB-driven hyperparameter search (no tuning loop over target)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "L3_threshold_pinned",
+      "description": "tau=0.9 is a single module constant set a priori; no threshold-selection sweep over any domain's data exists in the code",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "L4_train_only_scaler",
+      "description": "StandardScaler fit on SCS train subset only (fit_transform inside train_on_scs); domains only .transform()",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "L5_feature_reuse",
+      "description": "feature construction & label & ocean mask reused verbatim from the existing XGBoost pipeline (no redesign)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "L6_target_not_touched",
+      "description": "target y(t+4) read only at evaluation time in forecast_targets; never an input feature (windowed history <= t)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "id": "L7_repro",
+      "description": "code_md5 + data SHA256s recorded in config.json (git is absent in this tree; hash-based version)",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "verdict": "PASS"
+}

@@ -1,0 +1,753 @@
+{
+  "generated": "2026-10-07T08:11:49.807953",
+  "figures": {
+    "Supplementary_Fig_01": {
+      "checks": [
+        {
+          "check": "MD cross-check: 12 PASS verdicts in SOURCE_DATA_SUPPLEMENTARY.md",
+          "passed": true,
+          "detail": "file verdicts={'PASS': 12}"
+        },
+        {
+          "check": "12 audit rows, all PASS",
+          "passed": true,
+          "detail": "rows=12, verdicts=['PASS']"
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s1_source_data.csv"
+      ],
+      "series": "12 audit rows (id, requirement, verdict)",
+      "n": 12,
+      "threshold": "n/a",
+      "ci": "n/a",
+      "seed": "n/a",
+      "domains": "protocol-level",
+      "labels": {
+        "verdict": "PASS x12"
+      }
+    },
+    "Supplementary_Fig_10": {
+      "checks": [
+        {
+          "check": "MD cross-check: alpha_opt == 1.0",
+          "passed": true,
+          "detail": "alpha_opt=1.0"
+        },
+        {
+          "check": "alpha_opt == 1.0",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "fusion(alpha*) == PersA on test",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s10_source_data.json"
+      ],
+      "series": "expA renorm ROC; expB alpha sweep + alpha*; test PersA/fusion/TSCF",
+      "n": "83025",
+      "threshold": "tau=0.9",
+      "ci": "none",
+      "seed": "n/a",
+      "domains": [
+        "CARIB"
+      ],
+      "labels": {
+        "alpha_opt": "1.0 (validation-selected, diagnostic)"
+      }
+    },
+    "Supplementary_Fig_02": {
+      "checks": [
+        {
+          "check": "row SCS/TSCF/standard/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/TSCF/purged/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceA_DHW/standard/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceA_DHW/purged/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceB_cumsum12/standard/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceB_cumsum12/purged/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/TSCF/standard/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/TSCF/purged/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceA_DHW/standard/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceA_DHW/purged/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceB_cumsum12/standard/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceB_cumsum12/purged/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/TSCF/standard/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/TSCF/purged/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceA_DHW/standard/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceA_DHW/purged/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceB_cumsum12/standard/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row SCS/PersistenceB_cumsum12/purged/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/TSCF/standard/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/TSCF/purged/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceA_DHW/standard/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceA_DHW/purged/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceB_cumsum12/standard/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceB_cumsum12/purged/roc_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/TSCF/standard/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/TSCF/purged/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceA_DHW/standard/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceA_DHW/purged/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceB_cumsum12/standard/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceB_cumsum12/purged/pr_auc",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/TSCF/standard/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/TSCF/purged/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceA_DHW/standard/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceA_DHW/purged/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceB_cumsum12/standard/csi_09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row GBR/PersistenceB_cumsum12/purged/csi_09",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s2_source_data.csv"
+      ],
+      "series": "ROC/PR/CSI@0.9 for TSCF, PersA, 12-wk cumulative; standard vs purged; SCS and GBR",
+      "n": "SCS 49322/43089; GBR 19065/16926",
+      "threshold": "tau=0.90",
+      "ci": "none (point estimates)",
+      "seed": "n/a",
+      "domains": [
+        "SCS",
+        "GBR"
+      ],
+      "labels": {
+        "purge": "issue-time 23 wk / verification-time 27 wk"
+      }
+    },
+    "Supplementary_Fig_03": {
+      "checks": [
+        {
+          "check": "row present SCS/FULL",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/NO_CUMSUM12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/NO_CUMULATIVE",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/THERMAL_ONLY",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/FULL",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/NO_CUMSUM12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/NO_CUMULATIVE",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/THERMAL_ONLY",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s3_source_data.csv"
+      ],
+      "series": "PR-AUC and CSI@0.9 for Full / No 12-week cumulative / No cumulative / Thermal-only; SCS + GBR",
+      "n": "49322 / 19065",
+      "threshold": "tau=0.90",
+      "ci": "none",
+      "seed": "42 (frozen training)",
+      "domains": [
+        "SCS",
+        "GBR"
+      ],
+      "labels": [
+        "Full",
+        "No 12-week cumulative HotSpot",
+        "No cumulative HotSpot",
+        "Thermal-only"
+      ]
+    },
+    "Supplementary_Fig_04": {
+      "checks": [
+        {
+          "check": "row present SCS/M_C1",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C2",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C4",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C8",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C4_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C2_C4_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present SCS/M_C1_C4_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C1",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C2",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C4",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C8",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C4_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C2_C4_C12",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row present GBR/M_C1_C4_C12",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s4_source_data.csv"
+      ],
+      "series": "PR-AUC for single-scale C1/C2/C4/C8/C12 (a) and multi-scale configurations (b); SCS + GBR; FULL references",
+      "n": "49322 / 19065",
+      "threshold": "tau=0.90",
+      "ci": "none",
+      "seed": "42 (frozen training)",
+      "domains": [
+        "SCS",
+        "GBR"
+      ],
+      "labels": {
+        "a": [
+          "M_C1",
+          "M_C2",
+          "M_C4",
+          "M_C8",
+          "M_C12"
+        ],
+        "b": [
+          "M_C4_C12",
+          "M_C2_C4_C12",
+          "M_C1_C4_C12"
+        ]
+      }
+    },
+    "Supplementary_Fig_05": {
+      "checks": [
+        {
+          "check": "three domain rows (SCS, GBR, CARIB)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets mean (SCS)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets mean (GBR)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets mean (CARIB)",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s5_source_data.csv",
+        "results/review2_revision/carib_env_permutation.json"
+      ],
+      "series": "dPR mean + 95% CI for SCS, GBR, CARIB",
+      "n": "permutation replicates",
+      "threshold": "tau=0.90",
+      "ci": "95% CI",
+      "seed": "42 (permutation)",
+      "domains": [
+        "SCS",
+        "GBR",
+        "CARIB"
+      ],
+      "labels": {
+        "method": "channel permutation"
+      }
+    },
+    "Supplementary_Fig_06": {
+      "checks": [
+        {
+          "check": "sweep availability (SCS/GBR formal; CARIB tau pinned, never domain-selected, so no sweep exists)",
+          "passed": true,
+          "detail": "sweep domains: ['SCS', 'GBR']"
+        },
+        {
+          "check": "tau=0.90 present in sweep",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/step4_causal_zero_shot/causal_zero_shot_threshold_sweep_diagnostic.csv",
+        "(edfig_s6_source_data.csv is a truncated copy)"
+      ],
+      "series": "CSI vs tau, TSCF, three domains",
+      "n": "49322/19065 (SCS/GBR; CARIB has no formal sweep)",
+      "threshold": "tau=0.9 pre-specified",
+      "ci": "none",
+      "seed": "n/a",
+      "domains": [
+        "SCS",
+        "GBR"
+      ],
+      "labels": {
+        "tau": "diagnostic sweep 0.10-0.95",
+        "carib_note": "CARIB tau pinned a priori; no domain sweep exists in the formal outputs"
+      }
+    },
+    "Supplementary_Fig_07": {
+      "checks": [
+        {
+          "check": "row C_anchored−A_PersA/SCS/csi_tau09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets point (C_anchored−A_PersA/SCS)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row C_anchored−A_PersA/GBR/csi_tau09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets point (C_anchored−A_PersA/GBR)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row C_anchored−A_PersA/CARIB/csi_tau09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets point (C_anchored−A_PersA/CARIB)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row C_anchored−B_ungated/SCS/csi_tau09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets point (C_anchored−B_ungated/SCS)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row C_anchored−B_ungated/GBR/csi_tau09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets point (C_anchored−B_ungated/GBR)",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "row C_anchored−B_ungated/CARIB/csi_tau09",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CI brackets point (C_anchored−B_ungated/CARIB)",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s7_source_data.csv"
+      ],
+      "series": "ΔCSI@0.90 point + 95% CI: gated−PersA and gated−ungated; SCS/GBR/CARIB",
+      "n": "49322/19065/83025",
+      "threshold": "tau=0.90",
+      "ci": "paired week-block bootstrap 95% (n_boot=1000, seed=42)",
+      "seed": "42",
+      "domains": [
+        "SCS",
+        "GBR",
+        "CARIB"
+      ],
+      "labels": {
+        "comparisons": [
+          "gated − PersA",
+          "gated − ungated"
+        ]
+      }
+    },
+    "Supplementary_Fig_08": {
+      "checks": [
+        {
+          "check": "5 seeds present GBR/ROC-AUC",
+          "passed": true,
+          "detail": "n=5"
+        },
+        {
+          "check": "5 seeds present GBR/PR-AUC",
+          "passed": true,
+          "detail": "n=5"
+        },
+        {
+          "check": "5 seeds present GBR/CSI@0.9",
+          "passed": true,
+          "detail": "n=5"
+        },
+        {
+          "check": "5 seeds present CARIB/ROC-AUC",
+          "passed": true,
+          "detail": "n=5"
+        },
+        {
+          "check": "5 seeds present CARIB/PR-AUC",
+          "passed": true,
+          "detail": "n=5"
+        },
+        {
+          "check": "5 seeds present CARIB/CSI@0.9",
+          "passed": true,
+          "detail": "n=5"
+        },
+        {
+          "check": "ΔPR present for 5 seeds",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "ΔCSI present for 5 seeds",
+          "passed": true,
+          "detail": ""
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/S8_seed_sensitivity.csv",
+        "results/seed_sensitivity/seed_transfer_boundary.csv"
+      ],
+      "series": "per-seed ROC/PR/CSI (GBR, CARIB); ΔPR; ΔCSI; mean ± 95% CI",
+      "n": "5 seeds x (49322 SCS / 19065 GBR / 83025 CARIB)",
+      "threshold": "tau=0.90",
+      "ci": "t-based descriptive 95%",
+      "seed": "0,1,2,3,42 (formal seed 42 pinned a priori)",
+      "domains": [
+        "GBR",
+        "CARIB"
+      ],
+      "labels": {
+        "wording": "qualitative boundary preserved; absolute performance varied substantially"
+      }
+    },
+    "Supplementary_Fig_09": {
+      "checks": [
+        {
+          "check": "all spatial-map npz keys present",
+          "passed": true,
+          "detail": "missing: []"
+        },
+        {
+          "check": "SCS map finite & in [0,1]",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "SCS severe overlay within [0,1] and has flagged pixels",
+          "passed": true,
+          "detail": "sev>0 px=356"
+        },
+        {
+          "check": "GBR map finite & in [0,1]",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "GBR severe overlay within [0,1] and has flagged pixels",
+          "passed": true,
+          "detail": "sev>0 px=99"
+        },
+        {
+          "check": "CARIB map finite & in [0,1]",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "check": "CARIB severe overlay within [0,1] and has flagged pixels",
+          "passed": true,
+          "detail": "sev>0 px=335"
+        }
+      ],
+      "source_files": [
+        "results/figures/source_data/edfig_s9_source_data.npz"
+      ],
+      "series": "predicted-risk maps (0-1 common scale) + observed-severe overlay; SCS/GBR/CARIB example issue weeks",
+      "n": "per-map grid (21x23 / 15x12 / 22x32)",
+      "threshold": "severe 0.8",
+      "ci": "none",
+      "seed": "n/a",
+      "domains": [
+        "SCS",
+        "GBR",
+        "CARIB"
+      ],
+      "labels": {
+        "caveat": "single example date; not basin-representative"
+      }
+    },
+    "GLOBAL": {
+      "checks": [
+        {
+          "check": "exactly ONE seed-sensitivity figure",
+          "passed": true,
+          "detail": "figures using seed data: ['Supplementary_Fig_08']"
+        }
+      ]
+    }
+  },
+  "tables": {
+    "Supplementary_Table_01": {
+      "source_files": [
+        "structural_ablation.json",
+        "edfig_s2_source_data.csv",
+        "edfig_s11_source_data.json",
+        "caribbean_dataset_manifest_v2.json"
+      ],
+      "rows": 3
+    },
+    "Supplementary_Table_02": {
+      "source_files": [
+        "results/figures/source_data/edfig_s11_source_data.json"
+      ],
+      "rows": 25
+    },
+    "Supplementary_Table_03": {
+      "source_files": [
+        "results/physics_anchored/structural_ablation/structural_ablation.json"
+      ],
+      "rows": 12,
+      "note": "CIs = paired week-block bootstrap 95% (1000, seed 42)"
+    },
+    "Supplementary_Table_04": {
+      "source_files": [
+        "results/step9_gcbd_validation/step9_bootstrap.csv",
+        "results/step9_gcbd_validation/step9_risk_enrichment.csv",
+        "results/step9_gcbd_validation/step9_quintile_enrichment.csv",
+        "results/step10_gcbd_matching_audit/step10_matching_results.csv",
+        "results/step10_gcbd_matching_audit/step10_site_level_results.csv"
+      ],
+      "rows": 15
+    }
+  },
+  "duplicates": [],
+  "stopped": [],
+  "status": "OK",
+  "overall_status": "PASS",
+  "n_figures_built": 10
+}

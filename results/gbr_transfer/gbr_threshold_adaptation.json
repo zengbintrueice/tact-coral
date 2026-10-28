@@ -1,0 +1,177 @@
+{
+  "experiment": "threshold_calibration_diagnostic",
+  "description": "Distinguish H_A (cannot predict) vs H_B (wrong scale) on GBR",
+  "configuration": {
+    "model": "a7 (SCS-trained, frozen)",
+    "lead_weeks": 4,
+    "severe_threshold": 0.8,
+    "threshold_sweep": [
+      0.01,
+      0.99,
+      0.01
+    ],
+    "n_thresholds": 99
+  },
+  "data_stats": {
+    "scs_val": {
+      "n_pixels": 98136
+    },
+    "gbr_val": {
+      "n_pixels": 15444,
+      "severe_count": 209,
+      "severe_rate": 0.013533,
+      "isotonic_reliable": true
+    },
+    "gbr_test": {
+      "n_pixels": 20295
+    }
+  },
+  "data_quality_note": {
+    "gbr_val_severe_events": 209,
+    "min_required_for_isotonic": 50,
+    "gbr_isotonic_included": true,
+    "warning": null
+  },
+  "gbr_val_sweep": {
+    "GBR_raw": {
+      "best_csi_threshold": 0.68,
+      "best_csi_value": 0.15995260663507108,
+      "best_f1_threshold": 0.68,
+      "best_f1_value": 0.27579162410623087
+    },
+    "GBR_scs_iso": {
+      "best_csi_threshold": 0.03,
+      "best_csi_value": 0.15834348355663824,
+      "best_f1_threshold": 0.03,
+      "best_f1_value": 0.2733964248159832
+    },
+    "GBR_gbr_iso": {
+      "best_csi_threshold": 0.14,
+      "best_csi_value": 0.16069221260815822,
+      "best_f1_threshold": 0.14,
+      "best_f1_value": 0.27689030883919064
+    }
+  },
+  "scs_val_sweep": {
+    "SCS_raw": {
+      "best_csi_threshold": 0.98,
+      "best_csi_value": 0.3037037037037037,
+      "best_f1_threshold": 0.98,
+      "best_f1_value": 0.4659090909090909
+    },
+    "SCS_scs_iso": {
+      "best_csi_threshold": 0.22,
+      "best_csi_value": 0.3106267029972752,
+      "best_f1_threshold": 0.22,
+      "best_f1_value": 0.47401247401247404
+    }
+  },
+  "test_results": {
+    "GBR_raw": {
+      "optimal_csi_threshold": 0.68,
+      "test_at_csi_threshold": {
+        "csi": 0.3267429760665973,
+        "pod": 0.8614540466392319,
+        "far": 0.6551345414607359,
+        "f1": 0.49254901960784314,
+        "hits": 628,
+        "misses": 101,
+        "false_alarms": 1193,
+        "correct_negatives": 18373,
+        "n_total": 20295
+      },
+      "optimal_f1_threshold": 0.68,
+      "test_at_f1_threshold": {
+        "csi": 0.3267429760665973,
+        "pod": 0.8614540466392319,
+        "far": 0.6551345414607359,
+        "f1": 0.49254901960784314,
+        "hits": 628,
+        "misses": 101,
+        "false_alarms": 1193,
+        "correct_negatives": 18373,
+        "n_total": 20295
+      }
+    },
+    "GBR_scs_iso": {
+      "optimal_csi_threshold": 0.03,
+      "test_at_csi_threshold": {
+        "csi": 0.3287086446104589,
+        "pod": 0.8449931412894376,
+        "far": 0.6501987507098239,
+        "f1": 0.4947791164658635,
+        "hits": 616,
+        "misses": 113,
+        "false_alarms": 1145,
+        "correct_negatives": 18421,
+        "n_total": 20295
+      },
+      "optimal_f1_threshold": 0.03,
+      "test_at_f1_threshold": {
+        "csi": 0.3287086446104589,
+        "pod": 0.8449931412894376,
+        "far": 0.6501987507098239,
+        "f1": 0.4947791164658635,
+        "hits": 616,
+        "misses": 113,
+        "false_alarms": 1145,
+        "correct_negatives": 18421,
+        "n_total": 20295
+      }
+    },
+    "GBR_gbr_iso": {
+      "optimal_csi_threshold": 0.14,
+      "test_at_csi_threshold": {
+        "csi": 0.33098591549295775,
+        "pod": 0.8381344307270233,
+        "far": 0.6464120370370371,
+        "f1": 0.4973544973544973,
+        "hits": 611,
+        "misses": 118,
+        "false_alarms": 1117,
+        "correct_negatives": 18449,
+        "n_total": 20295
+      },
+      "optimal_f1_threshold": 0.14,
+      "test_at_f1_threshold": {
+        "csi": 0.33098591549295775,
+        "pod": 0.8381344307270233,
+        "far": 0.6464120370370371,
+        "f1": 0.4973544973544973,
+        "hits": 611,
+        "misses": 118,
+        "false_alarms": 1117,
+        "correct_negatives": 18449,
+        "n_total": 20295
+      }
+    }
+  },
+  "roc_pr_diagnostic": {
+    "GBR_raw": {
+      "roc_auc": 0.9601833728815151,
+      "avg_precision": 0.5192505999863907,
+      "baseline_prevalence": 0.03592017738359202
+    },
+    "GBR_scs_iso": {
+      "roc_auc": 0.9577917279589871,
+      "avg_precision": 0.4903896707694664,
+      "baseline_prevalence": 0.03592017738359202
+    },
+    "GBR_gbr_iso": {
+      "roc_auc": 0.9583591858276591,
+      "avg_precision": 0.40716553971728225,
+      "baseline_prevalence": 0.03592017738359202
+    }
+  },
+  "scs_reference": {
+    "roc_auc": 0.9860628915998673,
+    "avg_precision": 0.4895134913564725,
+    "baseline_prevalence": 0.0027716638134833295
+  },
+  "diagnostic_interpretation": {
+    "H_A_no_discriminative_power": "If ROC_AUC ≈ 0.5 and AP ≈ baseline, y_main has no ranking ability on GBR",
+    "H_B_wrong_scale": "If ROC_AUC >> 0.5 and AP >> baseline, ranking is preserved but absolute values shifted",
+    "threshold_tuning_benefit": "Compare test CSI/F1 with GBR-val-tuned threshold vs SCS default threshold"
+  },
+  "timestamp": "2026-09-12T05:23:43.235045"
+}

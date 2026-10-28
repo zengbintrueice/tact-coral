@@ -1,0 +1,93 @@
+{
+  "experiment": "residual_hierarchy",
+  "generated": "2026-09-29T20:08:31.118894",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "protocol": {
+    "hierarchy_scores": "training-free equal-weight rank means (pre-specified; no coefficient fitted to target)",
+    "R": "TSAR(C_anchored, scale 0.4) − PersA",
+    "bootstrap": {
+      "type": "paired week-block",
+      "n": 1000,
+      "seed": 42
+    },
+    "cv": {
+      "folds": 5,
+      "grouped_by": "issue week"
+    },
+    "logloss_clip": 1e-06,
+    "interpretation": "predictive / representation-level only"
+  },
+  "basins": {
+    "SCS": {
+      "n_total": 49322,
+      "n_complete_case": 49235,
+      "n_dropped": 87,
+      "n_severe": 419,
+      "n_weeks": 182,
+      "r2_oos_R_given_H1": 0.4646848656070163,
+      "r2_oos_R_given_H1H2": 0.46474455787118873,
+      "delta_r2_oos": 5.969226417246176e-05
+    },
+    "GBR": {
+      "n_total": 19065,
+      "n_complete_case": 19065,
+      "n_dropped": 0,
+      "n_severe": 676,
+      "n_weeks": 205,
+      "r2_oos_R_given_H1": 0.0067251025682600885,
+      "r2_oos_R_given_H1H2": 0.019670945819585728,
+      "delta_r2_oos": 0.01294584325132564
+    },
+    "CARIB": {
+      "n_total": 83025,
+      "n_complete_case": 83025,
+      "n_dropped": 0,
+      "n_severe": 1356,
+      "n_weeks": 205,
+      "r2_oos_R_given_H1": 0.21093234805462524,
+      "r2_oos_R_given_H1H2": 0.22730054164863922,
+      "delta_r2_oos": 0.01636819359401398
+    }
+  },
+  "verdicts": {
+    "SCS": {
+      "H3_over_H2_roc": {
+        "point": 0.000589618490435817,
+        "ci_lo": -0.00017887093933471597,
+        "ci_hi": 0.0017348319960066969
+      },
+      "H3_over_H2_pr": {
+        "point": -0.008109753232671268,
+        "ci_lo": -0.01609994935288167,
+        "ci_hi": 0.003178074526243071
+      },
+      "residual_extra_info_established": false
+    },
+    "GBR": {
+      "H3_over_H2_roc": {
+        "point": 0.004888156702891333,
+        "ci_lo": 0.002810156580879733,
+        "ci_hi": 0.007387990316774364
+      },
+      "H3_over_H2_pr": {
+        "point": 0.026274267426231623,
+        "ci_lo": 0.015594226042965873,
+        "ci_hi": 0.04168227833021818
+      },
+      "residual_extra_info_established": true
+    },
+    "CARIB": {
+      "H3_over_H2_roc": {
+        "point": 0.002486871334107743,
+        "ci_lo": -0.0004789708802876324,
+        "ci_hi": 0.005126522135471786
+      },
+      "H3_over_H2_pr": {
+        "point": 0.013797297112315143,
+        "ci_lo": 0.004057001150471191,
+        "ci_hi": 0.02066075730203558
+      },
+      "residual_extra_info_established": true
+    }
+  }
+}

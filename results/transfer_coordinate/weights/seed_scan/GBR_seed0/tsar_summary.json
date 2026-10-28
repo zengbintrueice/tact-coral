@@ -1,0 +1,15 @@
+{
+  "source": "GBR",
+  "seed": 0,
+  "epochs": 34,
+  "best_val": 0.005936135166040104,
+  "md5": "b9b7e7895026943c463f25bf15e4bc32",
+  "cfg": {
+    "gamma": 0.5,
+    "scale": 0.4,
+    "tau": 0.5,
+    "temp": 0.1,
+    "lambda_sev": 20
+  },
+  "timestamp": "2026-10-02T08:53:23.378128"
+}

@@ -1,0 +1,172 @@
+{
+  "experiment": "cross_basin_residual_mechanism",
+  "generated": "2026-09-30T08:25:02.403366",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "protocol": {
+    "candidates": [
+      "dDHW_4w",
+      "cumsum_4w",
+      "cumsum_12w",
+      "ssta",
+      "hotspot",
+      "chl",
+      "par",
+      "wind"
+    ],
+    "partial_control": "current_DHW (= PersA*10)",
+    "bootstrap": {
+      "type": "paired week-block per basin",
+      "n": 1000,
+      "seed": 42
+    },
+    "model": "fixed rank-OLS (fold-internal ECDF), GroupKFold 5 by issue week, pooled OOS R²",
+    "fdr": "Benjamini-Hochberg per family per basin",
+    "verdict_rule": "consistent iff GBR & CARIB share sign AND both q<0.05; difference CI reported as homogeneity information",
+    "interpretation": "associative / representation-level only"
+  },
+  "basins": {
+    "SCS": {
+      "n": 49235,
+      "n_weeks": 182,
+      "r2_oos_rank_ols": 0.745632081551918,
+      "rank_coefs": {
+        "dDHW_4w": 0.082779,
+        "cumsum_4w": 0.143438,
+        "cumsum_12w": 0.459264,
+        "ssta": -0.09835,
+        "hotspot": 0.187891,
+        "chl": 0.033618,
+        "par": 0.227399,
+        "wind": -0.0564
+      }
+    },
+    "GBR": {
+      "n": 19065,
+      "n_weeks": 205,
+      "r2_oos_rank_ols": 0.3150031846264696,
+      "rank_coefs": {
+        "dDHW_4w": 0.018558,
+        "cumsum_4w": -0.132215,
+        "cumsum_12w": 0.515119,
+        "ssta": 0.02373,
+        "hotspot": 0.018178,
+        "chl": 0.200911,
+        "par": 0.061631,
+        "wind": -0.033251
+      }
+    },
+    "CARIB": {
+      "n": 83025,
+      "n_weeks": 205,
+      "r2_oos_rank_ols": 0.46118090301197967,
+      "rank_coefs": {
+        "dDHW_4w": 0.09175,
+        "cumsum_4w": 0.320395,
+        "cumsum_12w": 0.161941,
+        "ssta": 0.158926,
+        "hotspot": -0.023562,
+        "chl": -0.001081,
+        "par": 0.282878,
+        "wind": -0.087701
+      }
+    }
+  },
+  "verdicts": {
+    "dDHW_4w": {
+      "GBR_partial_rho": -0.0003778027148410093,
+      "CARIB_partial_rho": 0.20814615452468646,
+      "GBR_q": 0.9584006265013642,
+      "CARIB_q": 0.0,
+      "diff": -0.20852395723952746,
+      "diff_ci": [
+        -0.3109186099382581,
+        -0.10310731514597289
+      ],
+      "verdict": "not consistent"
+    },
+    "cumsum_4w": {
+      "GBR_partial_rho": 0.18614321921139917,
+      "CARIB_partial_rho": 0.5415750114491058,
+      "GBR_q": 5.362136617153513e-148,
+      "CARIB_q": 0.0,
+      "diff": -0.3554317922377066,
+      "diff_ci": [
+        -0.44132263528453014,
+        -0.26208148653206687
+      ],
+      "verdict": "same-sign but heterogeneous effect size"
+    },
+    "cumsum_12w": {
+      "GBR_partial_rho": 0.34246269120745876,
+      "CARIB_partial_rho": 0.3970587355805013,
+      "GBR_q": 0.0,
+      "CARIB_q": 0.0,
+      "diff": -0.05459604437304255,
+      "diff_ci": [
+        -0.1614094220248514,
+        0.04396008637014988
+      ],
+      "verdict": "consistent"
+    },
+    "ssta": {
+      "GBR_partial_rho": 0.13781169578377733,
+      "CARIB_partial_rho": 0.3405591737090737,
+      "GBR_q": 2.0426026225906124e-81,
+      "CARIB_q": 0.0,
+      "diff": -0.20274747792529635,
+      "diff_ci": [
+        -0.3022884435495101,
+        -0.1048009476020979
+      ],
+      "verdict": "same-sign but heterogeneous effect size"
+    },
+    "hotspot": {
+      "GBR_partial_rho": 0.14168768791156855,
+      "CARIB_partial_rho": 0.5169740249747531,
+      "GBR_q": 6.188615455184116e-86,
+      "CARIB_q": 0.0,
+      "diff": -0.37528633706318454,
+      "diff_ci": [
+        -0.46116231848008066,
+        -0.285017516957622
+      ],
+      "verdict": "same-sign but heterogeneous effect size"
+    },
+    "chl": {
+      "GBR_partial_rho": 0.20146148783462337,
+      "CARIB_partial_rho": 0.038887225554503066,
+      "GBR_q": 1.7975210945984588e-173,
+      "CARIB_q": 3.683667490112973e-29,
+      "diff": 0.16257426228012029,
+      "diff_ci": [
+        0.1270844790510981,
+        0.19994660050654925
+      ],
+      "verdict": "same-sign but heterogeneous effect size"
+    },
+    "par": {
+      "GBR_partial_rho": 0.2565939107755757,
+      "CARIB_partial_rho": 0.38679307776927385,
+      "GBR_q": 1.0902124779393722e-283,
+      "CARIB_q": 0.0,
+      "diff": -0.13019916699369816,
+      "diff_ci": [
+        -0.22155743774828235,
+        -0.0333269677224425
+      ],
+      "verdict": "same-sign but heterogeneous effect size"
+    },
+    "wind": {
+      "GBR_partial_rho": -0.20164404888801818,
+      "CARIB_partial_rho": -0.12648530272248495,
+      "GBR_q": 1.1526780584346405e-173,
+      "CARIB_q": 4.4096372913517317e-293,
+      "diff": -0.07515874616553322,
+      "diff_ci": [
+        -0.17020591197346677,
+        0.017090380133420555
+      ],
+      "verdict": "consistent"
+    }
+  }
+}

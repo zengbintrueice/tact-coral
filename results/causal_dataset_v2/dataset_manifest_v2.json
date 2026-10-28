@@ -1,0 +1,582 @@
+{
+  "title": "TSCF submission-grade causal dataset v2",
+  "generated_utc": "2026-09-12T09:34:08+00:00",
+  "builder": "data/source_builders/build_causal_dataset_v2.py",
+  "protocol": "docs/protocol_audit_v2.md (evidence-locked v2)",
+  "causality_rules": {
+    "dhw_target": "trailing 84-day sum at native 5km, HotSpot>=1C only, complete-window validity, 5km->1deg aggregation BEFORE thresholding (Jensen-aware); y=clip(DHW/10,0,1); severe y>=0.8",
+    "monthly_variables": "available at month-end only; weekly forward-fill from past valid months; linear interpolation DISABLED",
+    "climatology": "ERA5 monthly climatology from months with year<=2010 only (both domains)",
+    "normalization": "SCS train 2003-2010 only, frozen for val/test/GBR",
+    "derived_channels": "hotspot, d_hotspot_dt, hotspot_cumsum_4w/12w strictly trailing",
+    "valid_masks": "future-target validity = finite y; NaN never zero-filled; ocean_mask preserved",
+    "model_training": "NOT performed (dataset deliverable only)"
+  },
+  "constants": {
+    "clim_year_cutoff": 2010,
+    "scs_train": [
+      2003,
+      2010
+    ],
+    "scs_val": [
+      2011,
+      2015
+    ],
+    "scs_test": [
+      2016,
+      2019
+    ],
+    "gbr_val": [
+      2014,
+      2016
+    ],
+    "gbr_test": [
+      2017,
+      2020
+    ],
+    "history_weeks": 24,
+    "lead_weeks": 4,
+    "severe_threshold": 0.8,
+    "dhw_window_days": 84,
+    "dhw_clip_lower": 1.0
+  },
+  "normalization_file": "normalization_v2.json",
+  "domains": {
+    "SCS": {
+      "domain": "SCS",
+      "sst_anomaly_climatology": {
+        "climatology_cutoff_year": 2010,
+        "climatology_source_months": [
+          "2003-01-01",
+          "2010-12-01"
+        ],
+        "n_clim_months": 96
+      },
+      "checks_climatology_max_err": 0.0,
+      "splits": {
+        "train": {
+          "years": [
+            2003,
+            2010
+          ],
+          "n_windows": 394,
+          "first_issue": "2003-06-15",
+          "last_issue": "2010-12-26"
+        },
+        "val": {
+          "years": [
+            2011,
+            2015
+          ],
+          "n_windows": 261,
+          "first_issue": "2011-01-02",
+          "last_issue": "2015-12-27"
+        },
+        "test": {
+          "years": [
+            2016,
+            2019
+          ],
+          "n_windows": 182,
+          "first_issue": "2016-01-03",
+          "last_issue": "2019-06-23"
+        },
+        "n_windows_total": 837
+      },
+      "split_protocol": "SCS year-based (protocol §B)",
+      "feature_audit": [
+        {
+          "feature": "sst",
+          "source": "CRW 5km daily SST",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "same week t (trailing 7-day mean of days in [t, t+7))",
+          "future_possible": false
+        },
+        {
+          "feature": "ssta",
+          "source": "CRW 5km daily SSTA (NOAA climatology baseline, external product)",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "same week t (trailing 7-day mean)",
+          "future_possible": false
+        },
+        {
+          "feature": "hotspot",
+          "source": "CRW 5km daily HotSpot (NOAA baseline, external product)",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "same week t (trailing 7-day mean, clipped >=0)",
+          "future_possible": false
+        },
+        {
+          "feature": "chlorophyll",
+          "source": "OC-CCI v6 monthly chlor_a",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "month M available only after month M ends; week t carries latest completed month (past-only ffill)",
+          "future_possible": false
+        },
+        {
+          "feature": "par",
+          "source": "MODIS monthly PAR (SCS)",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "month-end hold, past-only ffill",
+          "future_possible": false
+        },
+        {
+          "feature": "seasonal_sin",
+          "source": "deterministic calendar",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "sin(2*pi*woy/52) at week t",
+          "future_possible": false
+        },
+        {
+          "feature": "wind_speed",
+          "source": "ERA5 monthly u10/v10",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "month-end hold, past-only ffill",
+          "future_possible": false
+        },
+        {
+          "feature": "ssr",
+          "source": "ERA5 monthly ssr",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "month-end hold, past-only ffill",
+          "future_possible": false
+        },
+        {
+          "feature": "sst_anomaly",
+          "source": "ERA5 monthly sst minus climatology(year<= 2010)",
+          "earliest_source": "2003-01-01",
+          "latest_source": "2019-07-21",
+          "availability": "month-end hold, past-only ffill; climatology basis ends 2010-12-01",
+          "future_possible": false
+        },
+        {
+          "feature": "d_hotspot_dt",
+          "source": "derived from hotspot",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "trailing difference hs(t) - hs(t-1)",
+          "future_possible": false
+        },
+        {
+          "feature": "hotspot_cumsum_4w",
+          "source": "derived from hotspot",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "trailing 4-week sum over (t-3..t]",
+          "future_possible": false
+        },
+        {
+          "feature": "hotspot_cumsum_12w",
+          "source": "derived from hotspot",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "trailing 12-week sum over (t-11..t]",
+          "future_possible": false
+        },
+        {
+          "feature": "seasonal_cos",
+          "source": "deterministic calendar",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "cos(2*pi*woy/52) at week t",
+          "future_possible": false
+        },
+        {
+          "feature": "y_regression (target)",
+          "source": "CRW 5km daily HotSpot, trailing 84-day DHW at native 5km",
+          "earliest_source": "2003-01-05",
+          "latest_source": "2019-07-21",
+          "availability": "target at t+4 weeks — verified at evaluation time, never an input",
+          "future_possible": false
+        },
+        {
+          "feature": "statics (bathymetry/dist_to_shore/cyclone/salinity/ocean_mask)",
+          "source": "ETOPO1 / IBTrACS / WOA23 climatologies",
+          "earliest_source": "n/a (static)",
+          "latest_source": "n/a (static)",
+          "availability": "time-invariant fields, not consumed by model",
+          "future_possible": false
+        }
+      ],
+      "checks": [
+        {
+          "id": "A_clim_cutoff",
+          "description": "sst_anomaly equals raw-ERA5 anomaly vs year<=2010 climatology",
+          "passed": true,
+          "detail": "n=313040, max_err=0.000000"
+        },
+        {
+          "id": "A2_not_fullrecord",
+          "description": "sst_anomaly is NOT the full-record (leaky) climatology variant",
+          "passed": true,
+          "detail": "frac_differing=0.9945 (must be majority)"
+        },
+        {
+          "id": "T1_dhw_family",
+          "description": "y_warning consistent with y_regression=clip(DHW/10) family",
+          "passed": true,
+          "detail": "max_err=5.96e-08"
+        },
+        {
+          "id": "T2_alert1",
+          "description": "y_classification == I(DHW >= 4 deg-weeks)",
+          "passed": true,
+          "detail": "mismatch_frac=0.00e+00"
+        },
+        {
+          "id": "T3_nan_preserved",
+          "description": "missing targets preserved as NaN (never zero-filled)",
+          "passed": true,
+          "detail": "y_regression NaN frac=0.2215"
+        },
+        {
+          "id": "T4_masks",
+          "description": "ocean_mask == ~land_mask (all timesteps), boolean consistent",
+          "passed": true,
+          "detail": "ocean cells=271"
+        },
+        {
+          "id": "D_d_hotspot_dt",
+          "description": "d_hotspot_dt trailing by construction (computed at load time)",
+          "passed": true,
+          "detail": "aligned_dataset trailing diff/rolling-window semantics"
+        },
+        {
+          "id": "D_hotspot_cumsum_4w",
+          "description": "hotspot_cumsum_4w trailing by construction (computed at load time)",
+          "passed": true,
+          "detail": "aligned_dataset trailing diff/rolling-window semantics"
+        },
+        {
+          "id": "D_hotspot_cumsum_12w",
+          "description": "hotspot_cumsum_12w trailing by construction (computed at load time)",
+          "passed": true,
+          "detail": "aligned_dataset trailing diff/rolling-window semantics"
+        },
+        {
+          "id": "D_hotspot",
+          "description": "hotspot channel is trailing 7-day weekly mean, clip>=0 (builder STEP 1)",
+          "passed": true,
+          "detail": "verified in v9 builder: day_weeks of days in [t, t+7) only"
+        },
+        {
+          "id": "D_seasonal",
+          "description": "seasonal_sin == sin(2*pi*week_of_year/52) (deterministic, no leak)",
+          "passed": true,
+          "detail": "max_err=5.89e-07"
+        },
+        {
+          "id": "M_wind_speed",
+          "description": "wind_speed: value changes only at month-end availability boundaries",
+          "passed": true,
+          "detail": "n_changes=197, sample changes=['2003-03-02', '2003-04-06', '2003-05-04', '2003-06-01']"
+        },
+        {
+          "id": "M_ssr",
+          "description": "ssr: value changes only at month-end availability boundaries",
+          "passed": true,
+          "detail": "n_changes=197, sample changes=['2003-03-02', '2003-04-06', '2003-05-04', '2003-06-01']"
+        },
+        {
+          "id": "M_sst_anomaly",
+          "description": "sst_anomaly: value changes only at month-end availability boundaries",
+          "passed": true,
+          "detail": "n_changes=197, sample changes=['2003-03-02', '2003-04-06', '2003-05-04', '2003-06-01']"
+        },
+        {
+          "id": "M_hold_avail",
+          "description": "carried month availability strictly <= week timestamp (sst_anomaly spot check)",
+          "passed": true,
+          "detail": "n_checked=860"
+        }
+      ],
+      "out_file": "D:\\piecf_crw_data\\scs_causal_v2.nc",
+      "sha256": "7f57523620f356b82b7e9623ec6ad888a261dbb95432eb49d9ee097cb33194ff",
+      "n_weeks": 864,
+      "time_range": [
+        "2003-01-05",
+        "2019-07-21"
+      ],
+      "grid": [
+        21,
+        23
+      ]
+    },
+    "GBR": {
+      "domain": "GBR",
+      "sst_anomaly_climatology": {
+        "climatology_cutoff_year": 2010,
+        "climatology_source_months": [
+          "1985-01-01",
+          "2010-12-01"
+        ],
+        "n_clim_months": 312
+      },
+      "checks_climatology_max_err": 0.0,
+      "splits": {
+        "train": {
+          "years": [
+            2003,
+            2010
+          ],
+          "n_windows": 417,
+          "first_issue": "2003-01-06",
+          "last_issue": "2010-12-27"
+        },
+        "val": {
+          "years": [
+            2014,
+            2016
+          ],
+          "n_windows": 156,
+          "first_issue": "2014-01-06",
+          "last_issue": "2016-12-26"
+        },
+        "test": {
+          "years": [
+            2017,
+            2020
+          ],
+          "n_windows": 209,
+          "first_issue": "2017-01-02",
+          "last_issue": "2020-12-28"
+        },
+        "n_windows_total": 1908
+      },
+      "split_protocol": "GBR formal zero-shot re-slice (protocol §C; val 2014-2016 diagnostic, test 2017-2020 primary)",
+      "feature_audit": [
+        {
+          "feature": "sst",
+          "source": "CRW 5km daily SST",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "same week t (trailing 7-day mean of days in [t, t+7))",
+          "future_possible": false
+        },
+        {
+          "feature": "ssta",
+          "source": "CRW 5km daily SSTA (NOAA climatology baseline, external product)",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "same week t (trailing 7-day mean)",
+          "future_possible": false
+        },
+        {
+          "feature": "hotspot",
+          "source": "CRW 5km daily HotSpot (NOAA baseline, external product)",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "same week t (trailing 7-day mean, clipped >=0)",
+          "future_possible": false
+        },
+        {
+          "feature": "chlorophyll",
+          "source": "OC-CCI v6 monthly chlor_a",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "month M available only after month M ends; week t carries latest completed month (past-only ffill)",
+          "future_possible": false
+        },
+        {
+          "feature": "par",
+          "source": "latitude-based deterministic climatology (GBR)",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "pure function of latitude & week-of-year",
+          "future_possible": false
+        },
+        {
+          "feature": "seasonal_sin",
+          "source": "deterministic calendar",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "sin(2*pi*woy/52) at week t",
+          "future_possible": false
+        },
+        {
+          "feature": "wind_speed",
+          "source": "ERA5 monthly u10/v10",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "month-end hold, past-only ffill",
+          "future_possible": false
+        },
+        {
+          "feature": "ssr",
+          "source": "ERA5 monthly ssr",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "month-end hold, past-only ffill",
+          "future_possible": false
+        },
+        {
+          "feature": "sst_anomaly",
+          "source": "ERA5 monthly sst minus climatology(year<= 2010)",
+          "earliest_source": "1985-01-01",
+          "latest_source": "2022-04-25",
+          "availability": "month-end hold, past-only ffill; climatology basis ends 2010-12-01",
+          "future_possible": false
+        },
+        {
+          "feature": "d_hotspot_dt",
+          "source": "derived from hotspot",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "trailing difference hs(t) - hs(t-1)",
+          "future_possible": false
+        },
+        {
+          "feature": "hotspot_cumsum_4w",
+          "source": "derived from hotspot",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "trailing 4-week sum over (t-3..t]",
+          "future_possible": false
+        },
+        {
+          "feature": "hotspot_cumsum_12w",
+          "source": "derived from hotspot",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "trailing 12-week sum over (t-11..t]",
+          "future_possible": false
+        },
+        {
+          "feature": "seasonal_cos",
+          "source": "deterministic calendar",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "cos(2*pi*woy/52) at week t",
+          "future_possible": false
+        },
+        {
+          "feature": "y_regression (target)",
+          "source": "CRW 5km daily HotSpot, trailing 84-day DHW at native 5km",
+          "earliest_source": "1985-04-01",
+          "latest_source": "2022-04-25",
+          "availability": "target at t+4 weeks — verified at evaluation time, never an input",
+          "future_possible": false
+        },
+        {
+          "feature": "statics (bathymetry/dist_to_shore/cyclone/salinity/ocean_mask)",
+          "source": "ETOPO1 / IBTrACS / WOA23 climatologies",
+          "earliest_source": "n/a (static)",
+          "latest_source": "n/a (static)",
+          "availability": "time-invariant fields, not consumed by model",
+          "future_possible": false
+        }
+      ],
+      "checks": [
+        {
+          "id": "A_clim_cutoff",
+          "description": "sst_anomaly equals raw-ERA5 anomaly vs year<=2010 climatology",
+          "passed": true,
+          "detail": "n=253485, max_err=0.000000"
+        },
+        {
+          "id": "A2_not_fullrecord",
+          "description": "sst_anomaly is NOT the full-record (leaky) climatology variant",
+          "passed": true,
+          "detail": "frac_differing=0.9888 (must be majority)"
+        },
+        {
+          "id": "T1_dhw_family",
+          "description": "y_warning consistent with y_regression=clip(DHW/10) family",
+          "passed": true,
+          "detail": "max_err=5.96e-08"
+        },
+        {
+          "id": "T2_alert1",
+          "description": "y_classification == I(DHW >= 4 deg-weeks)",
+          "passed": true,
+          "detail": "mismatch_frac=0.00e+00"
+        },
+        {
+          "id": "T3_nan_preserved",
+          "description": "missing targets preserved as NaN (never zero-filled)",
+          "passed": true,
+          "detail": "y_regression NaN frac=0.4759"
+        },
+        {
+          "id": "T4_masks",
+          "description": "ocean_mask == ~land_mask (all timesteps), boolean consistent",
+          "passed": true,
+          "detail": "ocean cells=93"
+        },
+        {
+          "id": "D_d_hotspot_dt",
+          "description": "d_hotspot_dt equals strictly-trailing recomputation",
+          "passed": true,
+          "detail": "n=248045, max_err=0.00e+00"
+        },
+        {
+          "id": "D_hotspot_cumsum_4w",
+          "description": "hotspot_cumsum_4w equals strictly-trailing recomputation",
+          "passed": true,
+          "detail": "n=248178, max_err=4.77e-05"
+        },
+        {
+          "id": "D_hotspot_cumsum_12w",
+          "description": "hotspot_cumsum_12w equals strictly-trailing recomputation",
+          "passed": true,
+          "detail": "n=248178, max_err=6.68e-05"
+        },
+        {
+          "id": "D_hotspot",
+          "description": "hotspot channel is trailing 7-day weekly mean, clip>=0 (builder STEP 1)",
+          "passed": true,
+          "detail": "verified in v9 builder: day_weeks of days in [t, t+7) only"
+        },
+        {
+          "id": "D_seasonal",
+          "description": "seasonal_sin == sin(2*pi*week_of_year/52) (deterministic, no leak)",
+          "passed": true,
+          "detail": "max_err=5.89e-07"
+        },
+        {
+          "id": "M_wind_speed",
+          "description": "wind_speed: value changes only at month-end availability boundaries",
+          "passed": true,
+          "detail": "n_changes=429, sample changes=['1985-05-06', '1985-06-03', '1985-07-01', '1985-08-05']"
+        },
+        {
+          "id": "M_ssr",
+          "description": "ssr: value changes only at month-end availability boundaries",
+          "passed": true,
+          "detail": "n_changes=429, sample changes=['1985-05-06', '1985-06-03', '1985-07-01', '1985-08-05']"
+        },
+        {
+          "id": "M_sst_anomaly",
+          "description": "sst_anomaly: value changes only at month-end availability boundaries",
+          "passed": true,
+          "detail": "n_changes=429, sample changes=['1985-05-06', '1985-06-03', '1985-07-01', '1985-08-05']"
+        },
+        {
+          "id": "M_hold_avail",
+          "description": "carried month availability strictly <= week timestamp (sst_anomaly spot check)",
+          "passed": true,
+          "detail": "n_checked=1935"
+        }
+      ],
+      "out_file": "D:\\piecf_crw_data\\gbr_causal_v2.nc",
+      "sha256": "468e8706e769d596f044043536e50d60233909f76938bfc2af3316a22ab54d11",
+      "n_weeks": 1935,
+      "time_range": [
+        "1985-04-01",
+        "2022-04-25"
+      ],
+      "grid": [
+        15,
+        12
+      ]
+    }
+  }
+}

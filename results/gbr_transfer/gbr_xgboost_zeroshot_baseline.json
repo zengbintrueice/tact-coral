@@ -1,0 +1,180 @@
+{
+  "experiment": "zeroshot_scs_to_gbr_xgb_comparison",
+  "description": "Zero-shot transfer comparison: a7 vs XGBoost (SCS-trained → GBR-test)",
+  "configuration": {
+    "train_dataset": "SCS",
+    "test_dataset": "GBR",
+    "weights": "SCS-trained (fixed)",
+    "normalizer": "SCS statistics (fixed)",
+    "a7_threshold": 0.9,
+    "xgb_threshold": 0.8,
+    "lead_weeks": 4,
+    "severe_threshold": 0.8
+  },
+  "pixel_level": {
+    "n_pixels": 20295,
+    "n_severe": 729,
+    "a7_fixed": {
+      "csi": 0.3479,
+      "f1": 0.5162,
+      "pod": 0.668,
+      "far": 0.5794,
+      "hits": 487,
+      "misses": 242,
+      "false_alarms": 671,
+      "n_total": 20295
+    },
+    "xgb_fixed": {
+      "csi": 0.0,
+      "f1": 0.0,
+      "pod": 0.0,
+      "far": NaN,
+      "hits": 0,
+      "misses": 729,
+      "false_alarms": 0,
+      "n_total": 20295
+    },
+    "a7_sweep": [
+      {
+        "threshold": 0.5,
+        "csi": 0.2631,
+        "f1": 0.4166,
+        "pod": 0.9204,
+        "far": 0.7307,
+        "hits": 671,
+        "misses": 58,
+        "false_alarms": 1821,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.6,
+        "csi": 0.3015,
+        "f1": 0.4633,
+        "pod": 0.893,
+        "far": 0.6872,
+        "hits": 651,
+        "misses": 78,
+        "false_alarms": 1430,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.7,
+        "csi": 0.3294,
+        "f1": 0.4956,
+        "pod": 0.845,
+        "far": 0.6494,
+        "hits": 616,
+        "misses": 113,
+        "false_alarms": 1141,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.8,
+        "csi": 0.3469,
+        "f1": 0.5152,
+        "pod": 0.7929,
+        "far": 0.6185,
+        "hits": 578,
+        "misses": 151,
+        "false_alarms": 937,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.9,
+        "csi": 0.3479,
+        "f1": 0.5162,
+        "pod": 0.668,
+        "far": 0.5794,
+        "hits": 487,
+        "misses": 242,
+        "false_alarms": 671,
+        "n_total": 20295
+      }
+    ],
+    "xgb_sweep": [
+      {
+        "threshold": 0.5,
+        "csi": 0.3269,
+        "f1": 0.4927,
+        "pod": 0.6955,
+        "far": 0.6185,
+        "hits": 507,
+        "misses": 222,
+        "false_alarms": 822,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.6,
+        "csi": 0.3091,
+        "f1": 0.4723,
+        "pod": 0.4499,
+        "far": 0.503,
+        "hits": 328,
+        "misses": 401,
+        "false_alarms": 332,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.7,
+        "csi": 0.0575,
+        "f1": 0.1088,
+        "pod": 0.0617,
+        "far": 0.5408,
+        "hits": 45,
+        "misses": 684,
+        "false_alarms": 53,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.8,
+        "csi": 0.0,
+        "f1": 0.0,
+        "pod": 0.0,
+        "far": NaN,
+        "hits": 0,
+        "misses": 729,
+        "false_alarms": 0,
+        "n_total": 20295
+      },
+      {
+        "threshold": 0.9,
+        "csi": 0.0,
+        "f1": 0.0,
+        "pod": 0.0,
+        "far": NaN,
+        "hits": 0,
+        "misses": 729,
+        "false_alarms": 0,
+        "n_total": 20295
+      }
+    ]
+  },
+  "event_level": {
+    "n_event_instances": 195,
+    "a7_event_pod": {
+      "hits": 114,
+      "missed": 81,
+      "pod": 0.5846
+    },
+    "xgb_event_pod": {
+      "hits": 0,
+      "missed": 195,
+      "pod": 0.0
+    }
+  },
+  "main_comparison": {
+    "note": "Primary result: a7 vs XGB zero-shot on GBR",
+    "a7": {
+      "CSI": 0.3479,
+      "F1": 0.5162,
+      "Event_POD": 0.5846
+    },
+    "xgb": {
+      "CSI": 0.0,
+      "F1": 0.0,
+      "Event_POD": 0.0
+    },
+    "winner": "a7"
+  },
+  "timestamp": "2026-09-12T05:27:13.624215"
+}

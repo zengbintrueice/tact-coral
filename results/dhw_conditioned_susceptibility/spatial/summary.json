@@ -1,0 +1,20 @@
+{
+  "experiment": "matched_dhw_spatial_bootstrap",
+  "generated": "2026-10-02T15:43:19.796901",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "protocol": {
+    "cluster": "grid cell (i, j)",
+    "n_boot": 1000,
+    "seed": 42,
+    "bin_width": 0.5,
+    "min_bin_n": 40,
+    "n_common_bins": 20,
+    "role": "spatial robustness; week-block bootstrap remains primary",
+    "interpretation": "associative / conditional-risk only"
+  },
+  "n_cells": {
+    "SCS": 271,
+    "GBR": 93,
+    "CARIB": 405
+  }
+}

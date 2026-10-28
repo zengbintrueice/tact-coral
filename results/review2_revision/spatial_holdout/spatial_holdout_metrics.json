@@ -1,0 +1,82 @@
+{
+  "experiment": "within_SCS_spatial_holdout",
+  "split": {
+    "train_region": "south rows 0-10 (lat<=13.5N)",
+    "held_out_region": "north rows 11-20 (lat>=14.5N)",
+    "train_mask": "north cells masked from loss/val during training"
+  },
+  "training": {
+    "seed": 42,
+    "pos_weight": 1000.0,
+    "epochs": 60,
+    "patience": 10
+  },
+  "metrics": [
+    [
+      "south (train-visible)",
+      "PersA",
+      0.9719,
+      0.2991,
+      26754,
+      350
+    ],
+    [
+      "south (train-visible)",
+      "spatial_TSCF",
+      0.9832,
+      0.5748,
+      26754,
+      350
+    ],
+    [
+      "south (train-visible)",
+      "frozen_TSCF",
+      0.9846,
+      0.6117,
+      26754,
+      350
+    ],
+    [
+      "south (train-visible)",
+      "TSAR",
+      0.9702,
+      0.2956,
+      26754,
+      350
+    ],
+    [
+      "north (held-out)",
+      "PersA",
+      0.9926,
+      0.4203,
+      22568,
+      69
+    ],
+    [
+      "north (held-out)",
+      "spatial_TSCF",
+      0.9932,
+      0.519,
+      22568,
+      69
+    ],
+    [
+      "north (held-out)",
+      "frozen_TSCF",
+      0.9895,
+      0.2338,
+      22568,
+      69
+    ],
+    [
+      "north (held-out)",
+      "TSAR",
+      0.9922,
+      0.4078,
+      22568,
+      69
+    ]
+  ],
+  "note": "PFV test 2016-2019, severe y>=0.8; spatial-TSCF trained on south only (north unseen); frozen-TSCF full-SCS reference; TSAR frozen reference. Recorded from completed run (eval printed in run.log).",
+  "generated": "2026-09-29T06:47:00"
+}

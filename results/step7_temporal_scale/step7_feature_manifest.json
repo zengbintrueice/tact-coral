@@ -1,0 +1,142 @@
+{
+  "experiment": "step7_temporal_scale",
+  "dataset": {
+    "file": "scs_causal_v2.nc",
+    "dir": "D:\\piecf_crw_data"
+  },
+  "channel_definition": {
+    "C_channels": {
+      "C1": {
+        "feature": "hotspot_cumsum1c_1w",
+        "window_weeks": 1,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.017325179651379585,
+        "train_std": 0.1466628760099411,
+        "train_min": 0.0,
+        "train_max": 2.4079842567443848,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      },
+      "C2": {
+        "feature": "hotspot_cumsum1c_2w",
+        "window_weeks": 2,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.03461087867617607,
+        "train_std": 0.2543487250804901,
+        "train_min": 0.0,
+        "train_max": 4.339201927185059,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      },
+      "C4": {
+        "feature": "hotspot_cumsum1c_4w",
+        "window_weeks": 4,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.06899634748697281,
+        "train_std": 0.42663291096687317,
+        "train_min": 0.0,
+        "train_max": 7.513401985168457,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      },
+      "C8": {
+        "feature": "hotspot_cumsum1c_8w",
+        "window_weeks": 8,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.13644950091838837,
+        "train_std": 0.6717575788497925,
+        "train_min": 0.0,
+        "train_max": 10.318020820617676,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      },
+      "C12": {
+        "feature": "hotspot_cumsum1c_12w",
+        "window_weeks": 12,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.20004747807979584,
+        "train_std": 0.844275712966919,
+        "train_min": 0.0,
+        "train_max": 10.318020820617676,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      }
+    },
+    "base_channels": [
+      "sst",
+      "ssta",
+      "hotspot",
+      "chlorophyll",
+      "par",
+      "seasonal_sin",
+      "wind_speed",
+      "ssr",
+      "sst_anomaly",
+      "d_hotspot_dt",
+      "seasonal_cos"
+    ],
+    "replaced": "hotspot_cumsum_4w / hotspot_cumsum_12w (which accumulate ALL HotSpot >= 0) are REPLACED by the C_W channels (HotSpot >= 1 degC only, CRW DHW convention); d_hotspot_dt retained",
+    "partial_window_note": "For the first W-1 dates of each domain record (t < W-1), C_W is a partial sum over the available history only. This affects at most the first ~12 weeks of 2003 (SCS train period); val/test and GBR zero-shot start years later. Training (run_step7) and evaluation (compute_step7) both use this same construction, so semantics are consistent with the saved checkpoints."
+  },
+  "trailing_verification": {
+    "n_spot_checks": 15,
+    "passed": true
+  },
+  "models": {
+    "M_C1": {
+      "cumulative": [
+        "C1"
+      ],
+      "n_channels": 12
+    },
+    "M_C2": {
+      "cumulative": [
+        "C2"
+      ],
+      "n_channels": 12
+    },
+    "M_C4": {
+      "cumulative": [
+        "C4"
+      ],
+      "n_channels": 12
+    },
+    "M_C8": {
+      "cumulative": [
+        "C8"
+      ],
+      "n_channels": 12
+    },
+    "M_C12": {
+      "cumulative": [
+        "C12"
+      ],
+      "n_channels": 12
+    },
+    "M_C4_C12": {
+      "cumulative": [
+        "C4",
+        "C12"
+      ],
+      "n_channels": 13
+    },
+    "M_C2_C4_C12": {
+      "cumulative": [
+        "C2",
+        "C4",
+        "C12"
+      ],
+      "n_channels": 14
+    },
+    "M_C1_C4_C12": {
+      "cumulative": [
+        "C1",
+        "C4",
+        "C12"
+      ],
+      "n_channels": 14
+    }
+  },
+  "note": "cumulative HotSpot channels are physically meaningful historical thermal-stress variables (NOAA CRW DHW = 12-week accumulation of HotSpot >= 1 degC); this is a temporal-scale decomposition, NOT a leakage/shortcut claim",
+  "timestamp": "2026-09-14T09:54:37.976729"
+}

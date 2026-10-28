@@ -1,0 +1,233 @@
+region,n_usable,n_severity,n_severe,group
+Caribbean,11851,9083,1015,region_of_interest
+Coral Triangle,3856,198,82,region_of_interest
+South China Sea,2925,58,27,region_of_interest
+Great Barrier Reef,1810,828,336,region_of_interest
+Other,1797,336,107,region_of_interest
+South Pacific (Polynesia/Melanesia),1396,141,51,region_of_interest
+West Indian Ocean,1284,464,97,region_of_interest
+Japan/Kuroshio,978,376,97,region_of_interest
+Red Sea,710,4,1,region_of_interest
+Arabian Gulf,237,32,25,region_of_interest
+Hawaii,121,3,3,region_of_interest
+Tropical Eastern Pacific,60,47,22,region_of_interest
+Pacific,12152,1810,685,Ocean_Name
+Atlantic,12074,9129,1012,Ocean_Name
+Indian,1850,594,139,Ocean_Name
+Red Sea,711,5,2,Ocean_Name
+Arabian Gulf,238,32,25,Ocean_Name
+Tropical Atlantic,12057,9115,1012,Realm_Name
+Central Indo-Pacific,10522,1556,566,Realm_Name
+Western Indo-Pacific,2582,575,157,Realm_Name
+Eastern Indo-Pacific,1043,155,73,Realm_Name
+Temperate Northern Pacific,410,88,19,Realm_Name
+Temperate Australasia,295,8,1,Realm_Name
+Tropical Eastern Pacific,95,59,35,Realm_Name
+Temperate Northern Atlantic,17,14,0,Realm_Name
+Temperate Southern Africa,4,0,0,Realm_Name
+Bahamas and Florida Keys,3965,3619,127,Ecoregion_Name
+Belize and west Caribbean,3469,2859,401,Ecoregion_Name
+"Hispaniola, Puerto Rico and Lesser Antilles",2117,1176,405,Ecoregion_Name
+"Sunda Shelf, south-east Asia",1275,35,11,Ecoregion_Name
+Sulu Sea,1176,10,7,Ecoregion_Name
+Central and northern Great Barrier Reef,1100,527,205,Ecoregion_Name
+Cuba and Cayman Islands,959,800,30,Ecoregion_Name
+Jamaica,759,339,18,Ecoregion_Name
+South-east Philippines,709,17,10,Ecoregion_Name
+North and central Red Sea,689,3,2,Ecoregion_Name
+Fiji,689,102,47,Ecoregion_Name
+"Society Islands, French Polynesia",683,49,36,Ecoregion_Name
+Netherlands Antilles and south Caribbean,518,255,20,Ecoregion_Name
+South Vietnam,487,7,3,Ecoregion_Name
+Gulf of Thailand,445,39,17,Ecoregion_Name
+Lesser Sunda Islands and Savu Sea,439,31,15,Ecoregion_Name
+New Caledonia,431,0,0,Ecoregion_Name
+Maldive Islands,416,43,16,Ecoregion_Name
+Banda Sea and Molucca Islands,400,1,1,Ecoregion_Name
+"South Ryukyu Islands, Japan",378,150,51,Ecoregion_Name
+Hong Kong,371,0,0,Ecoregion_Name
+Taiwan and coastal China,344,2,1,Ecoregion_Name
+"North Ryukyu Islands, Japan",318,138,31,Ecoregion_Name
+Andaman Sea,308,37,22,Ecoregion_Name
+"Moreton Bay, eastern Australia",292,8,1,Ecoregion_Name
+Southern Great Barrier Reef,263,153,113,Ecoregion_Name
+Mascarene Islands,226,73,11,Ecoregion_Name
+Java Sea,220,24,1,Ecoregion_Name
+Kenya and Tanzania coast,206,150,24,Ecoregion_Name
+Brazil,202,19,9,Ecoregion_Name
+Vanuatu,166,0,0,Ecoregion_Name
+Gulf of Oman,165,1,0,Ecoregion_Name
+"Makassar Strait, Indonesia",136,6,3,Ecoregion_Name
+"Honshu, Japan",125,18,0,Ecoregion_Name
+Eastern Hawaii,121,3,3,Ecoregion_Name
+"Pohnpei and Kosrae, Micronesia",107,0,0,Ecoregion_Name
+Celebes Sea,106,3,1,Ecoregion_Name
+Mayotte and Comoros,101,11,6,Ecoregion_Name
+North Philippines,97,9,5,Ecoregion_Name
+"Bismarck Sea, New Guinea",97,9,1,Ecoregion_Name
+"Shikoku, Japan",96,32,3,Ecoregion_Name
+Solomon Islands and Bougainville,88,26,1,Ecoregion_Name
+Marianas,86,41,4,Ecoregion_Name
+Persian Gulf,83,32,25,Ecoregion_Name
+Torres Strait and far northern Great Barrier Reef,80,78,10,Ecoregion_Name
+North Vietnam,79,0,0,Ecoregion_Name
+Strait of Malacca,77,17,3,Ecoregion_Name
+"Samoa, Tuvalu and Tonga",67,59,12,Ecoregion_Name
+North Madagascar,65,42,6,Ecoregion_Name
+"Pompey and Swain Reefs, south-east Great Barrier Reef",55,55,2,Ecoregion_Name
+"Western Tuamotu Archipelago, central Pacific",53,5,1,Ecoregion_Name
+West Sumatra,53,0,0,Ecoregion_Name
+South Madagascar,52,20,2,Ecoregion_Name
+"Cocos Keeling Atolls, Indian Ocean",51,1,1,Ecoregion_Name
+North Sri Lanka and east India,44,17,3,Ecoregion_Name
+Bermuda,44,42,2,Ecoregion_Name
+Ningaloo Reef and coastal north-west Australia,41,22,0,Ecoregion_Name
+Eastern coast South Africa,40,26,0,Ecoregion_Name
+"Milne Bay, Papua New Guinea",39,14,7,Ecoregion_Name
+"Costa Rica and Panama, Pacific coast",39,14,9,Ecoregion_Name
+Lakshadweep Islands,38,35,10,Ecoregion_Name
+Marshall Islands,34,10,6,Ecoregion_Name
+"Gulf of Tomini, Indonesia",31,2,1,Ecoregion_Name
+Palau,30,4,3,Ecoregion_Name
+North Mozambique coast,29,8,1,Ecoregion_Name
+Gulf of Aden,29,0,0,Ecoregion_Name
+"South-east Kyushu, Japan",28,21,10,Ecoregion_Name
+Galapagos Islands,27,25,21,Ecoregion_Name
+"Line Islands, north-east Kiribati",27,3,0,Ecoregion_Name
+Coral Sea,26,2,1,Ecoregion_Name
+"Cook Islands, south-west Pacific",25,3,1,Ecoregion_Name
+North Kyushu and South Korea,25,8,2,Ecoregion_Name
+South Java,21,0,0,Ecoregion_Name
+Andaman Islands,21,18,8,Ecoregion_Name
+"Christmas Island, Indian Ocean",21,1,0,Ecoregion_Name
+Northern Seychelles,20,8,3,Ecoregion_Name
+"Colombia, Ecuador and Chile, Pacific coast",20,12,0,Ecoregion_Name
+South Mozambique coast,19,16,3,Ecoregion_Name
+Gulf of Guinea to Sierra Leone,18,0,0,Ecoregion_Name
+"Ogasawara Islands, Japan",17,5,0,Ecoregion_Name
+"Flower Garden Banks, Gulf of Mexico",17,14,0,Ecoregion_Name
+South Red Sea,15,2,0,Ecoregion_Name
+Socotra Archipelago,13,0,0,Ecoregion_Name
+"Cenderawasih Bay, Papua",12,0,0,Ecoregion_Name
+Southern Seychelles,12,9,7,Ecoregion_Name
+"Birds Head Peninsula, Papua",11,0,0,Ecoregion_Name
+"Gilbert Islands, west Kiribati",10,7,7,Ecoregion_Name
+"Kimberley Coast, north-west Australia",10,10,0,Ecoregion_Name
+Western Mexico and Revillagigedo Islands,9,6,3,Ecoregion_Name
+South Sri Lanka,8,8,5,Ecoregion_Name
+"Phoenix Islands, central Kiribati",7,7,3,Ecoregion_Name
+Chagos Archipelago,7,7,4,Ecoregion_Name
+South China Sea,6,6,2,Ecoregion_Name
+"Bay of Campeche, Yucatan, Gulf of Mexico",6,6,0,Ecoregion_Name
+"Hainan, South China Sea",6,0,0,Ecoregion_Name
+Gulf of California,6,6,2,Ecoregion_Name
+"Yap Islands, Micronesia",5,1,0,Ecoregion_Name
+North-west Arabian Sea,5,3,2,Ecoregion_Name
+"Austral Islands, French Polynesia",5,0,0,Ecoregion_Name
+"Johnston Atoll, north central Pacific",4,4,0,Ecoregion_Name
+"Cocos Island, Costa Rica",4,3,3,Ecoregion_Name
+North-west Hawaii,4,2,2,Ecoregion_Name
+"Arnhem Land, north Australia",3,1,0,Ecoregion_Name
+"Easter Island, south central Pacific",3,3,2,Ecoregion_Name
+"Ashmore Reef, north-west Australia",3,3,0,Ecoregion_Name
+"Caroline Islands, Micronesia",3,1,0,Ecoregion_Name
+"Houtman Abrolhos Islands, west Australia",3,0,0,Ecoregion_Name
+nan,3,1,1,Ecoregion_Name
+"Scott Reef, west Australia",3,3,2,Ecoregion_Name
+"Darwin, north Australia",2,2,2,Ecoregion_Name
+"Gulf of Kutch, India",2,2,0,Ecoregion_Name
+North Myanmar and Bangladesh,2,0,0,Ecoregion_Name
+Central Vietnam,1,1,1,Ecoregion_Name
+"Isla de Malpelo, Colombia",1,1,0,Ecoregion_Name
+"Rowley Shoals, west Australia",1,1,0,Ecoregion_Name
+United States,4274,3819,363,Country_Name
+Malaysia,2324,46,15,Country_Name
+Mexico,2065,1974,358,Country_Name
+Australia,1954,867,337,Country_Name
+Indonesia,1505,82,23,Country_Name
+Japan,990,373,98,Country_Name
+Philippines,978,40,24,Country_Name
+Cuba,896,760,26,Country_Name
+Jamaica,759,339,18,Country_Name
+French Polynesia,741,54,37,Country_Name
+Vietnam,700,8,4,Country_Name
+Fiji,689,102,47,Country_Name
+Belize,683,509,39,Country_Name
+Bahamas,637,548,34,Country_Name
+Egypt,612,0,0,Country_Name
+Netherlands Antilles,445,205,16,Country_Name
+New Caledonia,431,0,0,Country_Name
+Maldives,414,43,16,Country_Name
+China,377,0,0,Country_Name
+Panama,369,335,14,Country_Name
+France,352,51,11,Country_Name
+Thailand,351,40,22,Country_Name
+Taiwan,344,2,1,Country_Name
+Colombia,260,156,20,Country_Name
+Honduras,253,5,3,Country_Name
+Dominican Republic,228,83,1,Country_Name
+Brazil,202,19,9,Country_Name
+Solomon Islands,188,26,1,Country_Name
+United Kingdom,178,49,32,Country_Name
+Trinidad and Tobago,175,87,66,Country_Name
+Oman,150,4,2,Country_Name
+Papua New Guinea,136,23,8,Country_Name
+Cambodia,123,23,13,Country_Name
+Tanzania,123,77,9,Country_Name
+Madagascar,118,62,8,Country_Name
+Federated States of Micronesia,115,2,0,Country_Name
+Saint Lucia,105,3,1,Country_Name
+Venezuela,99,95,1,Country_Name
+India,97,68,21,Country_Name
+Haiti,86,1,1,Country_Name
+Turks and Caicos,86,12,1,Country_Name
+Kenya,83,73,15,Country_Name
+Barbados,76,25,9,Country_Name
+Mauritius,71,53,8,Country_Name
+Dominica,71,37,19,Country_Name
+Vanuatu,66,0,0,Country_Name
+Cayman Islands,63,40,4,Country_Name
+Saint Vincent and the Grenadines,59,38,1,Country_Name
+Brunei,57,4,0,Country_Name
+Commonwealth of the Northern Mariana Islands,51,39,2,Country_Name
+Mozambique,49,24,4,Country_Name
+Grenada,48,16,0,Country_Name
+Saudi Arabia,46,4,2,Country_Name
+Bermuda,44,42,2,Country_Name
+South Africa,40,26,0,Country_Name
+United Arab Emirates,36,15,11,Country_Name
+Marshall Islands,34,10,6,Country_Name
+Ecuador,33,30,21,Country_Name
+Costa Rica,32,3,3,Country_Name
+Myanmar,32,0,0,Country_Name
+Seychelles,32,17,10,Country_Name
+Martinique,31,12,4,Country_Name
+Iran,31,1,1,Country_Name
+Palau,30,4,3,Country_Name
+Bahrain,27,12,11,Country_Name
+Djibouti,26,0,0,Country_Name
+Cook Islands,25,3,1,Country_Name
+Saint Kitts and Nevis,25,0,0,Country_Name
+Yemen,22,0,0,Country_Name
+Sudan,21,0,0,Country_Name
+Sri Lanka,18,12,5,Country_Name
+Sao Tome & Principe,18,0,0,Country_Name
+East Timor,17,0,0,Country_Name
+Nicaragua,13,8,0,Country_Name
+Montserrat,12,0,0,Country_Name
+Kiribati,10,7,7,Country_Name
+Israel,9,1,1,Country_Name
+Tonga,9,4,2,Country_Name
+Kuwait,7,2,1,Country_Name
+Jordan,6,0,0,Country_Name
+Eritrea,6,2,0,Country_Name
+Antigua and Barbuda,4,0,0,Country_Name
+Guatemala,4,0,0,Country_Name
+Samoa,4,4,2,Country_Name
+Comoro Islands,3,2,2,Country_Name
+Chile,3,3,2,Country_Name
+Bangladesh,2,0,0,Country_Name
+Anguilla,2,0,0,Country_Name
+Singapore,2,2,2,Country_Name
+Tuvalu,2,2,2,Country_Name
+nan,1,1,0,Country_Name

@@ -1,0 +1,16 @@
+{
+ "experiment": "invariant_predictor_screen",
+ "generated": "2026-10-03T01:21:13.066015",
+ "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+ "status": "EXPLORATORY / SUPPORTING",
+ "classification_rule": "sign-stable + homogeneous (all pairwise difference CIs include 0) + FDR-significant in >=2 basins",
+ "caveats": [
+  "basins share global ocean dynamics (dependent environments)",
+  "association-level, not causal",
+  "invariance across 3 dependent environments is weak evidence compared to truly independent environments"
+ ],
+ "invariant_set": [
+  "PersA_anchor",
+  "ssta"
+ ]
+}

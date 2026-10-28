@@ -1,0 +1,6 @@
+source,target,metric,value,ci_lo,ci_hi,kind
+SCS_train,SCS_test,frobenius_corr,1.066110433195788,0.9605161335139814,1.516952783465623,point
+SCS_train,GBR_test,frobenius_corr,4.863400667487552,4.627176927300117,5.290269369005224,point
+SCS_train,CARIB_test,frobenius_corr,2.3719940227012133,2.238929708683751,2.6053861806479373,point
+SCS_train,SCS_train_split_half,frobenius_corr,0.2455945416749937,,,noise_floor_reference
+SCS_train,SCS_test,frobenius_corr,1.066110433195788,0.9605161335139814,1.516952783465623,in_domain_drift_reference

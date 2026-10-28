@@ -1,0 +1,201 @@
+{
+  "model": "NO_CUMSUM12",
+  "channels": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "chlorophyll",
+    "par",
+    "seasonal_sin",
+    "wind_speed",
+    "ssr",
+    "sst_anomaly",
+    "d_hotspot_dt",
+    "hotspot_cumsum_4w",
+    "seasonal_cos"
+  ],
+  "channel_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12
+  ],
+  "normalization_mean": [
+    27.97262,
+    0.26027,
+    0.077869,
+    0.438681,
+    0.618502,
+    0.000578,
+    3.769291,
+    16686431.0,
+    -0.10284,
+    1.8e-05,
+    0.311349,
+    0.002363
+  ],
+  "normalization_std": [
+    2.159708,
+    0.570275,
+    0.219589,
+    0.517891,
+    0.200923,
+    0.706308,
+    2.583638,
+    3551082.25,
+    0.484529,
+    0.146682,
+    0.758721,
+    0.707901
+  ],
+  "normalization_source": "src/configs/config.py SCS_CHANNEL_MEAN/STD (SCS train 2003-2010 only, frozen); subset to retained channels in dataset order",
+  "dataset_file": "scs_causal_v2.nc",
+  "protocol": {
+    "epochs_max": 60,
+    "batch": 32,
+    "lr": 0.001,
+    "weight_decay": 1e-05,
+    "scheduler": "cosine T_max=60 -> 1e-5",
+    "early_stop_patience": 10,
+    "pos_weight": 1000.0,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "loss": "weighted BCE on y_sev=(y_lead>=0.8), valid pixels only",
+    "selection": "best val weighted-BCE epoch"
+  },
+  "stopped_at_epoch": 24,
+  "best_val_bce": 0.7104293920339033,
+  "n_params": 41446,
+  "train_seconds": 165.6,
+  "history": [
+    {
+      "epoch": 1,
+      "train_bce": 1.1959284406441908,
+      "val_bce": 1.954472502072652
+    },
+    {
+      "epoch": 2,
+      "train_bce": 0.9893924777324383,
+      "val_bce": 1.4364633162816365
+    },
+    {
+      "epoch": 3,
+      "train_bce": 0.817625994865711,
+      "val_bce": 0.9548407859272428
+    },
+    {
+      "epoch": 4,
+      "train_bce": 0.6372962525257697,
+      "val_bce": 1.173766358031167
+    },
+    {
+      "epoch": 5,
+      "train_bce": 0.5622646648150224,
+      "val_bce": 0.7428181436326768
+    },
+    {
+      "epoch": 6,
+      "train_bce": 0.36544450315145344,
+      "val_bce": 0.7761827905972799
+    },
+    {
+      "epoch": 7,
+      "train_bce": 0.22431952391679472,
+      "val_bce": 0.8306376042051448
+    },
+    {
+      "epoch": 8,
+      "train_bce": 0.12420428945468022,
+      "val_bce": 0.7741023452642063
+    },
+    {
+      "epoch": 9,
+      "train_bce": 0.2219076994806528,
+      "val_bce": 1.0499083515153163
+    },
+    {
+      "epoch": 10,
+      "train_bce": 0.06260374389015712,
+      "val_bce": 1.5185971262140407
+    },
+    {
+      "epoch": 11,
+      "train_bce": 0.10078470057879503,
+      "val_bce": 1.0799222876084968
+    },
+    {
+      "epoch": 12,
+      "train_bce": 0.0469688495549445,
+      "val_bce": 1.9032107663677178
+    },
+    {
+      "epoch": 13,
+      "train_bce": 0.10251323255495383,
+      "val_bce": 0.8853110867170876
+    },
+    {
+      "epoch": 14,
+      "train_bce": 0.08582388394727157,
+      "val_bce": 0.7104293920339033
+    },
+    {
+      "epoch": 15,
+      "train_bce": 0.04335475372723662,
+      "val_bce": 3.668243061473024
+    },
+    {
+      "epoch": 16,
+      "train_bce": 0.07220861168864828,
+      "val_bce": 2.1157255730148687
+    },
+    {
+      "epoch": 17,
+      "train_bce": 0.02587501946478509,
+      "val_bce": 1.9454640634867246
+    },
+    {
+      "epoch": 18,
+      "train_bce": 0.028319446808801822,
+      "val_bce": 4.4786140415170745
+    },
+    {
+      "epoch": 19,
+      "train_bce": 0.024441594625106797,
+      "val_bce": 3.667879548820363
+    },
+    {
+      "epoch": 20,
+      "train_bce": 0.023700813359867495,
+      "val_bce": 4.208589801094705
+    },
+    {
+      "epoch": 21,
+      "train_bce": 0.0460228714823293,
+      "val_bce": 2.3412043413506276
+    },
+    {
+      "epoch": 22,
+      "train_bce": 0.030348492884793535,
+      "val_bce": 4.063046122095936
+    },
+    {
+      "epoch": 23,
+      "train_bce": 0.06396878091618419,
+      "val_bce": 5.152006014411906
+    },
+    {
+      "epoch": 24,
+      "train_bce": 0.025135129099138655,
+      "val_bce": 3.8998816026206544
+    }
+  ],
+  "timestamp": "2026-09-13T22:13:03.290377"
+}

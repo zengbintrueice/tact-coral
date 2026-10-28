@@ -1,0 +1,32 @@
+{
+  "experiment": "reverse_tsar",
+  "source": "GBR",
+  "seed": 42,
+  "epochs": 19,
+  "best_val": 0.006462039794617643,
+  "md5": "f51591ef1740db8523122de9e6c8f256",
+  "cfg": {
+    "gamma": 0.5,
+    "scale": 0.4,
+    "tau": 0.5,
+    "temp": 0.1,
+    "lambda_sev": 20
+  },
+  "protocol": "focal gamma0.5 + lambda_sev20 MSE; Adam1e-3 cosine60 batch32 pat10; scale0.4",
+  "dataset": "gbr_causal_v2.nc",
+  "split": {
+    "test_years": [
+      2017,
+      2020
+    ],
+    "train_years": [
+      2003,
+      2010
+    ],
+    "val_years": [
+      2011,
+      2015
+    ]
+  },
+  "timestamp": "2026-09-29T11:01:06.648762"
+}

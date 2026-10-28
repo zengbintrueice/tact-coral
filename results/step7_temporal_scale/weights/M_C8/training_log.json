@@ -1,0 +1,146 @@
+{
+  "model": "M_C8",
+  "channels": [
+    "sst",
+    "ssta",
+    "hotspot",
+    "chlorophyll",
+    "par",
+    "seasonal_sin",
+    "wind_speed",
+    "ssr",
+    "sst_anomaly",
+    "d_hotspot_dt",
+    "seasonal_cos",
+    "hotspot_cumsum1c_8w"
+  ],
+  "cumulative_keys": [
+    "C8"
+  ],
+  "normalization_mean": [
+    27.97262,
+    0.26027,
+    0.077869,
+    0.438681,
+    0.618502,
+    0.000578,
+    3.769291,
+    16686431.0,
+    -0.10284,
+    1.8e-05,
+    0.002363,
+    0.13644950091838837
+  ],
+  "normalization_std": [
+    2.159708,
+    0.570275,
+    0.219589,
+    0.517891,
+    0.200923,
+    0.706308,
+    2.583638,
+    3551082.25,
+    0.484529,
+    0.146682,
+    0.707901,
+    0.6717575788497925
+  ],
+  "normalization_source": "non-cumulative: SCS_CHANNEL_MEAN/STD (SCS train 2003-2010, frozen); C_W: train-window stats in step7_feature_manifest.json",
+  "dataset_file": "scs_causal_v2.nc",
+  "protocol": {
+    "epochs_max": 60,
+    "batch": 32,
+    "lr": 0.001,
+    "weight_decay": 1e-05,
+    "scheduler": "cosine T_max=60 -> 1e-5",
+    "early_stop_patience": 10,
+    "pos_weight": 1000.0,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "loss": "weighted BCE on y_sev=(y_lead>=0.8), valid pixels only",
+    "selection": "best val weighted-BCE epoch",
+    "init": "from scratch (no Step-4/6 checkpoint init)"
+  },
+  "stopped_at_epoch": 15,
+  "best_val_bce": 0.5045942531691657,
+  "n_params": 41446,
+  "train_seconds": 108.7,
+  "history": [
+    {
+      "epoch": 1,
+      "train_bce": 1.1797056564917932,
+      "val_bce": 1.8170009917683072
+    },
+    {
+      "epoch": 2,
+      "train_bce": 0.9478884614430941,
+      "val_bce": 1.2857324812147353
+    },
+    {
+      "epoch": 3,
+      "train_bce": 0.7566921023222116,
+      "val_bce": 0.869741741153929
+    },
+    {
+      "epoch": 4,
+      "train_bce": 0.5206202658323141,
+      "val_bce": 0.7057442118724188
+    },
+    {
+      "epoch": 5,
+      "train_bce": 0.33349685256297773,
+      "val_bce": 0.5045942531691657
+    },
+    {
+      "epoch": 6,
+      "train_bce": 0.20069990593653458,
+      "val_bce": 0.6699597322278552
+    },
+    {
+      "epoch": 7,
+      "train_bce": 0.11834214541774529,
+      "val_bce": 0.7407949291583564
+    },
+    {
+      "epoch": 8,
+      "train_bce": 0.17705518322495314,
+      "val_bce": 0.9307438794316517
+    },
+    {
+      "epoch": 9,
+      "train_bce": 0.10085344228606957,
+      "val_bce": 1.781365695797528
+    },
+    {
+      "epoch": 10,
+      "train_bce": 0.048782748743318595,
+      "val_bce": 1.7036814847055615
+    },
+    {
+      "epoch": 11,
+      "train_bce": 0.10096565469239767,
+      "val_bce": 1.006458262486073
+    },
+    {
+      "epoch": 12,
+      "train_bce": 0.07663184622875772,
+      "val_bce": 2.019054064229648
+    },
+    {
+      "epoch": 13,
+      "train_bce": 0.06806477911483783,
+      "val_bce": 1.0515107965944077
+    },
+    {
+      "epoch": 14,
+      "train_bce": 0.1520555934223991,
+      "val_bce": 1.5663511419034977
+    },
+    {
+      "epoch": 15,
+      "train_bce": 0.04661002683524902,
+      "val_bce": 2.0983255301738004
+    }
+  ],
+  "timestamp": "2026-09-14T09:47:15.315937"
+}

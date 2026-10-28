@@ -1,0 +1,14 @@
+{
+  "experiment": "D1_severe_classifier_BCE",
+  "device": "cuda",
+  "seed": 1,
+  "pos_weight": 1000.0,
+  "best_val_tau": 0.875,
+  "test": {
+    "csi": 0.17096336499298376,
+    "pod": 0.30071599045274294,
+    "far": 0.7162162162146032
+  },
+  "train_severe_rate": 0.0008803641335905745,
+  "timestamp": "2026-09-20T21:41:48.602066"
+}

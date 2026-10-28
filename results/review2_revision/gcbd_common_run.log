@@ -1,0 +1,13 @@
+[GCBD common cohort] loading SCS causal v2 ...
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  matched (TSCF) n= 1898
+  severe n per model finite: {'TSCF': 78, 'PersA': 28, 'TSAR': 28}
+  common cohort n= 1444  severe= 28
+  [TSCF] AUROC 0.8240 [0.672,0.954] RR 10.492957746478874 δ 0.648 p=2.4e-09
+  [PersA] AUROC 0.8281 [0.704,0.937] RR 8.245862884160756 δ 0.656 p=8.4e-11
+  [TSAR] AUROC 0.8139 [0.674,0.940] RR nan δ 0.628 p=7.0e-09
+DONE -> D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\results\review2_revision\gcbd_common_cohort.json

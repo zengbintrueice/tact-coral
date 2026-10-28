@@ -1,0 +1,43 @@
+{
+  "method": "final_severe_classification",
+  "description": "Definitive severe classification comparison at optimal operating points",
+  "severe_threshold": 0.8,
+  "lead_weeks": 4,
+  "evaluation": "Pure Forecasting Verification (sliding-window, t+4 pixel-level)",
+  "test_period": "2016-2019",
+  "models": {
+    "a7_raw": {
+      "threshold": 0.95,
+      "output": "raw risk_score (S_raw)",
+      "csi": 0.3304,
+      "f1": 0.4967,
+      "pod": 0.5219,
+      "far": 0.5262,
+      "hits": 262,
+      "misses": 240,
+      "false_alarms": 291,
+      "correct_negatives": 67639,
+      "n_total": 68432
+    },
+    "xgb_raw": {
+      "threshold": 0.6,
+      "output": "raw XGBoost lead-4",
+      "csi": 0.4058,
+      "f1": 0.5773,
+      "pod": 0.7251,
+      "far": 0.5204,
+      "hits": 364,
+      "misses": 138,
+      "false_alarms": 395,
+      "correct_negatives": 67535,
+      "n_total": 68432
+    }
+  },
+  "conclusion": {
+    "better_csi": "xgb",
+    "better_f1": "xgb",
+    "delta_csi": -0.0754,
+    "delta_f1": -0.0806
+  },
+  "timestamp": "2026-09-11T20:01:45.956691"
+}

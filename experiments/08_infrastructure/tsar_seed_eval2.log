@@ -1,0 +1,24 @@
+Device: cuda
+Loading SCS dataset (test)...
+  Dynamic features (9): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly']
+  Static features (5): ['bathymetry', 'dist_to_shore', 'cyclone_frequency', 'salinity', 'ocean_mask']
+    [load] about to compute derived...
+    [load] derived done: 4 channels
+  + Derived features (4): ['d_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  Total dynamic features (13): ['sst', 'ssta', 'hotspot', 'chlorophyll', 'par', 'seasonal_sin', 'wind_speed', 'ssr', 'sst_anomaly', 'd_hotspot_dt', 'hotspot_cumsum_4w', 'hotspot_cumsum_12w', 'seasonal_cos']
+  [YEAR-BASED SPLIT] test: years=(2016, 2019), windows=182
+  Window indices: 182 windows for test
+  Loaded 182 samples: X_dynamic=(182, 24, 21, 23, 13), X_static=(182, 21, 23, 5)
+  Label coverage: 49322/87906 (56.11%)
+[SCS seed 0] C ROC=0.984 PR=0.369 C-A dROC CI=[0.001675510979352282, 0.003951815281480372]
+[SCS seed 1] C ROC=0.986 PR=0.398 C-A dROC CI=[0.0031164127553919172, 0.005687250624613305]
+[SCS seed 2] C ROC=0.984 PR=0.362 C-A dROC CI=[0.0009290275625155137, 0.002989591783196818]
+[SCS seed 3] C ROC=0.987 PR=0.380 C-A dROC CI=[0.003197454971782518, 0.006768373084964594]
+[SCS seed 42] C ROC=0.981 PR=0.304 C-A dROC CI=[-0.0021804087141605337, 0.0008832856787234996]
+Traceback (most recent call last):
+  File "D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\experiments\08_infrastructure\compute_tsar_seed_sensitivity.py", line 313, in <module>
+    main()
+  File "D:\曾斌\论文\海洋环境保护\PIECF\LTTS_CRW\experiments\08_infrastructure\compute_tsar_seed_sensitivity.py", line 300, in main
+    pd.DataFrame(all_rows).to_csv(csv_path, index=False)
+    ^^
+NameError: name 'pd' is not defined. Did you mean: 'id'?

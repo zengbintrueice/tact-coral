@@ -1,0 +1,14 @@
+{
+  "experiment": "combination_rule_sensitivity",
+  "generated": "2026-10-03T11:23:36.064326",
+  "record_npz_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "rules": [
+    "R1_mean_rank",
+    "R2_median_rank",
+    "R3_zscore_mean",
+    "R4_borda",
+    "R5_weighted_2to1"
+  ],
+  "note": "training-free rules only; R4≡R1 for AUC (both monotone in the rank sum)",
+  "interpretation": "predictive / representation-level only"
+}

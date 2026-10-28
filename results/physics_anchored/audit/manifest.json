@@ -1,0 +1,50 @@
+{
+  "experiment": "physics_anchored_strict_audit",
+  "generated_utc": "2026-09-17T08:50:47.120187",
+  "checkpoints": {
+    "tscf": {
+      "path": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\model_final_Btail3\\model.pt",
+      "md5": "7cdbca26cae03fa53be53210940e8ce1"
+    },
+    "anchored": {
+      "path": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\physics_anchored\\model.pt",
+      "md5": "b67f525d66872270b8e8a4d6d4e6fc97"
+    }
+  },
+  "selection_rule": "argmax CSI@0.9 on SCS-val (predefined; alternatives reported)",
+  "selected_scale": 0.4,
+  "scales_tested": [
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "model_cfg_at_inference": {
+    "scale": 1.0,
+    "tau": 0.5,
+    "temp": 0.1
+  },
+  "tau_eval": 0.9,
+  "lead": 4,
+  "severe": 0.8,
+  "scs_val_csi_per_scale": {
+    "0.05": 0.20701754385964913,
+    "0.1": 0.2191780821917808,
+    "0.2": 0.2724252491694352,
+    "0.3": 0.2861635220125786,
+    "0.4": 0.2953216374269006,
+    "0.5": 0.29347826086956524
+  },
+  "record_sets": {
+    "definition": "STRICT protocol: ocean cells (land_mask False) AND finite target y(t+4) AND finite PersA/y_main/gate/raw/TSCF at issue t; issue-year filter per split",
+    "counts": {
+      "SCS_val": 70731,
+      "SCS_test": 49322,
+      "GBR": 19065,
+      "CARIB": 83025
+    }
+  },
+  "record_set_looseness_note": "original Steps 2-10 / physics_anchored_eval record sets did NOT apply land_mask and scored finite-y-on-land cells: SCS +19110, GBR +1230, CARIB +11070 test cells; this audit uses ocean-only."
+}

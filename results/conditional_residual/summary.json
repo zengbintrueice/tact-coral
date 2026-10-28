@@ -1,0 +1,146 @@
+{
+  "experiment": "conditional_residual_information_test",
+  "source": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\physics_anchored\\structural_ablation\\rec_structural_ablation.npz",
+  "source_md5": "4035a19fd30fa4d14151f4c8055dfe59",
+  "definitions": {
+    "persa": "clip(DHW/10,0,1) at issue time t",
+    "residual R": "TSAR - PersA = gate*raw*scale(0.4)",
+    "y": "future target y(t+4)",
+    "severe": "y >= 0.8"
+  },
+  "protocol": {
+    "zero_shot": true,
+    "no_target_fitting": true,
+    "no_threshold_selection": true,
+    "bootstrap": {
+      "type": "paired week-block",
+      "n": 1000,
+      "seed": 42
+    },
+    "matched": {
+      "DHW_bin": 0.05,
+      "min_bin_n": 40,
+      "spearman_bootstrap": {
+        "n": 1000,
+        "seed": 42
+      }
+    }
+  },
+  "domains": {
+    "SCS": {
+      "n": 49322,
+      "n_severe": 419,
+      "A_persa": {
+        "roc": 0.981711665638622,
+        "pr": 0.3177240501709901
+      },
+      "B_tsar": {
+        "roc": 0.9807829604920988,
+        "pr": 0.30358996652508774
+      },
+      "delta_paired": {
+        "droc": {
+          "lo": -0.0026765420322195366,
+          "hi": 0.0011490142859572334,
+          "mean": -0.0008031075979939539
+        },
+        "dpr": {
+          "lo": -0.05025595945452319,
+          "hi": 0.02636661168886291,
+          "mean": -0.013124711587994041
+        }
+      },
+      "increment_ci_excludes_0": {
+        "roc": false,
+        "pr": false,
+        "any": false
+      },
+      "matched": {
+        "powered_bins": 15,
+        "n_bins": 20,
+        "rho_sign_consistency": false
+      },
+      "verdict_residual_has_conditional_context_information": false
+    },
+    "GBR": {
+      "n": 19065,
+      "n_severe": 676,
+      "A_persa": {
+        "roc": 0.9592867455814367,
+        "pr": 0.41639756654402205
+      },
+      "B_tsar": {
+        "roc": 0.9599224163146155,
+        "pr": 0.48771171272418296
+      },
+      "delta_paired": {
+        "droc": {
+          "lo": 0.0001632029763631665,
+          "hi": 0.0013985897743858655,
+          "mean": 0.0006093433489068883
+        },
+        "dpr": {
+          "lo": 0.014900819724048293,
+          "hi": 0.12686714375888783,
+          "mean": 0.0633635012156138
+        }
+      },
+      "increment_ci_excludes_0": {
+        "roc": true,
+        "pr": true,
+        "any": true
+      },
+      "matched": {
+        "powered_bins": 17,
+        "n_bins": 20,
+        "rho_sign_consistency": true
+      },
+      "verdict_residual_has_conditional_context_information": true
+    },
+    "CARIB": {
+      "n": 83025,
+      "n_severe": 1356,
+      "A_persa": {
+        "roc": 0.9792381089996669,
+        "pr": 0.46018909431884847
+      },
+      "B_tsar": {
+        "roc": 0.9822218462170721,
+        "pr": 0.5479247615011636
+      },
+      "delta_paired": {
+        "droc": {
+          "lo": 0.0013411358377965672,
+          "hi": 0.004648150066163373,
+          "mean": 0.0029047828883714344
+        },
+        "dpr": {
+          "lo": 0.056852453645399884,
+          "hi": 0.11345199025293635,
+          "mean": 0.0842891578777633
+        }
+      },
+      "increment_ci_excludes_0": {
+        "roc": true,
+        "pr": true,
+        "any": true
+      },
+      "matched": {
+        "powered_bins": 17,
+        "n_bins": 20,
+        "rho_sign_consistency": true
+      },
+      "verdict_residual_has_conditional_context_information": true
+    }
+  },
+  "conclusion": {
+    "residual_contains_conditional_context_information": {
+      "SCS": false,
+      "GBR": true,
+      "CARIB": true,
+      "note": "per-basin; SCS is the source-anchor null where no residual increment is expected/claimed"
+    },
+    "rule": "Per basin: residual R contains conditional context info ONLY IF BOTH (i) the PersA+R (=TSAR) increment paired-CI excludes 0 AND (ii) within matched-DHW bins R shows a stable positive association with future severe outcome. Otherwise not proven.",
+    "text": "The TSAR residual R provides conditional context information beyond PersA_DHW in the two transfer target basins gbr and CARIB: there BOTH (i) the PersA+R (=TSAR) increment paired-CI excludes 0 (GBR ΔROC +0.0006 [+0.0002,+0.0014], ΔPR +0.063 [+0.015,+0.127]; CARIB ΔROC +0.0029 [+0.0013,+0.0046], ΔPR +0.084 [+0.057,+0.114]) and (ii) within matched-DHW (0.05) bins R remains positively associated with future severe outcome (Spearman rho CI excluding 0; severe-rate rises with R within fixed DHW, e.g. CARIB bin[0.75,0.80): severe-rate 0.13 (R-Q1) -> 0.67 (R-Q3)). R is therefore not merely re-encoding DHW in these basins. In the source basin SCS the residual adds no marginal increment (TSAR≈PersA by the conservative source-anchor design; ΔROC -0.001, CI includes 0), so conditional-residual info is not established there and is not claimed. Methodological caveat: the within-DHW Spearman association alone is positive in all basins (R encodes the 'is DHW rising?' context), so the CI-supported marginal increment is the discriminating evidence for where R adds transferable value."
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "experiment": "step8_contextual_gain",
+  "generated": "2026-09-17T19:40:09.123588",
+  "population": {
+    "source_npz": "D:\\曾斌\\论文\\海洋环境保护\\PIECF\\LTTS_CRW\\results\\step2_persistence_v2\\persistence_raw_predictions.npz",
+    "source_npz_sha256": "93101cfb4cefd8cb7878f0edeae0188acc8565191d6885779e129f4b044c4fbc",
+    "SCS": {
+      "test_years": [
+        2016,
+        2019
+      ],
+      "n": 49322,
+      "severe": 419
+    },
+    "GBR": {
+      "test_years": [
+        2017,
+        2020
+      ],
+      "n": 19065,
+      "severe": 676
+    }
+  },
+  "prediction": {
+    "lead_weeks": 4,
+    "history_weeks": 24,
+    "severe_threshold": 0.8,
+    "pfv": "issue t, verify t+4"
+  },
+  "threshold": {
+    "formal_tau": 0.9,
+    "also_reported": 0.8,
+    "sweep_grid": "0.00-1.00, 101 points, DIAGNOSTIC ONLY",
+    "gbr_threshold_tuning": "forbidden and not performed"
+  },
+  "models": {
+    "A1": {
+      "base_channels": [],
+      "c_window_weeks": 1
+    },
+    "A2": {
+      "base_channels": [],
+      "c_window_weeks": 4
+    },
+    "B1": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "sst_anomaly",
+        "d_hotspot_dt"
+      ],
+      "c_window_weeks": 1
+    },
+    "B2": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "sst_anomaly",
+        "d_hotspot_dt"
+      ],
+      "c_window_weeks": 4
+    },
+    "ENV1": {
+      "base_channels": [
+        "wind_speed",
+        "ssr",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 1
+    },
+    "ENV2": {
+      "base_channels": [
+        "wind_speed",
+        "ssr",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 4
+    },
+    "D1": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 1
+    },
+    "D2": {
+      "base_channels": [
+        "sst",
+        "ssta",
+        "hotspot",
+        "chlorophyll",
+        "par",
+        "seasonal_sin",
+        "wind_speed",
+        "ssr",
+        "sst_anomaly",
+        "d_hotspot_dt",
+        "seasonal_cos"
+      ],
+      "c_window_weeks": 4
+    }
+  },
+  "references": {
+    "FULL": "Step-6 retrained 13-channel model (same protocol, seed 42)",
+    "FULL_FROZEN": "deployed D1 checkpoint (MD5 7cdbca26cae03fa53be53210940e8ce1)",
+    "current_dhw_note": "see Step-2/4 for the persistence reference"
+  },
+  "training": {
+    "protocol": "D1 verbatim (Step-6/7): weighted BCE pw=1000, Adam 1e-3/wd1e-5, cosine T_max=60, batch 32, 60 epochs, patience 10, grad clip 1.0, seed 42",
+    "init": "from scratch; no cross-model initialization",
+    "normalization": "SCS train 2003-2010 only; C_W stats frozen from step7_feature_manifest.json",
+    "seeds": {
+      "training": 42,
+      "bootstrap": 42,
+      "permutation": 42,
+      "trailing_verification": 7
+    }
+  },
+  "bootstrap": {
+    "n": 1000,
+    "seed": 42,
+    "type": "paired week-block"
+  },
+  "permutation": {
+    "n": 100,
+    "seed": 42,
+    "model": "FULL_FROZEN",
+    "permuted": "ENV/calendar channels, spatial permutation shared across time",
+    "preserved": "thermal channels, temporal order, cumulative channels, labels"
+  },
+  "checkpoint_md5": {
+    "A1": "da7c5a0b3c145e0b248dc2a98dffc052",
+    "A2": "0d42a0906fe1d7d20370acf45806123a",
+    "B1": "c46d34675530d326924be0c7310ba8b0",
+    "B2": "9fdfbdfb35e163a7142091438a9423d4",
+    "ENV1": "1f704b304a95662e8843bc72c2a300ce",
+    "ENV2": "2e435f321e104d368e79cb1f89d2ea57",
+    "D1": "a72c353380a381ce0ea80bc115706e3b",
+    "D2": "5030d33219e70f9aeac2606cb1419470",
+    "FULL": "f52d6d931c7e551fe6b79f36b43c1480",
+    "FULL_FROZEN": "7cdbca26cae03fa53be53210940e8ce1"
+  },
+  "outcome": "E",
+  "outcome_logic": {
+    "c1_csi_adv_gbr": 0.048898547372295986,
+    "c1_csi_ci": {
+      "lo": 0.002255708388966372,
+      "hi": 0.09216336463886059
+    },
+    "c1_pr_ci": {
+      "lo": -0.10219280603695716,
+      "hi": 0.03907630674855593
+    },
+    "c1_roc_ci": {
+      "lo": -0.060925351073272876,
+      "hi": -0.01244466039367309
+    },
+    "d1_csi_max": 0.3678665496049166,
+    "full_csi_max": 0.3340823970037453,
+    "advantage_exists": true,
+    "sweep_supports": true,
+    "pr_comparable": true,
+    "csi_sig": true,
+    "gbr_env1_gain": false,
+    "gbr_env2_gain": false
+  }
+}

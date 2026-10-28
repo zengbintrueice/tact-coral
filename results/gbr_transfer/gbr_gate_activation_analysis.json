@@ -1,0 +1,105 @@
+{
+  "experiment": "gate_threshold_analysis",
+  "description": "Visualize and quantify gate deactivation on GBR",
+  "configuration": {
+    "model": "a7 (SCS-trained, frozen)",
+    "gate_formula": "sigmoid((y_main - 0.5) / 0.1)",
+    "severe_threshold": 0.8
+  },
+  "gate_statistics": {
+    "scs": {
+      "mean": 1.0,
+      "std": 0.0,
+      "activation_rate_gt05": 1.0,
+      "activation_rate_gt01": 1.0,
+      "pct_with_gate_lt01": 0.0
+    },
+    "gbr": {
+      "mean": 1.0,
+      "std": 0.0,
+      "activation_rate_gt05": 1.0,
+      "activation_rate_gt01": 1.0,
+      "pct_with_gate_lt01": 0.0
+    }
+  },
+  "severe_pixel_gate": {
+    "scs": {
+      "n_severe": 502,
+      "gate_mean": 1.0,
+      "gate_std": 0.0,
+      "activation_rate_gt05": 1.0
+    },
+    "gbr": {
+      "n_severe": 729,
+      "gate_mean": 1.0,
+      "gate_std": 0.0,
+      "activation_rate_gt05": 1.0
+    }
+  },
+  "counterfactual": {
+    "description": "If gate were forced to 1 on GBR severe pixels",
+    "gbr_severe_r2_zeroshot": -6.5115,
+    "gbr_severe_r2_gate_forced_1": -6.5115,
+    "r2_improvement": 0.0
+  },
+  "gate_activation_curve": {
+    "y_main_thresholds": [
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9
+    ],
+    "scs_activation_rates": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "gbr_activation_rates": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "timestamp": "2026-09-12T05:26:28.283123"
+}

@@ -1,0 +1,15 @@
+{
+  "record_set": {
+    "rec_structural_ablation.npz": "4035a19fd30fa4d14151f4c8055dfe59"
+  },
+  "checkpoints": {
+    "frozen_TSCF": "7cdbca26cae03fa53be53210940e8ce1",
+    "TSAR_seed42": "ae86e017bc5ba634b0c68e5d13b4f9f0"
+  },
+  "data": {
+    "SCS": "981e0cd9db5eb70d3a62997505181aa9",
+    "GBR": "cd512b94b11be62a403cb2376d106411",
+    "CARIB": "8218e956df60810de21aeaba82b5890d"
+  },
+  "note": "no-training tier; reverse-source TSCF/TSAR rows to be appended after GBR/CARIB-sourced training"
+}

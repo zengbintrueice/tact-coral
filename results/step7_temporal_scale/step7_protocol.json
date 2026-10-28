@@ -1,0 +1,185 @@
+{
+  "protocol": "step7_temporal_scale (mechanistic temporal-scale decomposition; Steps 4/5 remain formal headline results; Step 6 the feature-group attribution)",
+  "data": {
+    "files": [
+      "scs_causal_v2.nc",
+      "gbr_causal_v2.nc"
+    ],
+    "dir": "D:\\piecf_crw_data"
+  },
+  "c_channels": {
+    "C1": {
+      "name": "hotspot_cumsum1c_1w",
+      "window_weeks": 1,
+      "definition": "trailing W-week sum of HotSpot >= 1 degC, ending at issue time t; NaN weeks contribute 0; NaN where hotspot[t] NaN",
+      "train_stats": {
+        "feature": "hotspot_cumsum1c_1w",
+        "window_weeks": 1,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.017325179651379585,
+        "train_std": 0.1466628760099411,
+        "train_min": 0.0,
+        "train_max": 2.4079842567443848,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      }
+    },
+    "C2": {
+      "name": "hotspot_cumsum1c_2w",
+      "window_weeks": 2,
+      "definition": "trailing W-week sum of HotSpot >= 1 degC, ending at issue time t; NaN weeks contribute 0; NaN where hotspot[t] NaN",
+      "train_stats": {
+        "feature": "hotspot_cumsum1c_2w",
+        "window_weeks": 2,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.03461087867617607,
+        "train_std": 0.2543487250804901,
+        "train_min": 0.0,
+        "train_max": 4.339201927185059,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      }
+    },
+    "C4": {
+      "name": "hotspot_cumsum1c_4w",
+      "window_weeks": 4,
+      "definition": "trailing W-week sum of HotSpot >= 1 degC, ending at issue time t; NaN weeks contribute 0; NaN where hotspot[t] NaN",
+      "train_stats": {
+        "feature": "hotspot_cumsum1c_4w",
+        "window_weeks": 4,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.06899634748697281,
+        "train_std": 0.42663291096687317,
+        "train_min": 0.0,
+        "train_max": 7.513401985168457,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      }
+    },
+    "C8": {
+      "name": "hotspot_cumsum1c_8w",
+      "window_weeks": 8,
+      "definition": "trailing W-week sum of HotSpot >= 1 degC, ending at issue time t; NaN weeks contribute 0; NaN where hotspot[t] NaN",
+      "train_stats": {
+        "feature": "hotspot_cumsum1c_8w",
+        "window_weeks": 8,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.13644950091838837,
+        "train_std": 0.6717575788497925,
+        "train_min": 0.0,
+        "train_max": 10.318020820617676,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      }
+    },
+    "C12": {
+      "name": "hotspot_cumsum1c_12w",
+      "window_weeks": 12,
+      "definition": "trailing W-week sum of HotSpot >= 1 degC, ending at issue time t; NaN weeks contribute 0; NaN where hotspot[t] NaN",
+      "train_stats": {
+        "feature": "hotspot_cumsum1c_12w",
+        "window_weeks": 12,
+        "definition": "trailing W-week sum of weekly 7-day-mean HotSpot with values >= 1 degC only; window (t-W+1..t]; NaN weeks contribute 0; NaN where hotspot[t] is NaN",
+        "train_mean": 0.20004747807979584,
+        "train_std": 0.844275712966919,
+        "train_min": 0.0,
+        "train_max": 10.318020820617676,
+        "n_valid_train_obs": 3555456,
+        "stats_source": "SCS train windows only (2003-2010); no val/test/GBR"
+      }
+    }
+  },
+  "models": {
+    "M_C1": {
+      "cumulative_windows": [
+        1
+      ],
+      "checkpoint_md5": "a72c353380a381ce0ea80bc115706e3b"
+    },
+    "M_C2": {
+      "cumulative_windows": [
+        2
+      ],
+      "checkpoint_md5": "177dcd722c5c594702c54444aa40004e"
+    },
+    "M_C4": {
+      "cumulative_windows": [
+        4
+      ],
+      "checkpoint_md5": "5030d33219e70f9aeac2606cb1419470"
+    },
+    "M_C8": {
+      "cumulative_windows": [
+        8
+      ],
+      "checkpoint_md5": "842c4113114f56b705a9a783faf630c0"
+    },
+    "M_C12": {
+      "cumulative_windows": [
+        12
+      ],
+      "checkpoint_md5": "507272c5bffb03498a8a6a2fa498dff8"
+    },
+    "M_C4_C12": {
+      "cumulative_windows": [
+        4,
+        12
+      ],
+      "checkpoint_md5": "9f2a0cea4a4484c2ddef23d66fd39bbd"
+    },
+    "M_C2_C4_C12": {
+      "cumulative_windows": [
+        2,
+        4,
+        12
+      ],
+      "checkpoint_md5": "79b27d28eb8343065c443d908a773560"
+    },
+    "M_C1_C4_C12": {
+      "cumulative_windows": [
+        1,
+        4,
+        12
+      ],
+      "checkpoint_md5": "3aadffdfa5c3241587f15239181c6ae5"
+    },
+    "FULL": {
+      "checkpoint_md5": "f52d6d931c7e551fe6b79f36b43c1480",
+      "note": "Step-6 FULL reference"
+    },
+    "FULL_FROZEN": {
+      "checkpoint_md5": "7cdbca26cae03fa53be53210940e8ce1",
+      "note": "deployed Step-4 anchor"
+    }
+  },
+  "training": {
+    "protocol": "identical to Step-6 FULL (D1: weighted BCE pw=1000, Adam 1e-3/wd 1e-5, cosine 60ep, batch 32, patience 10, seed 42)",
+    "init": "from scratch per model"
+  },
+  "normalization": {
+    "non_cumulative": "SCS_CHANNEL_MEAN/STD (SCS train 2003-2010, frozen)",
+    "c_channels": "train-window stats (SCS 2003-2010 only), see manifest"
+  },
+  "evaluation": {
+    "population": "Step-4 common (t,i,j) — identical masks all models",
+    "periods": {
+      "SCS": "2016-2019",
+      "GBR": "2017-2020 zero-shot"
+    },
+    "tau": "0.8/0.9 pinned; sweep diagnostic only",
+    "bootstrap": {
+      "n": 1000,
+      "seed": 42,
+      "type": "week-level paired"
+    }
+  },
+  "generated": "2026-09-17T18:58:32.120870",
+  "output_sha256": {
+    "step7_paired_bootstrap.csv": "102cb537ae66a89e070478505845705afaf881afcd9dca642404867ebd8dee17",
+    "step7_temporal_scale_plot.csv": "112d32b3f67288a2a0328f55032f84b45f53dcd5740f85c187a6cde040119744",
+    "step7_temporal_scale_results.csv": "e29a42d16a206c796fc00b7451b2c1f9380d7cb200fab75ab9c0aa0b7a64e12a",
+    "step7_threshold_sweep_diagnostic.csv": "65be1ebe9cd2c39606514c377314fa494aa94750b704a9ee65b5c0c280e67292",
+    "step7_transfer_summary.csv": "ad782d9f0d5fc378e5cd0bcd964a3f27bde4a483da46f058b99281a5d440f15a",
+    "step7_predictions.npz": "b3b1674daf06e69c5dcf994bef484f86a0e8c83ac825ae428ddf4f985be21948"
+  }
+}

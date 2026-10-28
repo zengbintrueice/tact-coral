@@ -1,0 +1,18 @@
+panel,domain,lon_lo,lon_hi,lat_lo,lat_hi,role,span,y0,y1
+a,SCS,100.5,129.5,3.0,24.0,source domain train 2003-2010,,,
+a,GBR,142.0,154.0,-24.0,-10.0,zero-shot test 2017-2020,,,
+a,CARIB,-91.0,-59.0,4.0,26.0,zero-shot boundary test 2017-2020,,,
+b,SCS,,,,,,"train
+2003–2010",2003.0,2010.0
+b,SCS,,,,,,"validation
+2011–2015",2011.0,2015.0
+b,SCS,,,,,,"test
+2016–2019",2016.0,2019.0
+b,GBR,,,,,,unused,2003.0,2013.0
+b,GBR,,,,,,val (diag.),2014.0,2016.0
+b,GBR,,,,,,"zero-shot test
+2017–2020",2017.0,2020.0
+b,CARIB,,,,,,unused,2003.0,2013.0
+b,CARIB,,,,,,val (diag.),2014.0,2016.0
+b,CARIB,,,,,,"zero-shot test
+2017–2020",2017.0,2020.0

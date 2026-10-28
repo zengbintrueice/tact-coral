@@ -1,0 +1,25 @@
+{
+  "experiment": "reverse_tscf",
+  "source": "CARIB",
+  "seed": 42,
+  "epochs": 14,
+  "best_val": 1.9249727858437433,
+  "md5": "ce48a7d2a37b74f86c371f6ca590ac71",
+  "protocol": "D1/a6 weighted BCE pos_weight=1000; Adam1e-3 cosine60 batch32 pat10",
+  "dataset": "caribbean_causal_v2.nc",
+  "split": {
+    "test_years": [
+      2017,
+      2020
+    ],
+    "train_years": [
+      2003,
+      2010
+    ],
+    "val_years": [
+      2011,
+      2015
+    ]
+  },
+  "timestamp": "2026-09-29T11:02:46.408360"
+}

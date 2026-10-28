@@ -1,0 +1,10 @@
+check,status,evidence
+B1_CARIB_no_fitting,PASS,anchored ckpt trained on SCS only (train_physics_anchored.py: train 2003-2010/val 2011-2015); CARIB dataset built 2026-09-16 AFTER training; ckpt md5=b67f525d66872270b8e8a4d6d4e6fc97
+B2_no_normalization_on_CARIB,PASS,"ChannelNormalizer uses baked SCS_CHANNEL_MEAN/STD (checkpoint buffers == config to float32, 13 channels); normalization_v2.json SCS-train only; nothing recomputed on CARIB"
+B3_no_threshold_from_CARIB,PASS,tau_eval=0.9 pinned from SCS protocol (Step-4); classification threshold never searched on CARIB/GBR
+B4_scale_not_chosen_on_CARIB,PASS,scale selected as argmax CSI@0.9 on SCS-val (predefined; alternatives reported) on SCS-val only; GBR/CARIB arrays never read during selection
+B5_no_early_stopping_on_CARIB,PASS,"best-val loss on SCS val, patience 10; GBR/CARIB absent from training loop"
+B6_no_model_selection_on_CARIB,PASS,"single frozen checkpoints; no CARIB-driven checkpoint choice; TSCF CARIB numbers bit-identical across two independent eval scripts (n=94095, ROC=0.5981282063358642)"
+C1_anchor_is_current_DHW,PASS,"PersA(t)=y_regression_full[t]=clip(DHW(t)/10) (causal v2, trailing 84-day <= t); passed as detached fixed input"
+C2_residual_bounded_two_sided,PASS,"raw=tanh(res_head) in [-1,1]; y_final=PersA+gate*raw*scale => bounded deviation around anchor (NOT a floor; residual is two-sided)"
+C3_residual_grad_blocked,PASS,"residual_head(attn.detach()); gate.detach() in severe loss (physics_anchored_model.py:81,128-130)"
