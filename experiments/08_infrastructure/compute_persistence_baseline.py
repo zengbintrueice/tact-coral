@@ -1,4 +1,11 @@
 # compute_persistence_baseline.py — Strong physics-based persistence baseline (v2)
+# LEGACY METRIC NAMING — see experiments/08_infrastructure/metric_semantics.py.
+# The `brier` field written by this script is mean((pred - y_continuous)**2),
+# i.e. a CONTINUOUS MSE, not the binary Brier score. It is kept only for
+# backward compatibility. Canonical fields (mse_cont, score_reliability,
+# brier_binary, ece_probability) live in
+# results/qc/calibration_target_audit/metrics_v2.json. Do not use `brier`
+# for new tables, figures or manuscript text.
 #
 #   Purpose: Determine how much four-week-ahead thermal-risk predictability is
 #   obtained simply by carrying the current thermal state forward, evaluated on

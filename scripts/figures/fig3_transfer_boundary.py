@@ -3,7 +3,7 @@
 
 Panels
   a  three-domain metric heatmap for the frozen TSCF
-     (ROC / PR / CSI@0.9 / ECE; ocean-masked record sets)
+     (ROC / PR / CSI@0.9 / ECE (probability); ocean-masked record sets)
   b  ROC curves per domain
   c  precision-recall curves per domain
   d  predicted-risk decile vs observed severe frequency per domain
@@ -26,7 +26,16 @@ Z = np.load(S.RESULTS / "physics_anchored" / "structural_ablation" /
             "rec_structural_ablation.npz")
 DOMAINS = ["SCS", "GBR", "CARIB"]
 
-tscf = {d: SAB["domains"][d]["models"]["D_TSCF"] for d in DOMAINS}
+tscf = {d: dict(SAB["domains"][d]["models"]["D_TSCF"]) for d in DOMAINS}
+# Canonical semantics: ECE here is a genuine probability-calibration error
+# (TSCF is a sigmoid probability output), taken from metrics_v2.
+MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+                fig="fig3")
+MV = {(r["domain"], r["model"]): r for r in MV2
+      if r["source"] == "structural_ablation"}
+for d in DOMAINS:
+    tscf[d]["ece"] = MV[(d, "D_TSCF")]["ece_probability"]
+    tscf[d]["brier_binary"] = MV[(d, "D_TSCF")]["brier_binary"]
 
 # ---- scientific pre-save check -------------------------------------------
 if not (tscf["CARIB"]["pr_auc"] < 0.5 * tscf["GBR"]["pr_auc"]
@@ -44,7 +53,7 @@ gs = fig.add_gridspec(2, 2, hspace=0.42, wspace=0.30,
 ax = fig.add_subplot(gs[0, 0])
 ax.set_title("Three-domain performance of frozen TSCF", loc="left", fontsize=8)
 mkeys = [("roc_auc", "ROC-AUC"), ("pr_auc", "PR-AUC"),
-         ("csi_tau09", "CSI@0.9"), ("ece", "ECE")]
+         ("csi_tau09", "CSI@0.9"), ("ece", "ECE (probability)")]
 M = np.array([[tscf[d][k] for d in DOMAINS] for k, _ in mkeys])
 im = ax.imshow(M, cmap="Purples", vmin=0, vmax=1, aspect="auto")
 ax.set_xticks(range(3))
@@ -180,7 +189,7 @@ print("[source] fig3 source-data files (metrics, roc, pr, predobs)")
 man = S.OUT_DIR / "figure_manifest.csv"
 new = pd.DataFrame([
     dict(figure="fig3", panel="a", source_file="results/physics_anchored/structural_ablation/structural_ablation.json",
-         source_columns="domains.*.models.D_TSCF{roc_auc,pr_auc,csi_tau09,ece}",
+         source_columns="D_TSCF{roc_auc,pr_auc,csi_tau09} (structural_ablation.json) + {ece_probability} (metrics_v2.json)",
          statistical_method="point estimates on ocean-masked PFV record set",
          n="49322/19065/83025", unit="score", output_file="fig3_transfer_boundary.pdf"),
     dict(figure="fig3", panel="b", source_file="results/physics_anchored/structural_ablation/rec_structural_ablation.npz",

@@ -1,4 +1,7 @@
 # ==========================================================================
+# PROBABILITY PATH — standard binary Brier against 1[y >= 0.8].
+# This is the correct probability metric for TSCF; see
+# experiments/08_infrastructure/metric_semantics.py.
 # Source: paper/a7_dual_output/scs_probability_calibration.py (verbatim except path fix)
 # Experiment: Isotonic probability calibration + ECE
 # Paper: Results 1 (Methods: Operational evaluation and calibration)

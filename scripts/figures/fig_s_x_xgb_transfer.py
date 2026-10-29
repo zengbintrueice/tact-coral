@@ -8,14 +8,16 @@ results/xgb_transfer_control/metrics.json (NOTHING hard-coded):
   a  ROC-AUC across SCS->SCS / SCS->GBR / SCS->CARIB for XGB_FULL,
      XGB_THERMAL, XGB_NO_THERMAL
   b  PR-AUC across the same transfer pairs
-  c  CARIB performance contrast (ROC-AUC / PR-AUC / Brier / ECE) across the
-     three variants — showing that the thermal-only variant retains most of
-     the transfer skill while removing thermal features drops it markedly
+  c  CARIB performance contrast (ROC-AUC / PR-AUC) across the three variants —
+     showing that the thermal-only variant retains most of the transfer skill
+     while removing thermal features drops it markedly
 
 Figure annotation: "zero-shot transfer, τ=0.90 pinned". CSI/POD/F1 are NOT
 plotted because the XGBoost DHW-regression predictions never reach 0.90, so
-operational metrics at τ=0.90 are 0 / undefined in the source JSON — only
-ROC-AUC, PR-AUC, Brier, ECE are compared (as the experiment config states).
+operational metrics at τ=0.90 are 0 / undefined in the source JSON.
+XGBoost is a CONTINUOUS DHW regressor, not a severe-event probability model:
+continuous MSE is reported in the source data, and the ECE-style statistic
+there is descriptive score-frequency agreement, NOT probability calibration.
 
 Full caption in results/figures/SX_source_data_caption.md.
 
@@ -44,6 +46,11 @@ MLAB = {"XGB_FULL": "FULL (13 ch)", "XGB_THERMAL": "THERMAL (5 ch)",
 MCOL = {"XGB_FULL": S.COLORS["tscf"], "XGB_THERMAL": S.COLORS["SCS"],
         "XGB_NO_THERMAL": S.COLORS["CARIB"]}
 by = {m: next(r for r in J if r["model"] == m) for m in MODELS}
+# canonical metric semantics (Task A = continuous; XGB is NOT a probability)
+MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+                fig="SX")
+mv2 = {(r["domain"], r["model"]): r for r in MV2
+       if r["source"] == "xgb_transfer_control"}
 
 # cross-check counts identical across variants and domains
 for m in MODELS:
@@ -221,8 +228,10 @@ S.panel_label(ax, "e")
 # -------------------------------------------------- (caption / notes) --------
 fig.text(0.11, 0.055,
          "S-X note: XGB predictions are DHW regressions whose scores never reach "
-         "τ=0.90, so CSI/POD/F1 at τ=0.90 are 0 / undefined (per the source JSON) — "
-         "we therefore compare ROC-AUC, PR-AUC, Brier and ECE only.",
+         "τ=0.90, so CSI/POD/F1 at τ=0.90 are 0 / undefined (per the source JSON). "
+         "XGBoost is a continuous regressor: probability-calibration metrics are "
+         "not applicable; continuous MSE and a descriptive score-reliability "
+         "statistic are given in the source data.",
          fontsize=5.4, style="italic", color="#333333")
 fig.text(0.11, 0.015,
          "XGBoost and TSCF use the same SCS→GBR/CARIB zero-shot transfer protocol: "
@@ -239,15 +248,21 @@ for m in MODELS:
         rows.append(dict(panel="a/b", model=m, domain=d, transfer=("SCS→" + d),
                          roc_auc=float(by[m][f"{d}_roc_auc"]),
                          pr_auc=float(by[m][f"{d}_pr_auc"]),
-                         brier=float(by[m][f"{d}_brier"]),
-                         ece=float(by[m][f"{d}_ece"]),
+                         mse_cont=float(mv2[(d, m)]["mse_cont"]),
+                         score_reliability=float(mv2[(d, m)]["score_reliability"]),
+                         brier_binary_descriptive=float(
+                             mv2[(d, m)]["brier_binary_descriptive"]),
+                         probability_calibration_valid=False,
                          n=n_[d], n_severe=n_sev[d]))
 for m in MODELS:
     rows.append(dict(panel="c", model=m, domain="CARIB", transfer="SCS→CARIB",
                      roc_auc=float(by[m]["CARIB_roc_auc"]),
                      pr_auc=float(by[m]["CARIB_pr_auc"]),
-                     brier=float(by[m]["CARIB_brier"]),
-                     ece=float(by[m]["CARIB_ece"]),
+                     mse_cont=float(mv2[("CARIB", m)]["mse_cont"]),
+                     score_reliability=float(mv2[("CARIB", m)]["score_reliability"]),
+                     brier_binary_descriptive=float(
+                         mv2[("CARIB", m)]["brier_binary_descriptive"]),
+                     probability_calibration_valid=False,
                      n=n_["CARIB"], n_severe=n_sev["CARIB"]))
 for m in MODELS:
     sub = BOOT[BOOT["variant"] == m]
@@ -269,7 +284,7 @@ caption = (
     "2016–2019, GBR 2017–2020 and CARIB 2017–2020: FULL (13 dynamic channels), "
     "THERMAL (thermal-only: ssta, hotspot, d_hotspot_dt, hotspot_cumsum_4w, "
     "hotspot_cumsum_12w), NO-THERMAL (non-thermal channels). (c) CARIB "
-    "discrimination (ROC-AUC and PR-AUC; Brier and ECE in the source data) "
+    "discrimination (ROC-AUC and PR-AUC) "
     "across the three variants: the thermal-only variant retains most of the "
     "transfer skill, whereas removing thermal features lowers CARIB ROC-AUC "
     "markedly and PR-AUC by about half. (d) Marginal week-block bootstrap 95% CIs (1,000 resamples, seed 42) for ROC-AUC and PR-AUC in each domain: the NO-THERMAL interval lies below THERMAL and FULL in every domain and metric, while THERMAL and FULL overlap (CI separation is QC-checked at run time). (e) Cross-basin rank-association stability screen: per-channel Spearman rank correlation with y(t+4) in each basin; the physical anchor (PersA) and SST anomaly show the most stable cross-basin rank associations (star) while nonthermal channels are more basin-dependent.\n\n"
@@ -279,9 +294,14 @@ caption = (
     "hyperparameter tuning or threshold selection. XGBoost predicts DHW "
     "(regression), so its scores never reach τ = 0.90 and the operational "
     "metrics (CSI/POD/F1) at τ = 0.90 are 0 or undefined in the source "
-    "JSON; the comparison therefore uses ROC-AUC, PR-AUC, Brier and ECE only. "
+    "JSON; the comparison therefore uses ROC-AUC and PR-AUC. Because the "
+    "XGBoost output is a continuous regression score and not a severe-event "
+    "probability, probability-calibration metrics are not applicable; the "
+    "source data report continuous MSE and a descriptive score-reliability "
+    "statistic, neither of which is evidence of probability calibration. "
     "All values are read automatically from "
-    "`results/xgb_transfer_control/metrics.json`; none are hand-entered."
+    "`results/xgb_transfer_control/metrics.json` and "
+    "`results/qc/calibration_target_audit/metrics_v2.json`; none are hand-entered."
 )
 (S.OUT_DIR / "SX_source_data_caption.md").write_text(caption, encoding="utf-8")
 print("[caption] SX source-data caption written", flush=True)
@@ -293,7 +313,7 @@ new = pd.DataFrame([
          statistical_method="point estimates (ocean-masked common record set; ROC/PR from sklearn)",
          n=str(n_["CARIB"]), unit="AUC", output_file="SX_xgb_transfer_control.pdf"),
     dict(figure="SX", panel="c", source_file="results/xgb_transfer_control/metrics.json",
-         source_columns="CARIB_{roc_auc,pr_auc,brier,ece} per model",
+         source_columns="CARIB_{roc_auc,pr_auc} per model + metrics_v2 {mse_cont,score_reliability,brier_binary_descriptive,probability_calibration_valid}",
          statistical_method="point estimates (ocean-masked common record set)",
          n=str(n_["CARIB"]), unit="score", output_file="SX_xgb_transfer_control.pdf"),
     dict(figure="SX", panel="e", source_file="results/xgb_transfer_control/bootstrap_cis.csv",

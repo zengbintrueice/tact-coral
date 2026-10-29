@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# LEGACY METRIC NAMING — see experiments/08_infrastructure/metric_semantics.py.
+# The `brier` field written by this script is mean((pred - y_continuous)**2),
+# i.e. a CONTINUOUS MSE, not the binary Brier score. It is kept only for
+# backward compatibility. Canonical fields (mse_cont, score_reliability,
+# brier_binary, ece_probability) live in
+# results/qc/calibration_target_audit/metrics_v2.json. Do not use `brier`
+# for new tables, figures or manuscript text.
 # -*- coding: utf-8 -*-
 """PHASE 2 — analysis of the physics-anchored residual head record sets.
 

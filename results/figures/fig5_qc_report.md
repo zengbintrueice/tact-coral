@@ -1,6 +1,6 @@
 # Figure 5 — final scientific QC report
 
-Generated: 2026-10-01T18:50:10.581540
+Generated: 2026-10-29T21:04:51.862554
 
 All plotted values are read from:
 - results/physics_anchored/structural_ablation/structural_ablation.json  (per-model point metrics + paired week-block bootstrap CIs)

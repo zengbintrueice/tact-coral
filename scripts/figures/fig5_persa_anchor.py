@@ -5,7 +5,9 @@ Panels
   a  PersA definition (standardized thermal-risk coordinate)
   b  frozen TSCF vs PersA across the three domains (ROC / PR dumbbells)
   c  CARIB recovery: A PersA / B un-gated / C gated / D TSCF (ROC & CSI, 95% CI)
-  d  CARIB reliability curves (TSCF vs PersA vs anchored) + Brier/ECE
+  d  CARIB score-vs-event-frequency agreement (TSCF vs PersA vs anchored);
+     probability Brier/ECE only for TSCF (a probability output), descriptive
+     score reliability for PersA/TSAR
 
 Sources: results/physics_anchored/structural_ablation/{structural_ablation.json,
 rec_structural_ablation.npz}.
@@ -22,6 +24,11 @@ SAB = S.require(S.RESULTS / "physics_anchored" / "structural_ablation" /
                 "structural_ablation.json", fig="fig5")
 Z = np.load(S.RESULTS / "physics_anchored" / "structural_ablation" /
             "rec_structural_ablation.npz")
+# Canonical metric semantics (Task A continuous / Task B probability)
+MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+                fig="fig5")
+MV = {(r["domain"], r["model"]): r for r in MV2
+      if r["source"] == "structural_ablation"}
 DOMAINS = ["SCS", "GBR", "CARIB"]
 
 tscf = {d: SAB["domains"][d]["models"]["D_TSCF"] for d in DOMAINS}
@@ -167,7 +174,7 @@ S.panel_label(ax, "c")
 
 # ------------------------------------------------ (d) CARIB reliability -----
 ax = fig.add_subplot(gs[1, 1])
-ax.set_title("CARIB reliability (calibration recovery)", loc="left", fontsize=8)
+ax.set_title("CARIB score–event-frequency agreement", loc="left", fontsize=8)
 ax.plot([0, 1], [0, 1], color="#BBBBBB", lw=0.8, ls="--")
 rel_rows = []
 for mk, lab, col, _ in models_c:
@@ -175,13 +182,22 @@ for mk, lab, col, _ in models_c:
         continue  # out-of-range scores; shown separately in Fig 6
     p = Z["CARIB_" + mk + "_pred"]
     t = Z["CARIB_target"]
-    c, f, _, brier, ece = S.reliability_curve(p, t)
-    ax.plot(c, f, "o-", color=col, lw=1.0, markersize=3.5,
-            label=f"{lab}  (Brier {brier:.3f}, ECE {ece:.3f})")
-    rel_rows.append(dict(model=mk, brier=brier, ece=ece) |
-                    {f"bin{i}_pred": v for i, v in enumerate(c)} |
-                    {f"bin{i}_freq": v for i, v in enumerate(f)})
-ax.set_xlabel("mean predicted severe thermal risk")
+    c, f, _, _b_legacy, _e_legacy = S.reliability_curve(p, t)
+    v = MV[("CARIB", mk)]
+    if v["probability_calibration_valid"]:
+        leg = "%s  (Brier %.3f, ECE %.3f)" % (
+            lab, v["brier_binary"], v["ece_probability"])
+    else:
+        leg = "%s  (MSE %.3f, score-rel. %.3f)" % (
+            lab, v["mse_cont"], v["score_reliability"])
+    ax.plot(c, f, "o-", color=col, lw=1.0, markersize=3.5, label=leg)
+    rel_rows.append(dict(model=mk, mse_cont=v["mse_cont"],
+                         score_reliability=v.get("score_reliability", np.nan),
+                         ece_probability=v.get("ece_probability", np.nan),
+                         probability_calibration_valid=v["probability_calibration_valid"]) |
+                    {f"bin{i}_pred": x for i, x in enumerate(c)} |
+                    {f"bin{i}_freq": x for i, x in enumerate(f)})
+ax.set_xlabel("mean score (continuous risk coordinate)")
 ax.set_ylabel("observed severe frequency")
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
@@ -195,13 +211,20 @@ import pandas as pd
 rows = []
 for d in DOMAINS:
     for mk, lab, _, _ in models_c:
-        for key in ["roc_auc", "pr_auc", "csi_tau09", "brier", "ece"]:
+        for key in ["roc_auc", "pr_auc", "csi_tau09"]:
             r = SAB["domains"][d]["models"][mk][key]
             ci = SAB["domains"][d]["models"][mk]["bootstrap"][key]
             rows.append(dict(panel="b/c", domain=d, model=lab, metric=key,
                              value=r, ci_lo=ci[0], ci_hi=ci[1],
                              n=SAB["domains"][d]["n"],
                              n_severe=SAB["domains"][d]["n_severe"], unit="score"))
+        v = MV[(d, mk)]
+        for key in ("mse_cont", "score_reliability", "ece_probability",
+                    "brier_binary"):
+            if key in v:
+                rows.append(dict(panel="b/c", domain=d, model=lab, metric=key,
+                                 value=v[key], ci_lo="", ci_hi="",
+                                 n=v["n"], n_severe=v["n_severe"], unit="score"))
 pd.DataFrame(rows).to_csv(S.SRC_DIR / "fig5_source_data.csv", index=False)
 pd.DataFrame(rel_rows).to_csv(S.SRC_DIR / "fig5_source_data_reliability.csv",
                               index=False)

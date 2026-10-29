@@ -66,8 +66,9 @@ example, GBR TSCF ROC AUC is 0.975 under the purged protocol versus
 0.959, respectively.
 
 **Supplementary Fig. 2 \| Temporal purge robustness.**\
-Compare standard and purged protocols for TSCF and physical persistence
-baselines using ROC AUC, PR AUC, CSI, POD, FAR, Brier and ECE.
+Compare standard and purged protocols for TSCF and the physical persistence
+baselines using ROC AUC, PR AUC, CSI, POD and FAR; continuous MSE and score
+reliability for the persistence baselines, and binary Brier and ECE for TSCF.
 
 ## S3. Feature ablation
 
@@ -142,8 +143,8 @@ structural comparisons. The principal contrasts include:
 
 For CARIB, the anchored residual improves over PersA by approximately
 +0.003 ROC AUC, +0.088 PR AUC and +0.023 CSI@0.90. The ungated residual
-is worse than PersA in ROC AUC and PR AUC and substantially worse in
-calibration.
+is worse than PersA in ROC AUC and PR AUC and has a substantially larger
+continuous MSE and worse score reliability.
 
 **Marginal versus paired inference (primary/supporting).** The four
 structural contrasts (anchored−PersA, ungated−PersA, anchored−ungated,
@@ -198,7 +199,7 @@ is seed-dependent: ΔCSI is CI-supported (positive) in 5/5 seeds, ΔROC
 in 4/5, and ΔPR in 2/5. By contrast, the gated-versus-ungated advantage
 (C−B) in CARIB is CI-supported in all five seeds (ΔROC positive, CI
 excluding zero in 5/5), so the gate's protective role against the
-ungated residual's miscalibration is the seed-robust result.
+ungated residual's score–frequency mismatch is the seed-robust result.
 
 **Supplementary Fig. 8 \| Seed sensitivity.**
 
@@ -284,12 +285,14 @@ The corresponding CARIB PR AUC values are 0.0867, 0.0921 and 0.0486.
 Because the XGBoost regressor does not produce scores ≥0.90, CSI/POD/F1
 at the pinned τ=0.90 are all zero or undefined. These operational
 metrics are therefore not interpreted as evidence of failure. The
-architecture-independent comparison relies on ROC AUC, PR AUC, Brier and
-ECE. The XGBoost control is a **continuous clip(DHW/10, 0, 1)
-regression** used strictly as an architecture-independent check that
-thermal predictors carry the transferable *ranking* signal; it does
-**not** validate thresholded severe-event detection, calibration or any
-operational claim at τ=0.90, and it is read only through the within-family
+architecture-independent comparison therefore relies on ROC AUC and PR AUC.
+The XGBoost control is a **continuous clip(DHW/10, 0, 1) regression** used
+strictly as an architecture-independent check that thermal predictors carry
+the transferable *ranking* signal; continuous MSE is reported as a secondary
+error measure, but because the output is a regression score and not a
+severe-event probability, no probability-calibration metric is defined for
+it. It does **not** validate thresholded severe-event detection, calibration
+or any operational claim at τ=0.90, and it is read only through the within-family
 contrasts (FULL vs THERMAL vs NO-THERMAL), never as a cross-model skill
 comparison.
 
@@ -309,7 +312,7 @@ protocol mismatch.
 **Supplementary Note 12 \| XGBoost thermal control.**\
 The three feature-selection variants (FULL, THERMAL, NO-THERMAL) are plotted
 across SCS, GBR and CARIB using ROC-AUC and PR-AUC, with the CARIB
-thermal-removal contrast (Brier/ECE annotated). The figure is embedded below
+thermal-removal contrast (continuous MSE annotated in the source data). The figure is embedded below
 and corresponds to main-text Figure 6.
 
 ### S13. GBR zero-shot transfer: protocol and verification detail
@@ -319,9 +322,9 @@ this section preserves the SCS-source GBR decomposition that
 accompanied the single-route design. (a) Transfer design: the
 SCS-trained frozen TSCF evaluated zero-shot on GBR. (b) GBR paired
 PersA-versus-TSCF performance with paired week-block bootstrap 95% CIs
-(TSCF ROC AUC 0.962, PR AUC 0.554, CSI@0.90 0.365). (c) GBR reliability
-(Brier/ECE): the contextual score is strongly miscalibrated (ECE 0.332)
-even where ranking transfers. (d) GBR operational metrics at the pinned
+(TSCF ROC AUC 0.962, PR AUC 0.554, CSI@0.90 0.365). (c) GBR probability calibration
+(binary Brier 0.140, ECE 0.332): the contextual score is strongly
+miscalibrated as a severe-event probability even where ranking transfers. (d) GBR operational metrics at the pinned
 tau=0.90 (CSI 0.365, POD 0.669, FAR 0.555, F1 0.535). Ranking transfers
 to GBR, calibration does not; the operational metrics are reported at
 the pre-fixed cross-domain threshold and are not target-recalibrated.
@@ -347,7 +350,7 @@ and the physical anchor.
 The structural comparison provides the strongest evidence for physical
 anchoring.
 
-Per-domain point estimates for all five variants (PersA, ungated residual, range-clipped ungated control, anchored gated residual, frozen TSCF) are given in Supplementary Table 3(b). Under the unified evaluation convention (all model outputs clipped to [0, 1] before Brier/ECE; see Methods), the ungated residual’s calibration failure persists: Brier 0.133–0.137 and ECE 0.41 across the three domains, versus 0.012–0.023 and 0.07 for the anchored variants, even though only 0.7–5% of the raw predictions exceed 1.0. The ungated residual failure is therefore a systematic mid-range miscalibration rather than an out-of-range artifact.
+Per-domain point estimates for all five variants (PersA, ungated residual, range-clipped ungated control, anchored gated residual, frozen TSCF) are given in Supplementary Table 3(b). Under the unified evaluation convention (all model outputs clipped to [0, 1] before these metrics; see Methods), the ungated residual’s score–frequency mismatch persists: continuous MSE 0.133–0.137 and score reliability 0.41 across the three domains, versus 0.012–0.023 and 0.07 for the anchored variants, even though only 0.7–5% of the raw predictions exceed 1.0. These are continuous-score and descriptive reliability statistics, not probability-calibration errors; the ungated residual failure is therefore a systematic mid-range score–frequency mismatch rather than an out-of-range artifact.
 
 ### Note R3. Domain-shift analysis (verification evidence)
 
@@ -722,33 +725,35 @@ records: Supplementary Table 9.
 
 **Supplementary Table 3 | Structural ablation, paired uncertainty and clipped ungated control.** Marginal per-model CIs are omitted here and are available in the repository source data.
 
-**(a) Formal three-domain comparison (evidence-locked point values; TSCF and PersA).**
+**(a) Formal three-domain comparison (evidence-locked point values; TSCF and PersA).** Continuous-error and probability metrics are separated by task. PersA is a continuous risk coordinate and carries only the continuous MSE and the descriptive score-reliability statistic. TSCF is a severe-event probability output (sigmoid head, weighted BCE) and additionally carries the binary Brier score and probability ECE.
 
-| Domain | Method | ROC | PR | CSI@0.90 | POD | FAR | F1 | Brier | ECE |
-|---|---|---|---|---|---|---|---|---|---|
-| SCS | TSCF | 0.9865 | 0.5463 | 0.3374 | 0.5871 | 0.5576 | 0.5046 | 0.0713 | 0.3150 |
-| GBR | TSCF | 0.9624 | 0.5543 | 0.3648 | 0.6686 | 0.5547 | 0.5346 | 0.0929 | 0.3317 |
-| CARIB | TSCF | 0.6101 | 0.0321 | 0.0262 | 0.0391 | 0.9261 | 0.0511 | 0.0976 | 0.3065 |
-| SCS | PersA | 0.9817 | 0.3177 | 0.1571 | 0.1957 | 0.5568 | 0.2715 | 0.0117 | 0.0665 |
-| GBR | PersA | 0.9593 | 0.4164 | 0.2494 | 0.3328 | 0.5011 | 0.3993 | 0.0233 | 0.0736 |
-| CARIB | PersA | 0.9792 | 0.4602 | 0.2807 | 0.3510 | 0.4167 | 0.4383 | 0.0141 | 0.0661 |
+| Domain | Method | ROC | PR | CSI@0.90 | POD | FAR | F1 | MSE (continuous) | Brier (severe event) | ECE (probability) | Score reliability |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| SCS | TSCF | 0.9865 | 0.5463 | 0.3374 | 0.5871 | 0.5576 | 0.5046 | 0.07128 | 0.1113 | 0.315 | — |
+| SCS | PersA | 0.9817 | 0.3177 | 0.1571 | 0.1957 | 0.5568 | 0.2715 | 0.01172 | — | — | 0.066 |
+| GBR | TSCF | 0.9624 | 0.5543 | 0.3648 | 0.6686 | 0.5547 | 0.5346 | 0.09287 | 0.1404 | 0.332 | — |
+| GBR | PersA | 0.9593 | 0.4164 | 0.2494 | 0.3328 | 0.5011 | 0.3993 | 0.02331 | — | — | 0.074 |
+| CARIB | TSCF | 0.6101 | 0.0321 | 0.0262 | 0.0391 | 0.9261 | 0.0511 | 0.09761 | 0.1192 | 0.306 | — |
+| CARIB | PersA | 0.9792 | 0.4602 | 0.2807 | 0.3510 | 0.4167 | 0.4383 | 0.01413 | — | — | 0.066 |
 
-**(b) Structural-ablation point estimates for all variants (ROC/PR/CSI@0.90/Brier/ECE).** Brier and ECE use the unified convention: predictions of every model are clipped to [0, 1] before these two metrics are computed (the former range-clipped ungated control is therefore identical to the ungated variant and is merged into its row); the ECE reference is the binary severe event and the last bin includes 1.0.
+**(b) Structural-ablation point estimates for all variants (ROC/PR/CSI@0.90, continuous MSE and score reliability).** MSE is the squared error against the continuous risk coordinate y(t+4), with predictions clipped to [0, 1] (the former range-clipped ungated control is identical to the ungated variant and is merged into its row); the raw-score MSE is reported in the repository source data. Score reliability is Σ_k (n_k/N)|observed severe-event rate − mean score| over ten equal-width bins with the last bin including 1.0; for the continuous outputs it is a descriptive score–frequency statistic, not a probability-calibration error. The frozen TSCF is the only probability output, so it additionally carries the binary Brier score and probability ECE.
 
-| Domain | Model | ROC | PR | CSI@0.90 | Brier | ECE |
-|---|---|---|---|---|---|---|
-| SCS | PersA | 0.9817 | 0.3177 | 0.1571 | 0.01172 | 0.066 |
-| SCS | Ungated residual | 0.9798 | 0.3437 | 0.2385 | 0.13341 | 0.413 |
-| SCS | Anchored gated residual | 0.9808 | 0.3036 | 0.1977 | 0.01162 | 0.077 |
-| SCS | Frozen TSCF | 0.9865 | 0.5463 | 0.3374 | 0.07128 | 0.315 |
-| GBR | PersA | 0.9593 | 0.4164 | 0.2494 | 0.02331 | 0.074 |
-| GBR | Ungated residual | 0.9564 | 0.3657 | 0.2835 | 0.13421 | 0.406 |
-| GBR | Anchored gated residual | 0.9599 | 0.4877 | 0.2541 | 0.02332 | 0.078 |
-| GBR | Frozen TSCF | 0.9624 | 0.5543 | 0.3648 | 0.09287 | 0.332 |
-| CARIB | PersA | 0.9792 | 0.4602 | 0.2807 | 0.01413 | 0.066 |
-| CARIB | Ungated residual | 0.9714 | 0.3885 | 0.2407 | 0.13673 | 0.414 |
-| CARIB | Anchored gated residual | 0.9822 | 0.5479 | 0.3041 | 0.01410 | 0.077 |
-| CARIB | Frozen TSCF | 0.6101 | 0.0321 | 0.0262 | 0.09761 | 0.307 |
+| Domain | Model | ROC | PR | CSI@0.90 | MSE (continuous) | Brier (severe event) | ECE (probability) | Score reliability |
+|---|---|---|---|---|---|---|---|---|
+| SCS | PersA | 0.9817 | 0.3177 | 0.1571 | 0.01172 | — | — | 0.066 |
+| SCS | Ungated residual | 0.9798 | 0.3437 | 0.2385 | 0.13341 | — | — | 0.413 |
+| SCS | Anchored gated residual | 0.9808 | 0.3036 | 0.1977 | 0.01162 | — | — | 0.077 |
+| SCS | Frozen TSCF | 0.9865 | 0.5463 | 0.3374 | 0.07128 | 0.11131 | 0.315 | — |
+| GBR | PersA | 0.9593 | 0.4164 | 0.2494 | 0.02331 | — | — | 0.074 |
+| GBR | Ungated residual | 0.9564 | 0.3657 | 0.2835 | 0.13421 | — | — | 0.406 |
+| GBR | Anchored gated residual | 0.9599 | 0.4877 | 0.2541 | 0.02332 | — | — | 0.078 |
+| GBR | Frozen TSCF | 0.9624 | 0.5543 | 0.3648 | 0.09287 | 0.14036 | 0.332 | — |
+| CARIB | PersA | 0.9792 | 0.4602 | 0.2807 | 0.01413 | — | — | 0.066 |
+| CARIB | Ungated residual | 0.9714 | 0.3885 | 0.2407 | 0.13673 | — | — | 0.414 |
+| CARIB | Anchored gated residual | 0.9822 | 0.5479 | 0.3041 | 0.01410 | — | — | 0.077 |
+| CARIB | Frozen TSCF | 0.6101 | 0.0321 | 0.0262 | 0.09761 | 0.11925 | 0.306 | — |
+
+Binary log loss for the frozen TSCF is 0.406 (SCS), 0.499 (GBR) and 0.427 (CARIB); it is undefined for the continuous outputs, which are not probabilities.
 
 **(c) Paired structural contrasts - the primary basis for model-difference inference.**
 

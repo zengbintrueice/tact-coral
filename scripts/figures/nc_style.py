@@ -132,7 +132,12 @@ def diverging_cmap():
 
 
 def reliability_curve(pred, target, n_bins=10):
-    """Bin-based reliability curve + Brier + ECE from stored predictions.
+    """LEGACY: the returned ``brier`` is a CONTINUOUS MSE
+    (mean((clip(pred)-y)**2)), not the binary Brier score; ``ece`` is
+    probability ECE only when ``pred`` is a probability. Use
+    metric_semantics.py for typed metrics.
+
+    Bin-based reliability curve + Brier + ECE from stored predictions.
 
     Unified convention (2026-10-08 audit): predictions are clipped to
     [0, 1] before binning and before the Brier/ECE computation, so every

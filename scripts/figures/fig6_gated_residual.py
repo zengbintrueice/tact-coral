@@ -4,15 +4,16 @@
 Panels
   a  architecture: anchor + gate · bounded residual
   b  structural ablation across domains (PersA / ungated residual /
-     gated residual / frozen TSCF) — CSI@0.9 (ranking) and Brier
-     (calibration): the un-gated residual degrades calibration while the
-     gated residual never does
+     gated residual / frozen TSCF) — CSI@0.9 (thresholded classification)
+     and MSE on the continuous risk coordinate: the un-gated residual has
+     a much larger continuous error while the gated residual does not
   c  residual magnitude vs gate (residual-diagnostics, scale=0.4 frozen)
   d  paired bootstrap effect sizes (ΔCSI@0.9, 95% CI):
      gated − PersA and gated − ungated per domain
 
 Scientific checks before saving (per figure QC protocol):
-  * un-gated residual worsens calibration substantially (Brier);
+  * un-gated residual has a much larger continuous MSE (and a worse
+    score-reliability statistic) than PersA;
   * gated residual improves over un-gated in CARIB (CI excludes 0);
   * gated residual provides incremental benefit over PersA in CARIB;
   * NO claim of "unique necessity" is encoded anywhere.
@@ -28,23 +29,26 @@ import nc_style as S
 
 SAB = S.require(S.RESULTS / "physics_anchored" / "structural_ablation" /
                 "structural_ablation.json", fig="fig6")
-# Corrected probability-metric convention (uniform clip to [0,1] before
-# Brier/ECE; see results/qc/probability_metrics_audit/):
-PM = S.require(S.RESULTS / "qc" / "probability_metrics_audit" /
-               "structural_ablation_corrected.json", fig="fig6")
+# Canonical metric semantics: Task A = continuous (mse_cont) for PersA /
+# ungated / gated; Task B = probability only for D_TSCF. See
+# experiments/08_infrastructure/metric_semantics.py.
+MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+                fig="fig6")
+MV = {(r["domain"], r["model"]): r for r in MV2
+      if r["source"] == "structural_ablation"}
 RD = S.require(S.RESULTS / "physics_anchored" / "audit" / "residual_diagnostics.csv",
                cols=["split", "scale", "gate_p50", "gate_p97_5", "delta_mean"],
                fig="fig6")
 DOMAINS = ["SCS", "GBR", "CARIB"]
 
 # ---- scientific pre-save checks -------------------------------------------
-brier = {d: {m: PM[d][m]["brier_cont_target"]
-             for m in ["A_PersA", "B_ungated", "C_anchored", "D_TSCF"]}
-         for d in DOMAINS}
+mse_cont = {d: {m: MV[(d, m)]["mse_cont"]
+                for m in ["A_PersA", "B_ungated", "C_anchored", "D_TSCF"]}
+            for d in DOMAINS}
 for d in DOMAINS:
-    if not brier[d]["B_ungated"] > 3 * brier[d]["A_PersA"]:
+    if not mse_cont[d]["B_ungated"] > 3 * mse_cont[d]["A_PersA"]:
         raise RuntimeError(f"fig6 QC FAILED: un-gated residual does not worsen "
-                           f"calibration in {d} ({brier[d]})")
+                           f"continuous error in {d} ({mse_cont[d]})")
 ciCB = SAB["domains"]["CARIB"]["diffs"]["C_anchored−B_ungated"]["csi_tau09"]["ci"]
 if not (ciCB[0] > 0):
     raise RuntimeError(f"fig6 QC FAILED: gated-vs-ungated CARIB ΔCSI CI {ciCB} "
@@ -89,9 +93,9 @@ ax.text(0.5, 0.20, "residual input is detached (stop-gradient); the gate\n"
         ha="center", fontsize=5.8, style="italic", transform=ax.transAxes)
 S.panel_label(ax, "a", dx=-0.02)
 
-# ------------------------------------------- (b) ablation CSI + Brier -------
+# ------------------------------------------- (b) ablation CSI + MSE --------
 ax = fig.add_subplot(gs[0, 1])
-ax.set_title("Structural ablation — ranking vs calibration", loc="left",
+ax.set_title("Structural ablation — thresholded classification vs continuous error", loc="left",
              fontsize=8)
 mods = [("A_PersA", "PersA", S.COLORS["anchor"]),
         ("B_ungated", "ungated residual", S.COLORS["ungated"]),
@@ -102,7 +106,7 @@ for di, d in enumerate(DOMAINS):
     for mi, (mk, lab, col) in enumerate(mods):
         x = di + (mi - 1.5) * w
         csi = SAB["domains"][d]["models"][mk]["csi_tau09"]
-        br = SAB["domains"][d]["models"][mk]["brier"]
+        br = MV[(d, mk)]["mse_cont"]
         ax.plot(x, csi, "o", color=col, ms=4.5)
         ax.plot(x, br, "D", color=col, ms=3.6, mfc="white", mew=0.9)
 ax.set_yscale("log")
@@ -111,18 +115,18 @@ ax.set_yticks([0.01, 0.03, 0.1, 0.3, 1.0])
 ax.set_yticklabels(["0.01", "0.03", "0.1", "0.3", "1.0"])
 ax.set_xticks(range(3))
 ax.set_xticklabels(DOMAINS)
-# anchor-level Brier reference computed from the data (no hard-coding)
-persa_brier_ref = float(np.mean([brier[d]["A_PersA"] for d in DOMAINS]))
-ax.axhline(persa_brier_ref, color="#999999", lw=0.6, ls=":")
-ax.text(2.42, persa_brier_ref,
-        f"anchor-level\nBrier ≈ {persa_brier_ref:.3f}", fontsize=5.2,
+# anchor-level continuous-MSE reference computed from the data
+persa_mse_ref = float(np.mean([mse_cont[d]["A_PersA"] for d in DOMAINS]))
+ax.axhline(persa_mse_ref, color="#999999", lw=0.6, ls=":")
+ax.text(2.42, persa_mse_ref,
+        f"anchor-level\nMSE ≈ {persa_mse_ref:.3f}", fontsize=5.2,
         va="center")
-ax.text(2.55, 0.14, "Ungated residual\ndegrades calibration", fontsize=5.4,
+ax.text(2.55, 0.14, "Ungated residual:\n~10× larger MSE", fontsize=5.4,
         color=S.COLORS["ungated"])
 handles = [plt.Line2D([], [], marker="o", ls="", color=c, label=f"{l} — CSI@0.9")
            for _, l, c in mods]
 handles += [plt.Line2D([], [], marker="D", ls="", mfc="white", mec=c,
-                       label=f"{l} — Brier") for _, l, c in mods]
+                       label=f"{l} — MSE (continuous)") for _, l, c in mods]
 ax.legend(handles=handles, loc="upper left", fontsize=4.9, ncol=2,
           columnspacing=0.8, handletextpad=0.2)
 S.panel_label(ax, "b")
@@ -201,9 +205,15 @@ rows = []
 for d in DOMAINS:
     for mk, lab, _ in mods:
         m = SAB["domains"][d]["models"][mk]
-        rows.append(dict(panel="b", domain=d, model=lab, csi_tau09=m["csi_tau09"],
-                         brier=m["brier"], roc_auc=m["roc_auc"], pr_auc=m["pr_auc"],
-                         ece=m["ece"], n=SAB["domains"][d]["n"]))
+        v = MV[(d, mk)]
+        rows.append(dict(panel="b", domain=d, model=lab,
+                         csi_tau09=m["csi_tau09"],
+                         roc_auc=m["roc_auc"], pr_auc=m["pr_auc"],
+                         mse_cont=v["mse_cont"],
+                         score_reliability=v.get("score_reliability", float("nan")),
+                         ece_probability=v.get("ece_probability", float("nan")),
+                         probability_calibration_valid=v["probability_calibration_valid"],
+                         n=SAB["domains"][d]["n"]))
 pd.DataFrame(rows).to_csv(S.SRC_DIR / "fig6_source_data_ablation.csv", index=False)
 rd.to_csv(S.SRC_DIR / "fig6_source_data_residual_diag.csv", index=False)
 rows = []
@@ -245,12 +255,12 @@ qcmd = ["# Figure 6 — final scientific / layout QC report", "",
         "- structural_ablation.json (point metrics + paired week-block",
         "  bootstrap 1000, seed 42): panels b and d",
         "- residual_diagnostics.csv (scale=0.4 frozen): panel c",
-        "- The only computed-on-the-fly quantity is the anchor-level Brier",
-        f"  reference line in panel b (mean PersA Brier over the three domains",
-        f"  = {persa_brier_ref:.4f}), replacing the previously hard-coded 0.014.",
+        "- The only computed-on-the-fly quantity is the anchor-level MSE",
+        f"  reference line in panel b (mean PersA MSE over the three domains",
+        f"  = {persa_mse_ref:.4f}).",
         "",
         "## Embedded pre-save scientific assertions (all PASS)",
-        "- un-gated residual worsens calibration (Brier > 3× PersA) in every",
+        "- un-gated residual has MSE > 3× PersA in every",
         "  domain",
         "- gated − ungated CARIB ΔCSI@0.9 CI excludes 0",
         "- gated − PersA CARIB ΔPR point estimate > 0",
@@ -261,8 +271,8 @@ qcmd = ["# Figure 6 — final scientific / layout QC report", "",
         "  g(t)=σ((y_main(t)−τ)/T); gate wording now 'the gate bounds the",
         "  contextual correction, limiting its magnitude under domain shift'.",
         "- Panel b: model names 'PersA / ungated residual / gated residual /",
-        "  frozen TSCF' (no A/B/C/D codes); annotation 'Ungated residual",
-        "  degrades calibration'.",
+        "  frozen TSCF' (no A/B/C/D codes); annotation 'Ungated residual:",
+        "  ~10× larger MSE'.",
         "- Panel c: annotation 'Gate values remain small across domains,",
         "  constraining the residual correction.'; gate median, 97.5th",
         "  percentile and mean |y−PersA| retained.",
