@@ -291,7 +291,7 @@ strictly as an architecture-independent check that thermal predictors carry
 the transferable *ranking* signal; continuous MSE is reported as a secondary
 error measure, but because the output is a regression score and not a
 severe-event probability, no probability-calibration metric is defined for
-it. It does **not** validate thresholded severe-event detection, calibration
+it. It does **not** validate thresholded severe-event detection, probability calibration
 or any operational claim at τ=0.90, and it is read only through the within-family
 contrasts (FULL vs THERMAL vs NO-THERMAL), never as a cross-model skill
 comparison.
@@ -326,7 +326,7 @@ PersA-versus-TSCF performance with paired week-block bootstrap 95% CIs
 (binary Brier 0.140, ECE 0.332): the contextual score is strongly
 miscalibrated as a severe-event probability even where ranking transfers. (d) GBR operational metrics at the pinned
 tau=0.90 (CSI 0.365, POD 0.669, FAR 0.555, F1 0.535). Ranking transfers
-to GBR, calibration does not; the operational metrics are reported at
+to GBR, probability calibration does not; the operational metrics are reported at
 the pre-fixed cross-domain threshold and are not target-recalibrated.
 
 ------------------------------------------------------------------------
