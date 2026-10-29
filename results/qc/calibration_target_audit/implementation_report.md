@@ -201,3 +201,41 @@ Task A / Task B vocabulary, and every reported number is traceable to
 
 Residual items in §7 are documented limitations, not open inconsistencies.
 The experiment in §8 is out of scope and requires author approval.
+
+---
+
+## 10. Final pre-submission wording pass (2026-10-29, minimal)
+
+Seven residual wording fixes, no number or result changed:
+
+| File | Before | After |
+|---|---|---|
+| main, transfer-matrix paragraph | "Full matrices, PR AUC, calibration and audits" | "Full matrices, PR AUC and audits" (R7 contains no calibration analysis) |
+| main, operational recommendations | "Recalibrate thresholds locally" | "Recalibrate **decision** thresholds locally" |
+| main, Discussion | "representation, calibration or both" | "representation, **probability** calibration or both" |
+| main, Limitations (2) | "a supervised calibration analysis" | "a supervised **threshold-calibration** analysis" |
+| main, Fig. 5 caption | "approximately ten-fold larger continuous error" | "a **5.8–11.4-fold** larger continuous error (basin-dependent)" |
+| SI S12 | "… severe-event detection, calibration or any operational claim" | "… **probability** calibration …" |
+| SI S13 | "Ranking transfers to GBR, calibration does not" | "… **probability** calibration does not" |
+
+Verification after the pass: `pytest tests/ -q` 12 passed;
+`tests/verify_metric_consistency.py` 69 passed / 0 failed;
+`scripts/smoke_test.py --locks` ALL OK. MD5 of the four `doc/*.md` copies
+identical; DOCX/PDF re-rendered from the same markdown.
+
+### Core-claim support (honest assessment)
+
+The core contribution is **not** a probability-calibration advantage and does
+not rely on one:
+
+- **Supported by existing experiments:** the six-direction transfer matrix and
+  the seed-fragility contrast; the continuous-error and score-reliability
+  comparison showing the ungated residual is far worse than PersA/TSAR; the
+  TSCF ranking results; the GCBD enrichment; the XGBoost ranking control.
+- **Not claimed:** that PersA, TSAR or XGBoost are calibrated probabilities;
+  that the gate improves probability calibration; that removing thermal features
+  worsens any probability-calibration metric.
+- **Unresolved:** if the authors want a probability-calibration claim for the
+  anchored family, the frozen, validation-fitted score→probability experiment in
+  §8 is required first. Until then the paper correctly reports only ranking,
+  continuous error and score reliability for those models.
