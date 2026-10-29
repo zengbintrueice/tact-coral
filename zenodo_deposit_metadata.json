@@ -17,7 +17,7 @@
    "orcid": "0009-0007-9500-7254"
   }
  ],
- "description": "Complete self-contained reproduction package: source code, frozen evidence-locked model weights, shipped datasets, result files, figure-generation scripts and the manuscript with Supplementary Information. Includes sha256 manifest and MD5 evidence locks. Code licence MIT; data attributions in LICENSE and data/README.md.",
+ "description": "TACT (Thermal-stress Anchoring for Cross-basin Transfer). Complete self-contained reproduction package: source code, frozen evidence-locked model weights, shipped datasets, result files, figure-generation scripts and the manuscript with Supplementary Information. Includes sha256 manifest and MD5 evidence locks. Code licence MIT; data attributions in LICENSE and data/README.md.",
  "access_right": "open",
  "license": "mit",
  "upload_type": "publication",

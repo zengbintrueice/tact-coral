@@ -1,8 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite the accompanying manuscript."
-title: "Thermal-stress anchoring reveals transferable and basin-specific coral thermal risk"
+title: "TACT: Thermal-stress Anchoring for Cross-basin Transfer"
 abstract: >-
-  Reproduction package for a study of cross-basin transfer of coral
+  TACT (Thermal-stress Anchoring for Cross-basin Transfer) is the
+  reproduction package for a study of cross-basin transfer of coral
   thermal-stress risk across the South China Sea, Great Barrier Reef and
   Caribbean. Includes the frozen TSCF classifier, the TSAR anchored-residual
   model, the PersA physical anchor, the six-direction zero-shot transfer

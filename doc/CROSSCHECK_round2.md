@@ -2,7 +2,7 @@
 
 日期：2026-10-19
 对象：`doc/main_manuscript.md`、`doc/supplementary_information.md`
-参照：`zenodo_release/`（代码、结果文件、图件源数据）
+参照：`tact-coral/`（代码、结果文件、图件源数据）
 范围：**(1) 算法代码与论文说明/公式；(2) release 结果与论文定量结果/实验图。**
 
 ---

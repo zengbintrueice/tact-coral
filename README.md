@@ -1,6 +1,9 @@
-# Thermal-stress anchoring reveals transferable and basin-specific coral thermal risk
+# TACT — Thermal-stress Anchoring for Cross-basin Transfer
 
-Code, data, frozen weights and results accompanying the manuscript above.
+Code, data, frozen weights and results accompanying the manuscript
+*Thermal-stress anchoring reveals transferable and basin-specific coral thermal risk*.
+
+GitHub repository: **tact-coral**.
 
 This repository is **self-contained**: every experiment can be re-run on a
 fresh clone without downloading anything external. All numbers reported in

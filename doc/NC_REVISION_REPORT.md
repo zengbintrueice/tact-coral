@@ -257,7 +257,7 @@ Legend: **[x]** verified against code/result files; **[t]** text-only change;
 ## Addendum (2026-10-18)
 
 A cross-check of the manuscript and SI against the reproduction package
-(`zenodo_release/`) found 19 items; 18 were corrected. Two required re-running
+(`tact-coral/`) found 19 items; 18 were corrected. Two required re-running
 analyses:
 
 1. **`cluster_ci` bootstrap bug** in
