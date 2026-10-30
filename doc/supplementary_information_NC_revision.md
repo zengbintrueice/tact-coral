@@ -660,8 +660,8 @@ models M0 (intercept) through M3 (M0 + trajectory/persistence + thermal
 state + nonthermal context).
 
 **Mechanism hypotheses.** Two competing hypotheses are compared in
-Supplementary Table 9(b): H1 — the residual encodes source-local thermal
-trajectory; H2 — the residual encodes basin-specific conditional risk
+Supplementary Table 9(b): MH1 — the residual encodes source-local thermal
+trajectory; MH2 — the residual encodes basin-specific conditional risk
 information beyond the current DHW coordinate.
 
 **Fixed protocol.** All comparisons are associative and
@@ -870,7 +870,7 @@ Binary log loss for the frozen TSCF is 0.406 (SCS), 0.499 (GBR) and 0.427 (CARIB
 | GBR | +0.0049 [+0.0028, +0.0074] | +0.0263 [+0.016, +0.042] | established |
 | CARIB | +0.0025 [−0.0005, +0.005] | +0.0138 [+0.004, +0.021] | established |
 
-**(b) Mechanism-discrimination criteria (H1 vs H2 evidence matrix). Pre-specified gates: direction-consistent R-tertile contrast in 18/20 (GBR) and 17/20 (CARIB) matched-DHW bins; paired TSAR-vs-PersA deltaROC/deltaPR CI-supported in GBR and CARIB, not in SCS.**
+**(b) Mechanism-discrimination criteria (MH1 vs MH2 evidence matrix). Pre-specified gates: direction-consistent R-tertile contrast in 18/20 (GBR) and 17/20 (CARIB) matched-DHW bins; paired TSAR-vs-PersA deltaROC/deltaPR CI-supported in GBR and CARIB, not in SCS.**
 
 | Criterion | SCS | GBR | CARIB |
 |---|---|---|---|
