@@ -618,8 +618,9 @@ events so ROC/PR are undefined that year); bootstrap 95% CIs in
 **Reading.** Within the three basins and study period, the contextual TSCF
 collapses specifically when the *target* is CARIB (from SCS or GBR) and for
 GBR→SCS, while PersA, and the gated, bounded TSAR built around it, remain
-stable in all six directions; the collapse is an unanchored-context
-property, not a neural-model property. Source-only scaling and the
+stable in all six directions; in this architecture and protocol, the collapse is associated with the
+unanchored contextual representation rather than with the neural architecture
+itself. Source-only scaling and the
 symmetry of the collapse support a thermal-coordinate account, but we do
 **not** claim the coordinate is basin-invariant, universal, or globally
 transferable. Source: `results/transfer_coordinate/` (full metrics, CIs,
@@ -665,7 +666,8 @@ p*, 100 replicates, seed 42) shows CARIB-source best at every p* only
 for the CARIB target (its own basin), and ROC-vs-prevalence gradients
 are weak or undefined (no systematic severity modulation of ranking).
 
-**Seed scan (seeds 0/1/2).** The reverse-source rows were retrained across seeds 0, 1 and 2 (per-seed matrix and pre-specified verdicts in `results/transfer_coordinate/seed_scan/summary.md`). TSCF zero-shot outcome is seed-fragile in every direction: the same source-target pair spans up to 0.25 ROC AUC (CARIB-GBR: 0.915/0.666/0.676) and the seed-42 pair-specific pattern does not fully reproduce; TSAR is seed-invariant (ROC 0.959–0.987, per-cell sd <= 0.003, |dROC| <= 0.05 in 6/6 cells). The seed-42 matrix remains the evidence-locked reference realisation; the robust law is the seed-invariant anchoring result.
+**Seed scan (seeds 0/1/2).** The reverse-source rows were retrained across seeds 0, 1 and 2 (per-seed matrix and pre-specified verdicts in `results/transfer_coordinate/seed_scan/summary.md`). TSCF zero-shot outcome is seed-fragile in every direction: the same source-target pair spans up to 0.25 ROC AUC among the reverse-source pairs (CARIB-GBR:
+0.915/0.666/0.676) and up to 0.59 in the five-seed forward scan (SCS-GBR); the seed-42 pair-specific pattern does not fully reproduce; TSAR is seed-invariant (ROC 0.959–0.987, per-cell sd <= 0.003, |dROC| <= 0.05 in 6/6 cells). The seed-42 matrix remains the evidence-locked reference realisation; the robust finding is the seed-invariant anchoring result.
 
 ## S14. Residual information, conditional risk and mechanism decomposition (protocol)
 
