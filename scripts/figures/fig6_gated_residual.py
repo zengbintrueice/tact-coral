@@ -110,6 +110,7 @@ for di, d in enumerate(DOMAINS):
         ax.plot(x, csi, "o", color=col, ms=4.5)
         ax.plot(x, br, "D", color=col, ms=3.6, mfc="white", mew=0.9)
 ax.set_yscale("log")
+ax.set_ylabel("CSI@0.90 (circles) / MSE (diamonds), log scale", fontsize=6.5)
 ax.set_ylim(0.005, 1.2)
 ax.set_yticks([0.01, 0.03, 0.1, 0.3, 1.0])
 ax.set_yticklabels(["0.01", "0.03", "0.1", "0.3", "1.0"])
@@ -121,7 +122,7 @@ ax.axhline(persa_mse_ref, color="#999999", lw=0.6, ls=":")
 ax.text(2.42, persa_mse_ref,
         f"anchor-level\nMSE ≈ {persa_mse_ref:.3f}", fontsize=5.2,
         va="center")
-ax.text(2.55, 0.14, "Ungated residual:\n~10× larger MSE", fontsize=5.4,
+ax.text(2.55, 0.14, "Ungated residual:\n6–11× larger MSE", fontsize=5.4,
         color=S.COLORS["ungated"])
 handles = [plt.Line2D([], [], marker="o", ls="", color=c, label=f"{l} — CSI@0.9")
            for _, l, c in mods]

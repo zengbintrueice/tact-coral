@@ -212,15 +212,15 @@ The complete self-contained reproduction package (source code, frozen model weig
 
 ![](../results/figures/fig2_transfer_matrix.png)
 
-**Figure 3 |** Three-domain transfer boundary of the frozen TSCF. (a) Metric heatmap across SCS, GBR and CARIB (ROC-AUC, PR-AUC, CSI@0.9, ECE (probability)). (b) ROC curves. (c) Precision-recall curves. (d) Observed severe-event frequency by predicted-risk decile (log scale). Transfer failure is basin-specific rather than a uniform degradation with geographic distance.
+**Figure 3 |** Three-domain transfer boundary of the frozen TSCF. (a) Metric heatmap across SCS, GBR and CARIB: ROC-AUC and PR-AUC (ranking), CSI@0.90 (threshold-dependent classification) and ECE (probability calibration, TSCF). (b) ROC curves. (c) Precision-recall curves. (d) Observed severe-event frequency by predicted-risk decile (log scale). Transfer failure is basin-specific rather than a uniform degradation with geographic distance.
 
 ![](../results/figures/fig3_transfer_boundary.png)
 
-**Figure 4 |** The thermal-stress anchor versus the frozen contextual model. (a) PersA definition (fixed DHW/10 mapping). (b) Frozen TSCF versus PersA across the three basins (95% CIs). (c) CARIB: PersA, un-gated residual, gated residual and frozen TSCF (ROC-AUC and CSI@0.9). (d) CARIB score–event-frequency agreement for PersA, the gated residual and the frozen TSCF. TSCF is a probability output, so its entry carries the binary Brier score and ECE; PersA and TSAR are continuous scores, so their entries carry the continuous MSE and a descriptive score-reliability statistic, not a probability-calibration error.
+**Figure 4 |** The thermal-stress anchor versus the frozen contextual model. (a) PersA definition (fixed DHW/10 mapping). (b) Frozen TSCF versus PersA across the three basins (95% CIs). (c) CARIB: PersA, un-gated residual, gated residual and frozen TSCF (ROC-AUC, ranking; CSI@0.90, threshold-dependent classification). (d) CARIB score–event-frequency agreement for PersA, the gated residual and the frozen TSCF. TSCF is a probability output, so its entry carries the binary Brier score and ECE; PersA and TSAR are continuous scores, so their entries carry the continuous MSE and a descriptive score-reliability statistic, not a probability-calibration error.
 
 ![](../results/figures/fig5_persa_anchor.png)
 
-**Figure 5 |** Gated residual formulation and structural ablation. (a) TSAR formulation (anchor + gate\*bounded residual). (b) Structural ablation across domains: CSI@0.90 (threshold-dependent classification) versus continuous MSE; the un-gated residual has a 5.8–11.4-fold larger continuous error (basin-dependent) and a larger descriptive score–frequency disagreement (not a probability-calibration error). (c) Gate quantiles and mean deviation from the anchor (scale = 0.4, frozen). (d) Paired bootstrap dROC for gated-PersA and gated-ungated (95% CIs).
+**Figure 5 |** Gated residual formulation and structural ablation. (a) TSAR formulation (anchor + gate\*bounded residual). (b) Structural ablation across domains: CSI@0.90 (threshold-dependent classification) versus continuous MSE; the un-gated residual has a 5.8–11.4-fold larger continuous error (basin-dependent) and a larger descriptive score–frequency disagreement (not a probability-calibration error). (c) Gate quantiles and mean deviation from the anchor (scale = 0.4, frozen). (d) Paired bootstrap ΔCSI@0.90 for gated − PersA and gated − ungated (95% CIs; a threshold-dependent classification contrast, not a ranking contrast).
 
 ![](../results/figures/fig6_gated_residual.png)
 

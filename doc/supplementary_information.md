@@ -103,10 +103,10 @@ Status: positive in SCS (ΔPR AUC ≈ +0.11, CI [0.036, 0.191]); null in GBR
 (ΔPR AUC ≈ +0.011 [−0.008, +0.034]); and **null-to-negative in CARIB**.
 For the frozen TSCF on CARIB (n = 83,025, severe = 1,356), spatially
 permuting the environment/calendar channels (K = 100, seed 42) does not
-degrade ranking: ΔPR AUC −0.003 [−0.008, +0.001] (includes zero), ΔCSI@0.9
-+0.010 [+0.002, +0.016], and ΔROC AUC −0.053 [−0.087, −0.017] (a small ROC
-*increase*, because the already-collapsed CARIB ranking depends negatively
-on the randomized context). Environmental context therefore contributes no
+degrade ranking (ΔPR AUC −0.003 [−0.008, +0.001], includes zero; ΔROC AUC
+−0.053 [−0.087, −0.017], a small ROC *increase*, because the already-collapsed
+CARIB ranking depends negatively on the randomized context) and slightly
+raises thresholded CSI@0.9 (+0.010 [+0.002, +0.016]). Environmental context therefore contributes no
 positive ranking signal for the frozen model in any external basin, and in
 CARIB the permutation evidence is neutral rather than supportive of a
 context-driven transfer failure.

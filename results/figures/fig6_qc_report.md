@@ -1,6 +1,6 @@
 # Figure 6 — final scientific / layout QC report
 
-Generated: 2026-10-29T21:06:41.678913
+Generated: 2026-10-30T17:36:02.635250
 
 ## Sources (no hard-coded results)
 - structural_ablation.json (point metrics + paired week-block
