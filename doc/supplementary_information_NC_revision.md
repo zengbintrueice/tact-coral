@@ -24,7 +24,7 @@ Each item below states a main-text claim and the supplementary evidence that ver
 - Architecture-independent XGBoost verification - S12, Note R4, Table 5.
 - GCBD validation and its robustness - Note R5, Supplementary Table 8.
 - Consolidated per-basin numerical records cited in the main text - Supplementary Table 10.
-- Residual information, mechanism and susceptibility - Methods S14, Supplementary Table 9.
+- Residual information, conditional risk and mechanism decomposition - Methods S14, Supplementary Table 9.
 
 ------------------------------------------------------------------------
 
@@ -649,15 +649,20 @@ are weak or undefined (no systematic severity modulation of ranking).
 
 **Seed scan (seeds 0/1/2).** The reverse-source rows were retrained across seeds 0, 1 and 2 (per-seed matrix and pre-specified verdicts in `results/transfer_coordinate/seed_scan/summary.md`). TSCF zero-shot outcome is seed-fragile in every direction: the same source-target pair spans up to 0.25 ROC AUC (CARIB-GBR: 0.915/0.666/0.676) and the seed-42 pair-specific pattern does not fully reproduce; TSAR is seed-invariant (ROC 0.959–0.987, per-cell sd <= 0.003, |dROC| <= 0.05 in 6/6 cells). The seed-42 matrix remains the evidence-locked reference realisation; the robust law is the seed-invariant anchoring result.
 
-## S14. Residual information, mechanism and susceptibility analyses (protocol)
+## S14. Residual information, conditional risk and mechanism decomposition (protocol)
 
 **Definitions.** The residual is R = TSAR - PersA. The pre-registered
 training-free hierarchy uses equal-weight percentile-rank scores:
-H0 = PersA; H1 = H0 + thermal trajectory (dDHW_4w, 4- and 12-week
-cumulative HotSpot); H2 = H1 + nonthermal context (chlorophyll, PAR,
-wind); H3 = H2 + R. Mechanism decomposition uses nested rank-scale OLS
+L0 = PersA; L1 = L0 + thermal trajectory (dDHW_4w, 4- and 12-week
+cumulative HotSpot); L2 = L1 + nonthermal context (chlorophyll, PAR,
+wind); L3 = L2 + R. Mechanism decomposition uses nested rank-scale OLS
 models M0 (intercept) through M3 (M0 + trajectory/persistence + thermal
 state + nonthermal context).
+
+**Mechanism hypotheses.** Two competing hypotheses are compared in
+Supplementary Table 9(b): H1 — the residual encodes source-local thermal
+trajectory; H2 — the residual encodes basin-specific conditional risk
+information beyond the current DHW coordinate.
 
 **Fixed protocol.** All comparisons are associative and
 representation-level; no target-domain fitting, threshold optimisation or
@@ -857,9 +862,9 @@ Binary log loss for the frozen TSCF is 0.406 (SCS), 0.499 (GBR) and 0.427 (CARIB
 
 **Supplementary Table 9 | Residual hierarchy, conditional information and mechanism decomposition.**
 
-**(a) Residual-hierarchy incremental verdicts (paired week-block bootstrap, 1,000 resamples, seed 42; hierarchy levels H0 = PersA, H1 = H0 + thermal trajectory, H2 = H1 + nonthermal context, H3 = H2 + R).**
+**(a) Residual-hierarchy incremental verdicts (paired week-block bootstrap, 1,000 resamples, seed 42; hierarchy levels L0 = PersA, L1 = L0 + thermal trajectory, L2 = L1 + nonthermal context, L3 = L2 + R).**
 
-| Basin | H3−H2 ΔROC [95% CI] | H3−H2 ΔPR [95% CI] | residual extra info |
+| Basin | L3−L2 ΔROC [95% CI] | L3−L2 ΔPR [95% CI] | residual extra info |
 |---|---|---|---|
 | SCS | +0.0006 [−0.0002, +0.0017] | −0.0081 [−0.016, +0.003] | not established |
 | GBR | +0.0049 [+0.0028, +0.0074] | +0.0263 [+0.016, +0.042] | established |
