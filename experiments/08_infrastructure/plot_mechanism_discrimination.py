@@ -159,7 +159,7 @@ for i in range(len(crit)):
                    "no" if Mv[i, j] < -0.2 else f"{Mv[i, j]:.2f}")
             ax.text(j, i, txt, ha="center", va="center", fontsize=9,
                     fontweight="bold")
-ax.set_title("(d) Evidence matrix for basin-specific susceptibility (H2)\n"
+ax.set_title("(d) Evidence matrix for basin-specific conditional risk (H2)\n"
              f"GBR−CARIB gradient diff CI [{S['evidence']['GBR_vs_CARIB_gradient_diff_ci'][0]:+.3f}, "
              f"{S['evidence']['GBR_vs_CARIB_gradient_diff_ci'][1]:+.3f}]",
              fontsize=10, fontweight="bold", loc="left")

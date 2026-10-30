@@ -198,8 +198,8 @@ stable as a point estimate across seeds, while its CI-supported status
 is seed-dependent: ΔCSI is CI-supported (positive) in 5/5 seeds, ΔROC
 in 4/5, and ΔPR in 2/5. By contrast, the gated-versus-ungated advantage
 (C−B) in CARIB is CI-supported in all five seeds (ΔROC positive, CI
-excluding zero in 5/5), so the gate's protective role against the
-ungated residual's score–frequency mismatch is the seed-robust result.
+excluding zero in 5/5), so the gate's reduction of the ungated residual's descriptive
+score–frequency mismatch is the seed-robust result.
 
 **Supplementary Fig. 8 \| Seed sensitivity.**
 
@@ -350,7 +350,7 @@ and the physical anchor.
 The structural comparison provides the strongest evidence for physical
 anchoring.
 
-Per-domain point estimates for all five variants (PersA, ungated residual, range-clipped ungated control, anchored gated residual, frozen TSCF) are given in Supplementary Table 3(b). Under the unified evaluation convention (all model outputs clipped to [0, 1] before these metrics; see Methods), the ungated residual’s score–frequency mismatch persists: continuous MSE 0.133–0.137 and score reliability 0.41 across the three domains, versus 0.012–0.023 and 0.07 for the anchored variants, even though only 0.7–5% of the raw predictions exceed 1.0. These are continuous-score and descriptive reliability statistics, not probability-calibration errors; the ungated residual failure is therefore a systematic mid-range score–frequency mismatch rather than an out-of-range artifact.
+Per-domain point estimates for the four distinct variants (PersA, ungated residual, anchored gated residual and frozen TSCF) are given in Supplementary Table 3(b); the range-clipped ungated control is identical to the ungated variant and is therefore merged into that row. For continuous MSE, predictions are clipped to [0, 1] as specified in Methods; ROC AUC and PR AUC are computed from raw scores, and thresholded metrics use the pinned raw-score threshold. Under this convention, the ungated residual’s score–frequency mismatch persists: continuous MSE 0.133–0.137 and score reliability 0.41 across the three domains, versus 0.012–0.023 and 0.07 for the anchored variants, even though only 0.7–5% of the raw predictions exceed 1.0. These are continuous-score and descriptive reliability statistics, not probability-calibration errors; the ungated residual failure is therefore a systematic mid-range score–frequency mismatch rather than an out-of-range artifact.
 
 ### Note R3. Domain-shift analysis (verification evidence)
 
@@ -653,9 +653,9 @@ are weak or undefined (no systematic severity modulation of ranking).
 
 **Definitions.** The residual is R = TSAR - PersA. The pre-registered
 training-free hierarchy uses equal-weight percentile-rank scores:
-L0 = PersA; L1 = L0 + thermal trajectory (dDHW_4w, 4- and 12-week
-cumulative HotSpot); L2 = L1 + nonthermal context (chlorophyll, PAR,
-wind); L3 = L2 + R. Mechanism decomposition uses nested rank-scale OLS
+H0 = PersA; H1 = H0 + thermal trajectory (dDHW_4w, 4- and 12-week
+cumulative HotSpot); H2 = H1 + nonthermal context (chlorophyll, PAR,
+wind); H3 = H2 + R. Mechanism decomposition uses nested rank-scale OLS
 models M0 (intercept) through M3 (M0 + trajectory/persistence + thermal
 state + nonthermal context).
 
@@ -862,9 +862,9 @@ Binary log loss for the frozen TSCF is 0.406 (SCS), 0.499 (GBR) and 0.427 (CARIB
 
 **Supplementary Table 9 | Residual hierarchy, conditional information and mechanism decomposition.**
 
-**(a) Residual-hierarchy incremental verdicts (paired week-block bootstrap, 1,000 resamples, seed 42; hierarchy levels L0 = PersA, L1 = L0 + thermal trajectory, L2 = L1 + nonthermal context, L3 = L2 + R).**
+**(a) Residual-hierarchy incremental verdicts (paired week-block bootstrap, 1,000 resamples, seed 42; hierarchy levels H0 = PersA, H1 = H0 + thermal trajectory, H2 = H1 + nonthermal context, H3 = H2 + R).**
 
-| Basin | L3−L2 ΔROC [95% CI] | L3−L2 ΔPR [95% CI] | residual extra info |
+| Basin | H3−H2 ΔROC [95% CI] | H3−H2 ΔPR [95% CI] | residual extra info |
 |---|---|---|---|
 | SCS | +0.0006 [−0.0002, +0.0017] | −0.0081 [−0.016, +0.003] | not established |
 | GBR | +0.0049 [+0.0028, +0.0074] | +0.0263 [+0.016, +0.042] | established |
@@ -970,9 +970,12 @@ than temporal, units are resampled (Supplementary Methods S7).
 
 Per-seed ROC/PR/CSI@0.9 on GBR and CARIB (individual seeds with mean ±
 95% CI, t, n=5; descriptive, no significance testing), and the per-seed
-transfer-boundary gaps ΔPR and ΔCSI. The qualitative boundary is
-preserved across seeds while absolute performance varies substantially
-with random initialization.
+transfer-boundary gaps ΔPR and ΔCSI. Absolute TSCF performance and some
+source–target outcomes vary substantially with random initialization;
+the five-seed forward audit preserves the GBR-versus-CARIB ordering in
+PR AUC and CSI in 5/5 seeds, but not uniformly in ROC AUC (4/5). These
+forward-audit results should not be generalized to the reverse-source
+matrix, where the pair-specific outcome is seed-fragile in every direction.
 
 ### Supplementary Fig. 9 \| Spatial transfer maps
 

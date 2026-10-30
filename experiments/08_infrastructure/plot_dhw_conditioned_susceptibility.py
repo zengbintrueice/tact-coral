@@ -76,7 +76,7 @@ for p, sub in pair.groupby("pair"):
                 capsize=1.8, label=p.replace("_minus_", " − "), linewidth=1.3)
 ax.set_xlabel("current DHW bin center (°C-weeks)", fontsize=9.5)
 ax.set_ylabel("risk difference at matched DHW", fontsize=9.5)
-ax.set_title("(b) Basin susceptibility difference at matched DHW\n"
+ax.set_title("(b) Basin conditional-risk difference at matched DHW\n"
              "(CI excl. 0 = basin-specific)", fontsize=10, fontweight="bold",
              loc="left")
 ax.legend(frameon=False, fontsize=8.5)

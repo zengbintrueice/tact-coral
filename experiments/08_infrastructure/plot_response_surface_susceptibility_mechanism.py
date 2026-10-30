@@ -3,7 +3,7 @@
 #
 #   Panel a: three-basin conditional response surfaces (DHW → future severe rate)
 #   Panel b: matched-DHW R-low vs R-high severe risk (paired contrast)
-#   Panel c: basin-specific susceptibility ΔROC/ΔPR with 95% CI
+#   Panel c: basin-specific conditional-risk increment ΔROC/ΔPR with 95% CI
 #   Panel d: residual mechanism hierarchy ΔR² (M0→M1→M2→M3)
 #
 # Run (piecf_env):
@@ -77,7 +77,7 @@ for b in BASIN_ORDER:
 ax.axhline(0, color="black", linewidth=0.8)
 ax.set_xlabel("current DHW bin center (°C-weeks)", fontsize=9.5)
 ax.set_ylabel("Δ severe rate (%)  R-Q3 minus R-Q1", fontsize=9)
-ax.set_title("(b) Residual R identifies susceptibility at matched DHW\n"
+ax.set_title("(b) Residual R separates conditional risk at matched DHW\n"
              "(CI-excluded points = basin-specific)", fontsize=10,
              fontweight="bold", loc="left")
 ax.legend(frameon=False, fontsize=9)
@@ -111,11 +111,11 @@ if len(suscept):
     ax.set_xticklabels(basins_present, fontsize=9)
     ax.axhline(0, color="black", linewidth=0.8)
     ax.set_ylabel("Δ (TSAR − PersA)", fontsize=9.5)
-    ax.set_title("(c) Basin-specific susceptibility (ΔROC / ΔPR)\n"
+    ax.set_title("(c) Basin-specific conditional-risk increment (ΔROC / ΔPR)\n"
                  "✓ = CI excludes zero; faded = ΔPR", fontsize=10,
                  fontweight="bold", loc="left")
 else:
-    ax.text(0.5, 0.5, "Gate ①→② not passed\nsusceptibility not established",
+    ax.text(0.5, 0.5, "Gate ①→② not passed\nconditional risk not established",
             transform=ax.transAxes, ha="center", va="center", fontsize=12)
 style_ax(ax)
 

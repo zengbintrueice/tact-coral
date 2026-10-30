@@ -239,3 +239,35 @@ not rely on one:
   anchored family, the frozen, validation-fitted score→probability experiment in
   §8 is required first. Until then the paper correctly reports only ranking,
   continuous error and score reliability for those models.
+
+---
+
+## 11. Figure-text terminology pass (2026-10-30)
+
+Requested check of figure text/legends against the revised manuscript.
+
+| Figure | Text before | Text after |
+|---|---|---|
+| Fig. 8 panel (b) | "Residual R identifies **susceptibility** at matched DHW" | "Residual R separates **conditional risk** at matched DHW" |
+| Fig. 8 panel (c) | "Basin-specific **susceptibility** (ΔROC / ΔPR)" | "Basin-specific **conditional-risk increment** (ΔROC / ΔPR)" |
+| Fig. 8 fallback annotation | "**susceptibility** not established" | "**conditional risk** not established" |
+| `plot_dhw_conditioned_susceptibility.py` (not cited by the paper) | "Basin **susceptibility** difference" | "Basin **conditional-risk** difference" |
+| `plot_mechanism_discrimination.py` (not cited by the paper) | "basin-specific **susceptibility** (H2)" | "basin-specific **conditional risk** (H2)" |
+
+Also corrected in the main text: Fig. 8 caption (b) now describes the plotted
+quantity ("residual-associated conditional-risk difference at matched
+current-DHW bins, upper minus lower residual tertile") instead of
+"basin-pair risk differences", which the panel data (`R_Q3_minus_Q1`) do not
+show.
+
+Verification: Fig. 8 re-rendered; `pdftotext` on the new PDF yields **0**
+occurrences of "suscept*" and contains the new panel titles. Supplementary
+Fig. 8 (`build_supplementary.py`) plots only ROC/PR/CSI and ΔPR/ΔCSI and
+contains no legacy Brier/ECE/calibration/susceptibility text; it was not
+changed.
+
+**Open item from this pass:** the author's revised main text uses `H0–H3` for
+the residual hierarchy and `H1/H2` for the two mechanism hypotheses. The SI was
+synced back to `H0–H3` to match, so the two files agree, but the label collision
+persists inside both. A one-line fix (rename the hypotheses to e.g. `MH1/MH2`,
+or the hierarchy to `L0–L3`) requires author approval.
