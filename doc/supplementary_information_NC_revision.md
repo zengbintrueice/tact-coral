@@ -463,14 +463,21 @@ the analysis and not optimized on the cohort; no model operating
 threshold (τ) is involved in any GCBD statistic.
 
 Results (site-cluster bootstrap 95% CI reported as the primary
-inference):
+inference: 1,000 resamples of the 384 site clusters, seed 42, sites drawn with replacement and each site's observations kept together):
 
 Severe-event enrichment across predicted-risk quintiles (Q1 lowest …
 Q5 highest): severe rate 0.5% (Q1), 1.0% (Q2), 0.5% (Q3), 0% (Q4),
 18.5% (Q5). Rate ratio (Q5/Q1) = 35.2 (naive bootstrap mean 42.0;
 site-cluster 95% CI 9.0–48.3). Quintile boundaries for the rate-ratio
 bootstrap are re-estimated within each replicate; the AUROC bootstrap is
-binning-independent and identical under either convention.
+binning-independent and identical under either convention. The rate-ratio
+interval conditions on a non-degenerate denominator: it uses the 646 of 1,000
+replicates in which the bottom quintile contains at least one severe
+observation, whereas the AUROC interval uses all 1,000 replicates. The
+site-cluster bootstrap accounts for within-site correlation (up to 24
+observations per site) but not for year-level correlation across sites; the
+year-stratified and leave-one-year-out analyses below are sensitivity checks,
+not a formal temporal-cluster interval.
 
 ### GCBD enrichment by model (PersA / TSAR / TSCF)
 
