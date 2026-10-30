@@ -339,7 +339,8 @@ This section contains verification, audit and sensitivity evidence for the main-
 
 The causal audit passes all predefined requirements. No future target is
 included as a feature; cumulative HotSpot windows are trailing; monthly
-features are causally aligned; normalization is source-only; and
+features are causally aligned; normalization statistics are fixed to the SCS
+training period for every model; and
 target-domain data do not update the frozen model.
 
 Temporal purge does not reverse the qualitative comparison between TSCF
@@ -585,9 +586,19 @@ train, val 2011–2015, seed 42, the formal D1 training protocol via the shared 
 trainer), and each source model is scored on the other two basins plus its
 own test period (PFV, lead = 4 wk, τ = 0.90, severe y ≥ 0.8; populations
 SCS 49,322 / GBR 19,065 / CARIB 83,025). PersA is source-independent.
-Normalization is the fixed SCS-style channel normalizer baked into every
+Normalization is the fixed SCS-derived channel normalizer baked into every
 model (`src/models/piecf_model.py:193`), so all inputs, whatever the
-source/target, use the same frozen scaler (no target scaler fitting).
+source/target, use the same frozen scaler; no scaler is fitted on any
+validation, test or transfer data. One asymmetry follows: for the GBR- and
+CARIB-sourced models, SCS is a target, and the shared normalizer is estimated
+from SCS training weeks (2003–2010) that are disjoint from the SCS test
+years (2016–2019). This is not test-set leakage, but the SCS target is
+normalized in-distribution while the GBR/CARIB targets are not, so
+cross-direction comparisons should be read with that asymmetry in mind.
+Executed splits are train 2003–2010 and validation 2011–2015 for every
+source (the reverse-source trainer overrides the dataset manifest's GBR/CARIB
+validation window of 2014–2016); test years are SCS 2016–2019 and
+GBR/CARIB 2017–2020.
 ROC-AUC by source→target (TSCF / TSAR / PersA):
 
 Transfer degradation ΔROC (target − source; 95% CI): SCS→CARIB
