@@ -276,8 +276,6 @@ Three variants differ only in dynamic-channel selection:
 -   XGB_THERMAL: thermal channels only;
 -   XGB_NO_THERMAL: non-thermal/context channels only.
 
-The latest control gives:
-
 The per-domain XGBoost ROC values are given in Supplementary Table 5 (with PR AUC and record-set audit).
 
 The corresponding CARIB PR AUC values are 0.0867, 0.0921 and 0.0486.
@@ -309,13 +307,12 @@ The two models' CARIB numbers are therefore directly comparable, and
 their difference reflects model/features rather than any evaluation
 protocol mismatch.
 
-**Supplementary Note 12 \| XGBoost thermal control.**\
-The three feature-selection variants (FULL, THERMAL, NO-THERMAL) are plotted
-across SCS, GBR and CARIB using ROC-AUC and PR-AUC, with the CARIB
-thermal-removal contrast (continuous MSE annotated in the source data). The figure is embedded below
-and corresponds to main-text Figure 6.
+**Main-text Figure 6.** The three feature-selection variants (FULL, THERMAL,
+NO-THERMAL) are plotted across SCS, GBR and CARIB using ROC-AUC and PR-AUC,
+with the CARIB thermal-removal contrast (continuous MSE annotated in the
+source data); this corresponds to main-text Figure 6.
 
-### S13. GBR zero-shot transfer: protocol and verification detail
+## S13. GBR zero-shot transfer: protocol and verification detail
 
 The main-text transfer matrix reports single numbers per direction;
 this section preserves the SCS-source GBR decomposition that
@@ -330,6 +327,44 @@ to GBR, probability calibration does not; the operational metrics are reported a
 the pre-fixed cross-domain threshold and are not target-recalibrated.
 
 ------------------------------------------------------------------------
+
+## S14. Residual information, conditional risk and mechanism decomposition (protocol)
+
+**Definitions.** The residual is R = TSAR - PersA. The pre-specified
+training-free hierarchy uses equal-weight percentile-rank scores:
+H0 = PersA; H1 = H0 + thermal trajectory (dDHW_4w, 4- and 12-week
+cumulative HotSpot); H2 = H1 + nonthermal context (chlorophyll, PAR,
+wind); H3 = H2 + R. Mechanism decomposition uses nested rank-scale OLS
+models M0 (intercept) through M3 (M0 + trajectory/persistence + thermal
+state + nonthermal context).
+
+**Mechanism hypotheses.** Two competing hypotheses are compared in
+Supplementary Table 9(b): MH1 — the residual encodes source-local thermal
+trajectory; MH2 — the residual encodes basin-specific conditional risk
+information beyond the current DHW coordinate.
+
+**Fixed protocol.** All comparisons are associative and
+representation-level; no target-domain fitting, threshold optimisation or
+per-source tuning is performed. Uncertainty is quantified with the paired
+week-block bootstrap (1,000 shared resamples, seed 42); out-of-sample
+variance explained uses 5-fold GroupKFold by issue week with
+fold-internal preprocessing and pooled OOS R². Conditional
+residual-information contrasts compare TSAR with PersA on identical
+frozen records and require both a CI-supported incremental ROC/PR gain
+and a stable within-DHW residual association before conditional
+information is labelled as established. Matched-current-DHW analyses use
+fixed DHW bins supported by all basins, outcome-free R tertiles within
+bins, and the Q3-Q1 severe-rate contrast pooled across bins with paired
+CIs. The counterfactual response surface perturbs the recent thermal
+trajectory on copies of real input windows at fixed current DHW
+(trajectory offsets over the last four weeks, cumulative channels
+recomputed consistently; non-thermal channels held at observed values);
+it probes model-response geometry only.
+
+**Interpretation restrictions.** These analyses do not establish a
+biological susceptibility mechanism or causality; results that only
+verify main-text claims are marked as verification evidence. Numerical
+records: Supplementary Table 9.
 
 # Supplementary Notes
 
@@ -668,44 +703,6 @@ are weak or undefined (no systematic severity modulation of ranking).
 
 **Seed scan (seeds 0/1/2).** The reverse-source rows were retrained across seeds 0, 1 and 2 (per-seed matrix and pre-specified verdicts in `results/transfer_coordinate/seed_scan/summary.md`). TSCF zero-shot outcome is seed-fragile in every direction: the same source-target pair spans up to 0.25 ROC AUC among the reverse-source pairs (CARIB-GBR:
 0.915/0.666/0.676) and up to 0.59 in the five-seed forward scan (SCS-GBR); the seed-42 pair-specific pattern does not fully reproduce; TSAR is seed-invariant (ROC 0.959–0.987, per-cell sd <= 0.003, |dROC| <= 0.05 in 6/6 cells). The seed-42 matrix remains the evidence-locked reference realisation; the robust finding is the seed-invariant anchoring result.
-
-## S14. Residual information, conditional risk and mechanism decomposition (protocol)
-
-**Definitions.** The residual is R = TSAR - PersA. The pre-specified
-training-free hierarchy uses equal-weight percentile-rank scores:
-H0 = PersA; H1 = H0 + thermal trajectory (dDHW_4w, 4- and 12-week
-cumulative HotSpot); H2 = H1 + nonthermal context (chlorophyll, PAR,
-wind); H3 = H2 + R. Mechanism decomposition uses nested rank-scale OLS
-models M0 (intercept) through M3 (M0 + trajectory/persistence + thermal
-state + nonthermal context).
-
-**Mechanism hypotheses.** Two competing hypotheses are compared in
-Supplementary Table 9(b): MH1 — the residual encodes source-local thermal
-trajectory; MH2 — the residual encodes basin-specific conditional risk
-information beyond the current DHW coordinate.
-
-**Fixed protocol.** All comparisons are associative and
-representation-level; no target-domain fitting, threshold optimisation or
-per-source tuning is performed. Uncertainty is quantified with the paired
-week-block bootstrap (1,000 shared resamples, seed 42); out-of-sample
-variance explained uses 5-fold GroupKFold by issue week with
-fold-internal preprocessing and pooled OOS R². Conditional
-residual-information contrasts compare TSAR with PersA on identical
-frozen records and require both a CI-supported incremental ROC/PR gain
-and a stable within-DHW residual association before conditional
-information is labelled as established. Matched-current-DHW analyses use
-fixed DHW bins supported by all basins, outcome-free R tertiles within
-bins, and the Q3-Q1 severe-rate contrast pooled across bins with paired
-CIs. The counterfactual response surface perturbs the recent thermal
-trajectory on copies of real input windows at fixed current DHW
-(trajectory offsets over the last four weeks, cumulative channels
-recomputed consistently; non-thermal channels held at observed values);
-it probes model-response geometry only.
-
-**Interpretation restrictions.** These analyses do not establish a
-biological susceptibility mechanism or causality; results that only
-verify main-text claims are marked as verification evidence. Numerical
-records: Supplementary Table 9.
 
 # Supplementary Tables
 
