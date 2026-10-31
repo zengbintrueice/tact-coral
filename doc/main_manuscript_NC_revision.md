@@ -160,6 +160,7 @@ All analyses are based on the project's evidence-locked CRW, environmental and G
 # Code availability
 
 The complete self-contained reproduction package (source code, frozen model weights, shipped datasets, result files and figure-generation scripts) is provided with this manuscript as Supplementary Code. Before submission, replace this sentence with the permanent public repository URL and DOI: [INSERT VERIFIED PUBLIC REPOSITORY URL AND DOI].
+
 # References
 
 1.  Oliver, E. C. J. et al. Longer and more frequent marine heatwaves over the past century. *Nature Communications* 9, 1324 (2018). https://doi.org/10.1038/s41467-018-03732-9
@@ -202,6 +203,7 @@ The complete self-contained reproduction package (source code, frozen model weig
 38.  Bouthillier, X. et al. Accounting for variance in machine learning benchmarks. *arXiv:2103.03098* (2021). https://doi.org/10.48550/arXiv.2103.03098
 39.  Picard, D. torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision. *arXiv:2107.09027* (2021). https://doi.org/10.48550/arXiv.2107.09027
 40.  Eakin, C. M. et al. Severe and widespread coral reef damage during the 2014--2017 Global Coral Bleaching Event. *Nature Communications* 17, 1318 (2026). https://doi.org/10.1038/s41467-025-67506-w
+
 # Figure Legends
 
 **Figure 1 |** Study design and the thermal-stress-anchored framework. (a) Study domains: SCS source domain and the GBR / CARIB zero-shot targets. (b) Year-based temporal protocol with a four-week forecast lead. (c) Frozen Thermal-Stress Context Fusion (TSCF) architecture: causal inputs, SCS-train-frozen channel normalizer, Convolutional Long Short-Term Memory (ConvLSTM) encoder and temporal attention, single severe-risk head. (d) Thermal-stress anchoring with a gated bounded residual (Thermal-Stress Anchored Residual, TSAR).
