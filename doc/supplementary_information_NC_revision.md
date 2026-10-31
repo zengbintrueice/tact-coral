@@ -671,7 +671,7 @@ are weak or undefined (no systematic severity modulation of ranking).
 
 ## S14. Residual information, conditional risk and mechanism decomposition (protocol)
 
-**Definitions.** The residual is R = TSAR - PersA. The pre-registered
+**Definitions.** The residual is R = TSAR - PersA. The pre-specified
 training-free hierarchy uses equal-weight percentile-rank scores:
 H0 = PersA; H1 = H0 + thermal trajectory (dDHW_4w, 4- and 12-week
 cumulative HotSpot); H2 = H1 + nonthermal context (chlorophyll, PAR,

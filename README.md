@@ -56,7 +56,7 @@ by a script in `scripts/figures/`.
 │   ├── model_final_Btail3/       frozen TSCF checkpoint (seed 42)
 │   ├── physics_anchored/         frozen TSAR checkpoints (seeds 0–3, 42)
 │   ├── transfer_coordinate/      six-direction transfer matrix, seed scan, regime controls
-│   ├── residual_hierarchy/       pre-registered training-free hierarchy (H0–H3)
+│   ├── residual_hierarchy/       pre-specified training-free hierarchy (H0–H3)
 │   ├── conditional_residual/     matched-DHW residual-information test
 │   ├── dhw_conditioned_susceptibility/   basin susceptibility at matched current DHW
 │   ├── residual_mechanism_decomposition/ nested ΔR² mechanism decomposition
