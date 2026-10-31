@@ -4,9 +4,9 @@
 Reads the stored frozen predictions (no retraining) and writes a NEW,
 explicitly-typed result file.  The original result files are left untouched.
 
-  results/qc/calibration_target_audit/metrics_v2.json
-  results/qc/calibration_target_audit/metrics_v2.csv
-  results/qc/calibration_target_audit/metrics_v2_bins.json
+  results/metrics/metrics_v2.json
+  results/metrics/metrics_v2.csv
+  results/metrics/metrics_v2_bins.json
 
 Run:
     python experiments/08_infrastructure/recompute_calibration_metrics.py
@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import metric_semantics as M  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "results/qc/calibration_target_audit"
+OUT = ROOT / "results/metrics"
 SAB_NPZ = ROOT / "results/physics_anchored/structural_ablation/rec_structural_ablation.npz"
 XGB_NPZ = ROOT / "results/xgb_transfer_control/predictions.npz"
 
@@ -58,8 +58,7 @@ for dom in DOMAINS:
         bins_all[f"{dom}/{model}"] = s.pop("reliability_bins")
 
 # ---- integrity checks against the audited values ----
-ref = json.load(open(ROOT / "results/qc/probability_metrics_audit/"
-                     "structural_ablation_corrected.json", encoding="utf-8"))
+ref = json.load(open(ROOT / "results/metrics/structural_ablation_corrected.json", encoding="utf-8"))
 for r in rows:
     if r["source"] != "structural_ablation":
         continue

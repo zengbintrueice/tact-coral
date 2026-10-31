@@ -283,7 +283,7 @@ python scripts/figures/fig2_transfer_matrix.py        # single figure
 - `results/causal_dataset_v2/` — causal construction audit (30/30 PASS).
 - `MANIFEST.sha256` — sha256 of every file in the archived release; verify with
   `sha256sum -c MANIFEST.sha256` inside the unpacked archive. A git checkout
-  omits the compiled DOCX/PDF (see `.gitignore`); rebuild them with:
+  omits the compiled DOCX/PDF and the internal `results/qc/` audits (see `.gitignore`); rebuild them with:
   `pandoc doc/main_manuscript.md -o doc/main_manuscript.docx --resource-path=doc --reference-doc doc/nc_reference.docx`
   (and likewise for `supplementary_information.md`).
 - `EVIDENCE_LOCKS.md` — MD5 of frozen weights.

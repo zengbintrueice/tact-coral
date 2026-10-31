@@ -32,7 +32,7 @@ SAB = S.require(S.RESULTS / "physics_anchored" / "structural_ablation" /
 # Canonical metric semantics: Task A = continuous (mse_cont) for PersA /
 # ungated / gated; Task B = probability only for D_TSCF. See
 # experiments/08_infrastructure/metric_semantics.py.
-MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+MV2 = S.require(S.RESULTS / "metrics" / "metrics_v2.json",
                 fig="fig6")
 MV = {(r["domain"], r["model"]): r for r in MV2
       if r["source"] == "structural_ablation"}

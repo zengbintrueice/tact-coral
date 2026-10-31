@@ -4,7 +4,7 @@
 # i.e. a CONTINUOUS MSE, not the binary Brier score. It is kept only for
 # backward compatibility. Canonical fields (mse_cont, score_reliability,
 # brier_binary, ece_probability) live in
-# results/qc/calibration_target_audit/metrics_v2.json. Do not use `brier`
+# results/metrics/metrics_v2.json. Do not use `brier`
 # for new tables, figures or manuscript text.
 #
 #   Provides year-filtered PFV evaluation functions that correctly respect

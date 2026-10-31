@@ -29,7 +29,7 @@ DOMAINS = ["SCS", "GBR", "CARIB"]
 tscf = {d: dict(SAB["domains"][d]["models"]["D_TSCF"]) for d in DOMAINS}
 # Canonical semantics: ECE here is a genuine probability-calibration error
 # (TSCF is a sigmoid probability output), taken from metrics_v2.
-MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+MV2 = S.require(S.RESULTS / "metrics" / "metrics_v2.json",
                 fig="fig3")
 MV = {(r["domain"], r["model"]): r for r in MV2
       if r["source"] == "structural_ablation"}

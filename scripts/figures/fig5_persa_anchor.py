@@ -25,7 +25,7 @@ SAB = S.require(S.RESULTS / "physics_anchored" / "structural_ablation" /
 Z = np.load(S.RESULTS / "physics_anchored" / "structural_ablation" /
             "rec_structural_ablation.npz")
 # Canonical metric semantics (Task A continuous / Task B probability)
-MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+MV2 = S.require(S.RESULTS / "metrics" / "metrics_v2.json",
                 fig="fig5")
 MV = {(r["domain"], r["model"]): r for r in MV2
       if r["source"] == "structural_ablation"}

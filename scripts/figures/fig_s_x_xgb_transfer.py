@@ -47,7 +47,7 @@ MCOL = {"XGB_FULL": S.COLORS["tscf"], "XGB_THERMAL": S.COLORS["SCS"],
         "XGB_NO_THERMAL": S.COLORS["CARIB"]}
 by = {m: next(r for r in J if r["model"] == m) for m in MODELS}
 # canonical metric semantics (Task A = continuous; XGB is NOT a probability)
-MV2 = S.require(S.RESULTS / "qc" / "calibration_target_audit" / "metrics_v2.json",
+MV2 = S.require(S.RESULTS / "metrics" / "metrics_v2.json",
                 fig="SX")
 mv2 = {(r["domain"], r["model"]): r for r in MV2
        if r["source"] == "xgb_transfer_control"}
@@ -301,7 +301,7 @@ caption = (
     "statistic, neither of which is evidence of probability calibration. "
     "All values are read automatically from "
     "`results/xgb_transfer_control/metrics.json` and "
-    "`results/qc/calibration_target_audit/metrics_v2.json`; none are hand-entered."
+    "`results/metrics/metrics_v2.json`; none are hand-entered."
 )
 (S.OUT_DIR / "SX_source_data_caption.md").write_text(caption, encoding="utf-8")
 print("[caption] SX source-data caption written", flush=True)

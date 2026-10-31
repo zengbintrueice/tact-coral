@@ -14,7 +14,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 DOC = ROOT / "doc"
-M2 = json.load(open(ROOT / "results/qc/calibration_target_audit/metrics_v2.json",
+M2 = json.load(open(ROOT / "results/metrics/metrics_v2.json",
                     encoding="utf-8"))
 MV = {(r["domain"], r["model"]): r for r in M2 if r["source"] == "structural_ablation"}
 XM = {(r["domain"], r["model"]): r for r in M2 if r["source"] == "xgb_transfer_control"}

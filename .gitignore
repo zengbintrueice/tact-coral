@@ -49,3 +49,9 @@ results/figures/supplementary/Supplementary_Table_*.xlsx
 doc/*.docx
 doc/*.pdf
 !doc/nc_reference.docx
+
+# ---- Internal QC audits (not distributed via GitHub) ---------------------
+# Derived metric inputs live in results/metrics/ and ARE tracked; the
+# audit reports, recomputation scripts and intermediate QC tables under
+# results/qc/ ship only inside the Zenodo archive.
+results/qc/
