@@ -70,11 +70,6 @@ by a script in `scripts/figures/`.
 │   ├── step2_persistence_v2/     persistence baseline (PersA)
 │   ├── step5–step8, thermal_attribution, domain_shift, calibration, ...
 │   └── <each dir>/AUDIT.md + provenance_tier1.json  producing script, hashes, QC
-└── doc/                                 (archive-only; not in the git tree)
-    ├── main_manuscript.md               (markdown source)
-    ├── supplementary_information.md     (markdown source)
-    ├── nc_reference.docx                (pandoc reference style)
-    └── *.docx / *.pdf                   (compiled manuscript and SI)
 ```
 
 ## 2. Installation
