@@ -55,3 +55,8 @@ doc/*.pdf
 # audit reports, recomputation scripts and intermediate QC tables under
 # results/qc/ ship only inside the Zenodo archive.
 results/qc/
+
+# ---- Manuscript / SI sources (archive-only) ------------------------------
+# doc/ ships inside tact-coral.zip (markdown sources, compiled DOCX/PDF and
+# the pandoc reference template); it is not part of the git tree.
+doc/

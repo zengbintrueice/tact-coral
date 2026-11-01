@@ -70,12 +70,11 @@ by a script in `scripts/figures/`.
 │   ├── step2_persistence_v2/     persistence baseline (PersA)
 │   ├── step5–step8, thermal_attribution, domain_shift, calibration, ...
 │   └── <each dir>/AUDIT.md + provenance_tier1.json  producing script, hashes, QC
-└── doc/
-    ├── main_manuscript.md               (markdown is the tracked source)
-    ├── supplementary_information.md     (markdown is the tracked source)
-    ├── nc_reference.docx                (pandoc reference style, tracked)
-    └── *.docx / *.pdf                   (compiled; shipped in the archive,
-                                          rebuilt with pandoc — see below)
+└── doc/                                 (archive-only; not in the git tree)
+    ├── main_manuscript.md               (markdown source)
+    ├── supplementary_information.md     (markdown source)
+    ├── nc_reference.docx                (pandoc reference style)
+    └── *.docx / *.pdf                   (compiled manuscript and SI)
 ```
 
 ## 2. Installation
@@ -283,9 +282,8 @@ python scripts/figures/fig2_transfer_matrix.py        # single figure
 - `results/causal_dataset_v2/` — causal construction audit (30/30 PASS).
 - `MANIFEST.sha256` — sha256 of every file in the archived release; verify with
   `sha256sum -c MANIFEST.sha256` inside the unpacked archive. A git checkout
-  omits the compiled DOCX/PDF and the internal `results/qc/` audits (see `.gitignore`); rebuild them with:
-  `pandoc doc/main_manuscript.md -o doc/main_manuscript.docx --resource-path=doc --reference-doc doc/nc_reference.docx`
-  (and likewise for `supplementary_information.md`).
+  omits `doc/` (manuscript/SI sources and compiled DOCX/PDF) and the internal
+  `results/qc/` audits; see `.gitignore`. Both ship in the Zenodo archive.
 - `EVIDENCE_LOCKS.md` — MD5 of frozen weights.
 
 ## 9. Known limitations of this release
